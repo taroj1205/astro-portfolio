@@ -34,15 +34,15 @@ import MobileContent from "./mobile-content.astro"
 	}
 
 	#click-to-close div {
-		background-color: var(--background-white);
+		background-color: hsl(210, 33%, 98%);
 	}
 
 	#click-to-close:hover {
-		background-color: var(--text-color);
+		background-color: hsl(0, 0%, 15%);
 	}
 
 	#click-to-close label div {
-		background-color: var(--background-white);
+		background-color: hsl(210, 33%, 98%);
 	}
 
 	#click-to-close div:first-child,
@@ -93,17 +93,13 @@ import MobileContent from "./mobile-content.astro"
 	}
 
 	label:hover {
-		background-color: hsl(0, 0%, 90%);
-	}
-
-	label:active {
-		background-color: hsl(0, 0%, 80%);
+		background-color: var(--gray-color);
 	}
 
 	label div {
 		width: 1.5rem;
 		height: 0.0625rem;
-		background-color: var(--background-black);
+		background-color: var(--gray-color);
 		transition: all 0.3s;
 		position: absolute;
 	}
