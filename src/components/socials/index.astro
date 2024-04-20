@@ -1,0 +1,40 @@
+---
+import GitHubIcon from "../../icons/github.astro"
+import XIcon from "../../icons/x.astro"
+---
+
+<div class="social-icons">
+	<a href="https://x.com/taroj1205" target="_blank" class="social-icon x-icon">
+		<XIcon />
+	</a>
+	<a
+		href="https://github.com/taroj1205"
+		target="_blank"
+		class="social-icon github-icon">
+		<GitHubIcon />
+	</a>
+</div>
+
+<style>
+	.social-icons {
+		display: flex;
+		padding: var(--spaces-2);
+		gap: var(--spaces-2);
+	}
+
+	.social-icon {
+		font-size: 1.5rem;
+		border-radius: 15%;
+		display: grid;
+		place-items: center;
+		width: 2rem;
+		height: 2rem;
+		transition: all 0.3s ease;
+		padding: var(--spaces-2);
+		color: hsl(0, 0%, 20%);
+	}
+	.social-icon:hover {
+		color: hsl(0, 0%, 83%);
+		background-color: hsl(0, 0%, 20%);
+	}
+</style>

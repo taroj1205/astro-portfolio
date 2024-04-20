@@ -1,0 +1,70 @@
+---
+import GitHubIcon from "../../icons/github.astro"
+import InstagramIcon from "../../icons/instagram.astro"
+import XIcon from "../../icons/x.astro"
+import FacebookIcon from "../../icons/facebook.astro"
+import LinkedInIcon from "../../icons/linkedin.astro"
+import MailIcon from "../../icons/mail.astro"
+---
+
+<div class="top-me-social">
+	<a href="https://x.com/taroj1205" target="_blank" class="social-icon x-icon">
+		<XIcon />
+	</a>
+	<a
+		href="https://instagram.com/taroj1205"
+		target="_blank"
+		class="social-icon instagram-icon">
+		<InstagramIcon />
+	</a>
+	<a
+		href="https://facebook.com/taroj1205"
+		target="_blank"
+		class="social-icon facebook-icon">
+		<FacebookIcon />
+	</a>
+	<a
+		href="https://linkedin.com/in/taroj1205"
+		target="_blank"
+		class="social-icon linkedin-icon">
+		<LinkedInIcon />
+	</a>
+	<a
+		href="https://github.com/taroj1205"
+		target="_blank"
+		class="social-icon github-icon">
+		<GitHubIcon />
+	</a>
+	<a
+		href="mailto:taroj1205@gmail.com"
+		target="_blank"
+		class="social-icon mail-icon">
+		<MailIcon />
+	</a>
+</div>
+
+<style>
+	.top-me-social {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-top: var(--spaces-2);
+		gap: var(--spaces-1);
+	}
+
+	.social-icon {
+		font-size: 1.5rem;
+		border-radius: 15%;
+		display: grid;
+		place-items: center;
+		width: 2rem;
+		height: 2rem;
+		transition: all 0.3s ease;
+		padding: var(--spaces-2);
+		color: hsl(0, 0%, 20%);
+	}
+	.social-icon:hover {
+		color: hsl(0, 0%, 83%);
+		background-color: hsl(0, 0%, 20%);
+	}
+</style>

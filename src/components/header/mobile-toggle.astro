@@ -1,0 +1,150 @@
+---
+import MobileContent from "./mobile-content.astro"
+---
+
+<form id="mobile-toggle">
+	<input id="uncheck" type="radio" name="drawer" checked />
+	<input id="close-drawer" type="radio" name="drawer" />
+	<label class="toggle" for="close-drawer">
+		<div></div>
+		<div></div>
+		<div></div>
+	</label>
+	<div id="drawer-content">
+		<label id="click-to-close" for="uncheck">
+			<div></div>
+			<div></div>
+			<div></div>
+		</label>
+		<MobileContent />
+	</div>
+</form>
+
+<style>
+	#mobile-toggle {
+		z-index: calc(var(--overlay-z-index) + 1);
+	}
+
+	#uncheck {
+		display: none;
+	}
+
+	#click-to-close {
+		z-index: calc(var(--overlay-z-index) + 2);
+	}
+
+	#click-to-close div {
+		background-color: var(--background-white);
+	}
+
+	#click-to-close:hover {
+		background-color: var(--text-color);
+	}
+
+	#click-to-close label div {
+		background-color: var(--background-white);
+	}
+
+	#click-to-close div:first-child,
+	#close-drawer:checked ~ label div:first-child,
+	#close-drawer:checked ~ #drawer-content #click-to-close div:first-child {
+		transform: rotate(45deg);
+	}
+
+	#click-to-close div:last-child,
+	#close-drawer:checked ~ label div:last-child,
+	#close-drawer:checked ~ #drawer-content #click-to-close div:last-child {
+		transform: rotate(-45deg);
+	}
+
+	#close-drawer:checked ~ label div:nth-child(2),
+	#close-drawer:checked ~ #drawer-content #click-to-close div:nth-child(2) {
+		opacity: 0;
+		transform: translateX(10px);
+	}
+
+	#close-drawer {
+		display: none;
+	}
+
+	#close-drawer:checked ~ #drawer-content {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	#close-drawer:checked #drawer-content #click-to-close {
+		display: flex;
+	}
+
+	.toggle {
+		margin: 0.5rem;
+	}
+
+	label {
+		width: 2.5rem;
+		height: 2.5rem;
+		cursor: pointer;
+		padding: 0.25rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 0.25rem;
+		transition: background-color 0.3s;
+	}
+
+	label:hover {
+		background-color: hsl(0, 0%, 90%);
+	}
+
+	label:active {
+		background-color: hsl(0, 0%, 80%);
+	}
+
+	label div {
+		width: 1.5rem;
+		height: 0.0625rem;
+		background-color: var(--background-black);
+		transition: all 0.3s;
+		position: absolute;
+	}
+
+	label div:first-child {
+		transform: translateY(-0.5rem);
+	}
+
+	label div:nth-child(2) {
+		transition: all 0.4s;
+	}
+
+	label div:last-child {
+		transform: translateY(0.5rem);
+	}
+
+	#drawer-content {
+		background-color: rgba(31, 31, 31, 0.5);
+		position: fixed;
+		left: 0;
+		top: 0;
+		transition:
+			opacity 0.3s ease-in-out,
+			visibility 0.3s ease-in-out;
+		height: 100vh;
+		opacity: 0;
+		z-index: var(--overlay-z-index);
+		visibility: hidden;
+	}
+	#drawer-content label {
+		margin-top: 0.5rem;
+		margin-left: 0.5rem;
+		border-radius: 100%;
+		width: 2.5rem;
+		height: 2.5rem;
+		color: var(--background-black);
+		z-index: calc(var(--overlay-z-index) + 2);
+		position: absolute;
+	}
+
+	#drawer-content #social-contents {
+		padding: 1rem;
+	}
+</style>

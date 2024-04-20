@@ -1,0 +1,11 @@
+---
+import { getTranslations } from "../../i18n/utils"
+import ProjectsCard from "./projects-card.astro"
+
+const { lang } = Astro.props
+
+const { heading } = getTranslations(lang)
+---
+
+<h2>{heading.projects}</h2>
+<ProjectsCard lang={lang} />

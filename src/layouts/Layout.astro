@@ -1,51 +1,146 @@
 ---
+import SectionDivider from "../components/divider/section-divider.astro"
+import Header from "../components/header/index.astro"
+import Footer from "../components/footer/index.astro"
+import { getLangFromUrl } from "../i18n/utils"
+
 interface Props {
-	title: string;
+	title: string
+	description: string
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props
+const lang = getLangFromUrl(Astro.url)
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<Header lang={lang} />
+		<main><slot /></main>
+		<div id="footer-divider"><SectionDivider /></div>
+		<Footer lang={lang} />
 	</body>
 </html>
+
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--spaces-1: 0.25rem;
+		--spaces-2: 0.5rem;
+		--spaces-4: 1rem;
+		--overlay-z-index: 99;
+		--background-white: hsl(210, 33%, 98%);
+		--background-black: hsl(0, 0%, 8%);
+
+		--text-color: hsl(0, 0%, 8%);
+		--text-white: hsl(0, 0%, 98%);
+		--text-4xl: 2.25rem;
+		--text-5xl: 3rem;
+		--text-3xl: 1.75rem;
+		--text-2xl: 1.5rem;
+		--h2-color: hsl(0, 0%, 5%);
+		--h3-color: hsl(0, 0%, 6%);
+		--h4-color: hsl(0, 0%, 7%);
+		--fontSizes-2xs: 0.625rem;
+		--fontSizes-xs: 0.75rem;
+		--fontSizes-sm: 0.875rem;
+		--fontSizes-md: 1rem;
+		--fontSizes-lg: 1.125rem;
+		--fontSizes-xl: 1.25rem;
+		--fontSizes-2xl: 1.5rem;
+		--fontSizes-3xl: 1.875rem;
+		--fontSizes-4xl: 2rem;
+		--fontSizes-5xl: 2.25rem;
+		--fontSizes-6xl: 3rem;
+		--fontSizes-7xl: 3.75rem;
+		--fontSizes-8xl: 4.5rem;
+		--fontSizes-9xl: 6rem;
+
+		--link-color: hsl(212, 100%, 40%);
+		--accent-color: hsl(16, 100%, 40%);
 	}
+
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		scroll-behavior: smooth;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	body {
+		color: var(--text-color);
+		background-color: hsl(0, 0%, 97%);
+		font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans";
+		margin: 0;
+	}
+
+	body:not(:has(#uncheck:checked)) {
+		overflow: hidden;
+	}
+
+	main {
+		max-width: 64rem;
+		margin: 1rem auto;
+		padding: 0 var(--spaces-4);
+		z-index: 0;
+		gap: var(--spaces-4);
+		display: flex;
+		flex-direction: column;
+	}
+
+	section {
+		margin-left: var(--spaces-2);
+	}
+
+	#header-divider,
+	#footer-divider {
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	#footer-divider {
+		margin-top: var(--spaces-4);
+	}
+
+	.vstack {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.disc-list {
+		list-style-type: disc;
+		padding-left: 20px;
+		gap: var(--spaces-2);
+		display: flex;
+		flex-direction: column;
+	}
+
+	p,
+	li,
+	strong {
+		font-size: var(--fontSizes-lg);
+	}
+
+	h2,
+	h3,
+	h4 {
+		margin: var(--spaces-2) 0;
+	}
+
+	h2 {
+		font-size: var(--text-4xl);
+	}
+
+	h3 {
+		font-size: var(--text-3xl);
+	}
+
+	h4 {
+		font-size: var(--text-2xl);
 	}
 </style>

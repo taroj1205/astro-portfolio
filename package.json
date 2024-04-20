@@ -1,17 +1,18 @@
 {
-  "name": "astro-porftolio",
+  "name": "astro-examples",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "astro preview",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.6.3",
     "@astrojs/check": "^0.5.10",
+    "astro": "^4.6.1",
+    "sharp": "^0.33.3",
     "typescript": "^5.4.5"
   }
 }

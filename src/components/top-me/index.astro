@@ -1,0 +1,11 @@
+---
+import Name from "./name.astro"
+import Socials from "./socials.astro"
+
+const { lang } = Astro.props
+---
+
+<div>
+	<Name lang={lang} />
+	<Socials />
+</div>

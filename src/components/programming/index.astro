@@ -1,0 +1,38 @@
+---
+import { getTranslations } from "../../i18n/utils"
+import Languages from "./languages.astro"
+
+const { lang } = Astro.props
+const dict = getTranslations(lang)
+---
+
+<div class="vstack">
+	<h2>{dict.heading.programming}</h2>
+	<h3>{dict.heading["open source"]}</h3>
+	<ul class="disc-list">
+		<li>
+			{dict["open source"]["yamada"].title}
+			<ul>
+				<li>
+					<a
+						href="https://yamada-ui.com/community/team"
+						target="_blank"
+						rel="noopener noreferrer">
+						https://yamada-ui.com/community/team
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<Languages lang={lang} />
+</div>
+
+<style>
+	a {
+		color: var(--link-color);
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+</style>

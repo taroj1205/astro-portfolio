@@ -1,0 +1,174 @@
+---
+import { Image } from "astro:assets"
+import GithubIcon from "../../icons/github.astro"
+import { projectsArray } from "./projects-array"
+
+const { lang } = Astro.props
+---
+
+<div class="projects-container">
+	{
+		projectsArray(lang).map((project) => (
+			<div>
+				<div>
+					<Image
+						src={project.thumbnail}
+						alt={project.description}
+						height="350"
+						sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
+						loading="lazy"
+					/>
+				</div>
+				<div>
+					<a href={project.link} target="_blank" rel="noopener noreferrer">
+						{project.title}
+					</a>
+					<p>{project.description}</p>
+				</div>
+				<hr />
+				<div class="card-footer">
+					<div>
+						<p>{project.lang}</p>
+						<hr class="vertical" />
+						<p>{project.framework}</p>
+					</div>
+					<a
+						href={project.githubLink}
+						target="_blank"
+						rel="noopener noreferrer"
+						title="GitHub">
+						<GithubIcon />
+					</a>
+				</div>
+			</div>
+		))
+	}
+</div>
+
+<style>
+	.projects-container {
+		display: grid;
+		gap: 16px;
+		justify-content: start;
+		break-inside: avoid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 400px));
+		margin-left: 0.5rem;
+	}
+
+	@media (min-width: 1280px) {
+		.projects-container {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.projects-container > div {
+		background-color: #f0f4f8;
+		border: 1px solid #ccc;
+		max-width: 400px;
+		display: flex;
+		flex-direction: column;
+		border-radius: 8px;
+		overflow: hidden;
+		flex: 1 1 auto;
+	}
+
+	.projects-container > div > div:nth-child(2) {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.projects-container div > :is(div:first-child, img) {
+		max-height: 318px;
+		overflow: hidden;
+		padding: 0;
+	}
+
+	.description {
+		height: 100%;
+	}
+
+	.projects-container img {
+		height: auto;
+		width: 100%;
+	}
+
+	.projects-container div > :is(div:nth-child(2), a, p) {
+		padding: 8px;
+	}
+
+	.projects-container a {
+		font-size: 1.25rem;
+		color: var(--link-color); 
+		text-decoration: none;
+	}
+	.projects-container a:hover {
+		text-decoration: underline;
+	}
+
+	.projects-container p {
+		font-size: 1rem;
+	}
+
+	.projects-container > div > div:last-child {
+		max-height: 2rem;
+		padding: 8px;
+		display: flex;
+		align-items: center;
+		background-color: hsl(210, 20%, 94%);
+	}
+
+	.projects-container p:first-of-type,
+	.projects-container p:last-of-type {
+		font-size: 0.875rem;
+		margin: 0 8px;
+	}
+
+	.projects-container a[title="GitHub"] {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.5rem;
+		height: 1.5rem;
+		margin: 0;
+		color: var(--text-color);
+		font-size: var(--fontSizes-md);
+		border-radius: 0.25rem;
+		transition: background-color 0.2s ease-in-out;
+	}
+
+	.projects-container a[title="GitHub"]:hover {
+		background-color: hsl(0, 0%, 81%);
+	}
+
+	hr {
+		margin: 0;
+	}
+
+	hr:not(.vertical) {
+		border: 0px;
+		border-style: solid;
+		border-color: hsl(0, 3%, 87%);
+		border-bottom-width: 1px;
+		width: 100%;
+	}
+
+	hr.vertical {
+		border: none;
+		border-left: 1px solid hsl(0, 3%, 87%);
+		height: 1.5rem;
+		width: 1px;
+	}
+
+	.card-footer {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+	}
+	.card-footer div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+	}
+</style>

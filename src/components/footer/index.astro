@@ -1,0 +1,65 @@
+---
+import { getTranslations } from "../../i18n/utils"
+import Socials from "../socials/index.astro"
+import ArrowUpIcon from "../../icons/arrow-up.astro"
+import JapanIcon from "../../icons/japan.astro"
+import NewZealandIcon from "../../icons/new-zealand.astro"
+const { lang } = Astro.props
+const { footer } = getTranslations(lang)
+---
+
+<footer>
+	<a href={`/${lang === "ja" ? "en" : "ja"}`} class="footer-link">
+		{
+			lang === "ja" ? (
+				<NewZealandIcon size="1.4rem" />
+			) : (
+				<JapanIcon size="1.4rem" />
+			)
+		}{footer.lang}</a
+	>
+	<a href="#" class="scroll-text">{footer.scrollToTop}</a>
+	<a href="#" class="arrow-up"><ArrowUpIcon /></a>
+	<Socials />
+</footer>
+
+<style>
+	footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 var(--spaces-2);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.footer-link {
+		display: flex;
+		align-items: center;
+		gap: var(--spaces-1);
+	}
+
+	.arrow-up {
+		display: none;
+		font-size: 1.5rem;
+	}
+
+	a {
+		text-decoration: none;
+		color: var(--text-color);
+		padding: var(--spaces-4);
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	@media screen and (max-width: 600px) {
+		.arrow-up {
+			display: flex;
+		}
+		.scroll-text {
+			display: none;
+		}
+	}
+</style>
