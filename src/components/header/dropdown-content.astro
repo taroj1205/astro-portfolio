@@ -28,7 +28,7 @@ const { section } = Astro.props
 					target="_blank"
 					class="social-icon blog-icon"
 					title={lang === "ja" ? "はてなブログ" : "Hatena Blog"}>
-					<HatenaIcon />
+					<HatenaIcon fill="var(--text-color)" />
 					<span>{lang === "ja" ? "はてなブログ" : "Hatena Blog"}</span>
 				</a>
 				<a
@@ -37,7 +37,7 @@ const { section } = Astro.props
 					target="_blank"
 					class="social-icon blog-icon"
 					title="note">
-					<NoteIcon />
+					<NoteIcon fill="var(--text-color)" />
 					<span>note</span>
 				</a>
 			</div>
