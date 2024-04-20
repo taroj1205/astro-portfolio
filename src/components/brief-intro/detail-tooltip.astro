@@ -48,6 +48,9 @@ const { text, tooltip, float } = Astro.props
 	}
 
 	.tooltip .tooltiptext.float-right {
-		left: 50px;
+		left: 100%;
+		margin-left: 10px;
+		transform: translate(0, 50%);
+		width: max-content;
 	}
 </style>
