@@ -160,7 +160,7 @@ const { section } = Astro.props
 
 		backdrop-filter: blur(10px);
 		-webkit-backdrop-filter: blur(10px);
-		background-color: rgba(255, 255, 255, 0.9);
+		background-color: var(--overlay-background-color);
 		width: 12rem;
 		z-index: var(--overlay-z-index);
 		border-radius: 0.5rem;
@@ -184,10 +184,11 @@ const { section } = Astro.props
 		transition:
 			background-color 0.3s ease,
 			transform 0.2s ease;
+		background-color: var(--overlay-button-background-color);
 	}
 
 	a:hover {
-		background-color: hsl(210, 50%, 80%) !important;
+		background-color: var(--overlay-button-hover-color);
 	}
 
 	a svg {
@@ -196,64 +197,50 @@ const { section } = Astro.props
 	}
 
 	#hatena-blog-link {
-		color: hsl(210, 90%, 30%);
-		background-color: hsl(210, 100%, 98%);
+		color: var(--hatena-blog-color);
 	}
 	#note-link {
-		color: hsl(30, 90%, 30%);
-		background-color: hsl(30, 100%, 98%);
+		color: var(--note-link-color);
 	}
 	#chat-app-link {
-		color: hsl(90, 90%, 30%);
-		background-color: hsl(90, 100%, 98%);
+		color: var(--chat-app-link-color);
 	}
 	#connect4-link {
-		color: hsl(180, 90%, 30%);
-		background-color: hsl(180, 100%, 98%);
+		color: var(--connect4-link-color);
 	}
 	#typing-game-link {
-		color: hsl(270, 90%, 30%);
-		background-color: hsl(270, 100%, 98%);
+		color: var(--typing-game-link-color);
 	}
 	#search-app-link {
-		color: hsl(60, 90%, 30%);
-		background-color: hsl(60, 100%, 98%);
+		color: var(--search-app-link-color);
 	}
 	#uoa-links-link {
-		color: hsl(300, 90%, 30%);
-		background-color: hsl(300, 100%, 98%);
+		color: var(--uoa-links-link-color);
 	}
 	#analytics-link {
-		color: hsl(0, 90%, 30%);
-		background-color: hsl(0, 100%, 98%);
+		color: var(--analytics-link-color);
 	}
 	#twitter-link {
-		color: hsl(190, 90%, 30%);
-		background-color: hsl(190, 100%, 98%);
+		color: var(--twitter-color);
 	}
 	#github-link {
 		color: var(--text-color);
-		background-color: hsl(0, 0%, 98%);
 	}
 	#instagram-link {
-		color: hsl(330, 90%, 30%);
-		background-color: hsl(330, 100%, 98%);
+		color: var(--instagram-color);
 	}
 	#youtube-link {
-		color: hsl(0, 90%, 40%);
-		background-color: hsl(0, 100%, 98%);
+		color: var(--youtube-color);
 	}
 	#linkedin-link {
-		color: hsl(210, 70%, 25%);
-		background-color: hsl(210, 100%, 98%);
+		color: var(--linkedin-color);
 	}
 	#facebook-link {
-		color: hsl(240, 90%, 50%);
-		background-color: hsl(240, 100%, 98%);
+		color: var(--facebook-color);
 	}
 
 	a span {
-		color: hsl(210, 20%, 20%);
+		color: var(--overlay-button-text-color);
 		font-weight: 500;
 	}
 </style>

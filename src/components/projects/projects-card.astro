@@ -62,8 +62,8 @@ const { lang } = Astro.props
 	}
 
 	.projects-container > div {
-		background-color: #f0f4f8;
-		border: 1px solid #ccc;
+		background-color: var(--card-bg);
+		border: 1px solid var(--card-border);
 		max-width: 400px;
 		display: flex;
 		flex-direction: column;
@@ -115,7 +115,7 @@ const { lang } = Astro.props
 		padding: 8px;
 		display: flex;
 		align-items: center;
-		background-color: hsl(210, 20%, 94%);
+		background-color: var(--card-footer-bg);
 	}
 
 	.projects-container p:first-of-type,
@@ -138,7 +138,7 @@ const { lang } = Astro.props
 	}
 
 	.projects-container a[title="GitHub"]:hover {
-		background-color: hsl(0, 0%, 81%);
+		background-color: var(--button-hover-background);
 	}
 
 	hr {
@@ -148,14 +148,14 @@ const { lang } = Astro.props
 	hr:not(.vertical) {
 		border: 0px;
 		border-style: solid;
-		border-color: hsl(0, 3%, 87%);
+		border-color: var(--line-color);
 		border-bottom-width: 1px;
 		width: 100%;
 	}
 
 	hr.vertical {
 		border: none;
-		border-left: 1px solid hsl(0, 3%, 87%);
+		border-left: 1px solid var(--line-color);
 		height: 1.5rem;
 		width: 1px;
 	}
