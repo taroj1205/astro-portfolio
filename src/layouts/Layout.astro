@@ -26,8 +26,10 @@ const lang = getLangFromUrl(Astro.url)
 	<body>
 		<Header lang={lang} />
 		<main><slot /></main>
-		<div id="footer-divider"><SectionDivider /></div>
-		<Footer lang={lang} />
+		<div class="footer">
+			<SectionDivider />
+			<Footer lang={lang} />
+		</div>
 	</body>
 </html>
 
@@ -77,6 +79,10 @@ const lang = getLangFromUrl(Astro.url)
 		background-color: hsl(0, 0%, 97%);
 		font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans";
 		margin: 0;
+		min-height: 100svh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	body:not(:has(#uncheck:checked)) {
@@ -95,16 +101,6 @@ const lang = getLangFromUrl(Astro.url)
 
 	section {
 		margin-left: var(--spaces-2);
-	}
-
-	#header-divider,
-	#footer-divider {
-		max-width: 1000px;
-		margin: 0 auto;
-	}
-
-	#footer-divider {
-		margin-top: var(--spaces-4);
 	}
 
 	.vstack {
@@ -142,5 +138,9 @@ const lang = getLangFromUrl(Astro.url)
 
 	h4 {
 		font-size: var(--text-2xl);
+	}
+
+	.footer {
+		margin-top: var(--spaces-4);
 	}
 </style>
