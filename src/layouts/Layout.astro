@@ -2,7 +2,8 @@
 import SectionDivider from "../components/divider/section-divider.astro"
 import Header from "../components/header/index.astro"
 import Footer from "../components/footer/index.astro"
-import { getLangFromUrl } from "../i18n/utils"
+import { getLangFromUrl, getTranslations } from "../i18n/utils"
+import { SEOMetadata } from "astro-seo-metadata"
 
 interface Props {
 	title: string
@@ -11,6 +12,8 @@ interface Props {
 
 const { title, description } = Astro.props
 const lang = getLangFromUrl(Astro.url)
+const { metadata } = getTranslations(lang)
+const domain = Astro.url.protocol + "//" + Astro.url.host
 ---
 
 <!doctype html>
@@ -19,8 +22,20 @@ const lang = getLangFromUrl(Astro.url)
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png+xml" href="/favicon.png" />
+		<link rel="icon" type="image/ico+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
+		<SEOMetadata
+			siteName={metadata.title}
+			title={metadata.title}
+			description={metadata.description}
+			image={`${domain}/header/opengraph-image.png`}
+			favicon={`${domain}/favicon.ico`}
+			author="Shintaro Jokagi"
+			astroSitemap={true}
+			canonicalUrl={Astro.url.toString()}
+			type="website"
+			astroGenerator={true}
+		/>
 		<title>{title}</title>
 	</head>
 	<body>
@@ -30,117 +45,116 @@ const lang = getLangFromUrl(Astro.url)
 			<SectionDivider />
 			<Footer lang={lang} />
 		</div>
+		<style is:global>
+			:root {
+				--spaces-1: 0.25rem;
+				--spaces-2: 0.5rem;
+				--spaces-4: 1rem;
+				--overlay-z-index: 99;
+				--background-white: hsl(210, 33%, 98%);
+				--background-black: hsl(0, 0%, 8%);
+
+				--text-color: hsl(0, 0%, 8%);
+				--text-white: hsl(0, 0%, 98%);
+				--text-4xl: 2.25rem;
+				--text-5xl: 3rem;
+				--text-3xl: 1.75rem;
+				--text-2xl: 1.5rem;
+				--h2-color: hsl(0, 0%, 5%);
+				--h3-color: hsl(0, 0%, 6%);
+				--h4-color: hsl(0, 0%, 7%);
+				--fontSizes-2xs: 0.625rem;
+				--fontSizes-xs: 0.75rem;
+				--fontSizes-sm: 0.875rem;
+				--fontSizes-md: 1rem;
+				--fontSizes-lg: 1.125rem;
+				--fontSizes-xl: 1.25rem;
+				--fontSizes-2xl: 1.5rem;
+				--fontSizes-3xl: 1.875rem;
+				--fontSizes-4xl: 2rem;
+				--fontSizes-5xl: 2.25rem;
+				--fontSizes-6xl: 3rem;
+				--fontSizes-7xl: 3.75rem;
+				--fontSizes-8xl: 4.5rem;
+				--fontSizes-9xl: 6rem;
+
+				--link-color: hsl(212, 100%, 40%);
+				--accent-color: hsl(16, 100%, 40%);
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				color: var(--text-color);
+				background-color: hsl(0, 0%, 97%);
+				font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans";
+				margin: 0;
+				min-height: 100svh;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
+			body:not(:has(#uncheck:checked)) {
+				overflow: hidden;
+			}
+
+			main {
+				max-width: 64rem;
+				margin: 1rem auto;
+				padding: 0 var(--spaces-4);
+				z-index: 0;
+				gap: var(--spaces-4);
+				display: flex;
+				flex-direction: column;
+			}
+
+			section {
+				margin-left: var(--spaces-2);
+			}
+
+			.vstack {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.disc-list {
+				list-style-type: disc;
+				padding-left: 20px;
+				gap: var(--spaces-2);
+				display: flex;
+				flex-direction: column;
+			}
+
+			p,
+			li,
+			strong {
+				font-size: var(--fontSizes-lg);
+			}
+
+			h2,
+			h3,
+			h4 {
+				margin: var(--spaces-2) 0;
+			}
+
+			h2 {
+				font-size: var(--text-4xl);
+			}
+
+			h3 {
+				font-size: var(--text-3xl);
+			}
+
+			h4 {
+				font-size: var(--text-2xl);
+			}
+
+			.footer {
+				margin-top: var(--spaces-4);
+			}
+		</style>
 	</body>
 </html>
-
-<style is:global>
-	:root {
-		--spaces-1: 0.25rem;
-		--spaces-2: 0.5rem;
-		--spaces-4: 1rem;
-		--overlay-z-index: 99;
-		--background-white: hsl(210, 33%, 98%);
-		--background-black: hsl(0, 0%, 8%);
-
-		--text-color: hsl(0, 0%, 8%);
-		--text-white: hsl(0, 0%, 98%);
-		--text-4xl: 2.25rem;
-		--text-5xl: 3rem;
-		--text-3xl: 1.75rem;
-		--text-2xl: 1.5rem;
-		--h2-color: hsl(0, 0%, 5%);
-		--h3-color: hsl(0, 0%, 6%);
-		--h4-color: hsl(0, 0%, 7%);
-		--fontSizes-2xs: 0.625rem;
-		--fontSizes-xs: 0.75rem;
-		--fontSizes-sm: 0.875rem;
-		--fontSizes-md: 1rem;
-		--fontSizes-lg: 1.125rem;
-		--fontSizes-xl: 1.25rem;
-		--fontSizes-2xl: 1.5rem;
-		--fontSizes-3xl: 1.875rem;
-		--fontSizes-4xl: 2rem;
-		--fontSizes-5xl: 2.25rem;
-		--fontSizes-6xl: 3rem;
-		--fontSizes-7xl: 3.75rem;
-		--fontSizes-8xl: 4.5rem;
-		--fontSizes-9xl: 6rem;
-
-		--link-color: hsl(212, 100%, 40%);
-		--accent-color: hsl(16, 100%, 40%);
-	}
-
-	html {
-		scroll-behavior: smooth;
-	}
-
-	body {
-		color: var(--text-color);
-		background-color: hsl(0, 0%, 97%);
-		font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans";
-		margin: 0;
-		min-height: 100svh;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-
-	body:not(:has(#uncheck:checked)) {
-		overflow: hidden;
-	}
-
-	main {
-		max-width: 64rem;
-		margin: 1rem auto;
-		padding: 0 var(--spaces-4);
-		z-index: 0;
-		gap: var(--spaces-4);
-		display: flex;
-		flex-direction: column;
-	}
-
-	section {
-		margin-left: var(--spaces-2);
-	}
-
-	.vstack {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.disc-list {
-		list-style-type: disc;
-		padding-left: 20px;
-		gap: var(--spaces-2);
-		display: flex;
-		flex-direction: column;
-	}
-
-	p,
-	li,
-	strong {
-		font-size: var(--fontSizes-lg);
-	}
-
-	h2,
-	h3,
-	h4 {
-		margin: var(--spaces-2) 0;
-	}
-
-	h2 {
-		font-size: var(--text-4xl);
-	}
-
-	h3 {
-		font-size: var(--text-3xl);
-	}
-
-	h4 {
-		font-size: var(--text-2xl);
-	}
-
-	.footer {
-		margin-top: var(--spaces-4);
-	}
-</style>
