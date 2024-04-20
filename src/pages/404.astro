@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro"
+import { getLangFromUrl, getTranslations } from "../i18n/utils"
+import { languages } from "../i18n/ui"
+
+const lang = getLangFromUrl(Astro.url)
+const { metadata, notFound } = getTranslations(lang)
+
+export const getStaticPaths = () => {
+	return Object.keys(languages).map((lang) => ({
+		params: { lang },
+	}))
+}
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+	<h1>404</h1>
+	<h2>{notFound.title}</h2>
+	<a href={`/${lang}`}>{notFound.goBack}</a>
+</Layout>
+
+<style>
+	h1,
+	h2,
+	a {
+		text-align: center;
+	}
+	a {
+		text-decoration: none;
+		color: var(--link-color);
+		width: fit-content;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+</style>
