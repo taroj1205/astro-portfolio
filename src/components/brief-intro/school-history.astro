@@ -55,17 +55,22 @@ const { education } = getTranslations(lang)
 <style>
 	.vstack {
 		overflow-x: auto;
-		max-width: 95vw;
+		max-width: min(50rem, 80vw);
 	}
 
 	.education-table {
 		table-layout: auto;
-		max-width: 50rem;
 		white-space: nowrap;
 		border-radius: 0.5rem;
 		border-collapse: collapse;
-		width: 100%;
 		margin: 0.5rem;
+		table-layout: fixed;
+	}
+
+	@media screen and (max-width: 768px) {
+		.education-table {
+			margin: 0;
+		}
 	}
 
 	.table-header {
@@ -107,11 +112,5 @@ const { education } = getTranslations(lang)
 
 	.table-cell--bottom-right {
 		border-bottom-right-radius: 0.5rem;
-	}
-
-	@media screen and (max-width: 768px) {
-		.education-table {
-			margin: 0.2rem;
-		}
 	}
 </style>
