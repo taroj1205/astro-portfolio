@@ -344,7 +344,8 @@ export const translations = {
   },
   metadata: {
     title: "taroj1205 - Portfolio",
-    description: "taroj1205's website created with Next.js",
+    siteName: "taroj1205's Porftolio Website",
+    description: "taroj1205's Portfolio website.",
   },
   notFound: {
     title: "Page not found",
