@@ -34,7 +34,6 @@ const { header } = getTranslations(lang)
 		top: 0;
 		left: 0;
 		z-index: var(--overlay-z-index);
-		background-color: hsla(0, 0%, 98.4%, 0.5);
 		-webkit-backdrop-filter: blur(15px);
 		backdrop-filter: blur(15px);
 	}
@@ -76,7 +75,7 @@ const { header } = getTranslations(lang)
 	}
 
 	a:hover {
-		background: hsl(300, 8.17%, 88.04%);
+		background: var(--button-hover-background);
 	}
 
 	a:focus {
