@@ -9,7 +9,10 @@ const { footer } = getTranslations(lang)
 ---
 
 <footer>
-	<a href={`/${lang === "ja" ? "en" : "ja"}`} class="footer-link">
+	<a
+		href={`/${lang === "ja" ? "en" : "ja"}`}
+		class="footer-link"
+		title={lang === "ja" ? "To English" : "日本語へ"}>
 		{
 			lang === "ja" ? (
 				<NewZealandIcon size="1.4rem" />
@@ -18,8 +21,10 @@ const { footer } = getTranslations(lang)
 			)
 		}{footer.lang}</a
 	>
-	<a href="#" class="scroll-text">{footer.scrollToTop}</a>
-	<a href="#" class="arrow-up"><ArrowUpIcon /></a>
+	<a href="#" class="scroll-text" title={footer.scrollToTop}
+		>{footer.scrollToTop}</a
+	>
+	<a href="#" class="arrow-up" title={footer.scrollToTop}><ArrowUpIcon /></a>
 	<Socials />
 </footer>
 

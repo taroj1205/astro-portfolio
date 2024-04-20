@@ -1,4 +1,7 @@
 ---
+import BlogIcon from "../../icons/blog.astro"
+import CubesIcon from "../../icons/cubes.astro"
+import DropboxIcon from "../../icons/dropbox.astro"
 import DropdownContent from "./dropdown-content.astro"
 
 const { lang } = Astro.props
@@ -7,6 +10,7 @@ const { lang } = Astro.props
 <ul class="dropdown">
 	<li class="dropdown-label" data-section="apps">
 		<div>
+			<CubesIcon size="1em" />
 			{lang === "en" ? "Apps" : "アプリ"}
 			<div class="indicator"><div></div></div>
 		</div>
@@ -17,6 +21,7 @@ const { lang } = Astro.props
 
 	<li class="dropdown-label" data-section="social">
 		<div>
+			<DropboxIcon size="1em" />
 			{lang === "en" ? "Social" : "SNS"}
 			<div class="indicator"><div></div></div>
 		</div>
@@ -27,6 +32,7 @@ const { lang } = Astro.props
 
 	<li class="dropdown-label" data-section="blog">
 		<div>
+			<BlogIcon size="1em" />
 			{lang === "en" ? "Blog" : "ブログ"}
 			<div class="indicator"><div></div></div>
 		</div>
@@ -80,11 +86,11 @@ const { lang } = Astro.props
 		transition-delay: 0s;
 	}
 
-	.dropdown-label > div {
+	.dropdown-label div {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		gap: var(--spaces-1);
+		gap: var(--spaces-2);
 	}
 
 	.indicator {
