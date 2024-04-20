@@ -23,7 +23,7 @@ const { lang } = Astro.props
 					<a href={project.link} target="_blank" rel="noopener noreferrer">
 						{project.title}
 					</a>
-					<p>{project.description}</p>
+					<p class="card-description">{project.description}</p>
 				</div>
 				<hr />
 				<div class="card-footer">
@@ -84,22 +84,22 @@ const { lang } = Astro.props
 		padding: 0;
 	}
 
-	.description {
-		height: 100%;
-	}
-
 	.projects-container img {
 		height: auto;
 		width: 100%;
 	}
 
-	.projects-container div > :is(div:nth-child(2), a, p) {
+	.projects-container div > :is(div:nth-child(2), a) {
 		padding: 8px;
+	}
+
+	.projects-container div > p.card-description {
+		padding-top: 8px;
 	}
 
 	.projects-container a {
 		font-size: 1.25rem;
-		color: var(--link-color); 
+		color: var(--link-color);
 		text-decoration: none;
 	}
 	.projects-container a:hover {
