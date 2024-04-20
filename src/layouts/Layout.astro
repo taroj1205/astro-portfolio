@@ -13,7 +13,6 @@ interface Props {
 const { title, description } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 const { metadata } = getTranslations(lang)
-const domain = Astro.url.protocol + "//" + Astro.url.host
 ---
 
 <!doctype html>
@@ -22,14 +21,13 @@ const domain = Astro.url.protocol + "//" + Astro.url.host
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/ico+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<SEOMetadata
 			siteName={metadata.title}
 			title={metadata.title}
 			description={metadata.description}
-			image={`${domain}/header/opengraph-image.png`}
-			favicon={`${domain}/favicon.ico`}
+			image="/header/opengraph-image.png"
+			favicon="/favicon.ico"
 			author="Shintaro Jokagi"
 			astroSitemap={true}
 			canonicalUrl={Astro.url.toString()}
