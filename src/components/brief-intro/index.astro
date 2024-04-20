@@ -13,10 +13,12 @@ const { briefIntro } = getTranslations(lang)
 		<li>{briefIntro.born}</li>
 		<li>{briefIntro.age}</li>
 		<li>{briefIntro["high school"]}</li>
-		<li>{briefIntro.university}</li>
-		<ul>
-			<li>{briefIntro["bachelor"]}</li>
-		</ul>
+		<li>
+			{briefIntro.university}
+			<ul>
+				<li>{briefIntro["bachelor"]}</li>
+			</ul>
+		</li>
 		<li>
 			<details>
 				<summary>
