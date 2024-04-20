@@ -110,6 +110,9 @@ const { metadata } = getTranslations(lang)
 				--light-card-footer-bg: hsl(210, 20%, 94%);
 				--light-line-color: hsl(0, 3%, 87%);
 
+				--light-section-divider: hsl(220, 8%, 75%);
+				--light-content-divider: hsl(213, 9%, 46%);
+
 				/* dark mode */
 				--dark-background-white: hsl(0, 0%, 8%);
 				--dark-background-black: hsl(0, 0%, 92%);
@@ -130,10 +133,13 @@ const { metadata } = getTranslations(lang)
 				--dark-table-row-even-bg: hsl(210, 30%, 15%);
 				--dark-table-row-odd-bg: hsl(216, 25%, 20%);
 				--dark-table-head: hsl(180, 100%, 20%);
-				--dark-card-bg: hsl(0, 0%, 12%);
+				--dark-card-bg: hsl(0, 0%, 8%);
 				--dark-card-border: hsl(0, 0%, 28%);
-				--dark-card-footer-bg: hsl(0, 0%, 15%);
+				--dark-card-footer-bg: hsl(0, 0%, 10%);
 				--dark-line-color: hsl(0, 0%, 25%);
+
+				--dark-section-divider: hsl(220, 8%, 30%);
+				--dark-content-divider: hsl(213, 9%, 26%);
 
 				--background-white: var(--light-background-white);
 				--background-black: var(--light-background-black);
@@ -160,6 +166,9 @@ const { metadata } = getTranslations(lang)
 				--card-border: var(--light-card-border);
 				--card-footer-bg: var(--light-card-footer-bg);
 				--line-color: var(--light-line-color);
+
+				--section-divider: var(--light-section-divider);
+				--content-divider: var(--light-content-divider);
 			}
 
 			@media (prefers-color-scheme: dark) {
@@ -188,6 +197,9 @@ const { metadata } = getTranslations(lang)
 					--card-border: var(--dark-card-border);
 					--card-footer-bg: var(--dark-card-footer-bg);
 					--line-color: var(--dark-line-color);
+
+					--section-divider: var(--dark-section-divider);
+					--content-divider: var(--dark-content-divider);
 				}
 			}
 
@@ -204,8 +216,6 @@ const { metadata } = getTranslations(lang)
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
-				overflow-x: hidden;
-				width: 100svw;
 			}
 
 			body:not(:has(#uncheck:checked)) {
@@ -243,6 +253,11 @@ const { metadata } = getTranslations(lang)
 			li,
 			strong {
 				font-size: var(--fontSizes-lg);
+			}
+
+			p,
+			ul {
+				margin: var(--spaces-2) 0;
 			}
 
 			h2,
