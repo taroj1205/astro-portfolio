@@ -67,50 +67,31 @@ const techs = [
 <style>
 	:root {
 		--light-input-text: hsl(0, 0%, 20%);
-		--light-input-text-light: hsl(0, 0%, 100%);
 		--light-input-background-light: hsl(0, 0%, 96%);
-		--light-input-highlight-background: hsl(217, 100%, 50%);
-		--light-input-highlight-text: hsl(0, 0%, 100%);
+		--light-input-highlight-text: hsl(0, 0%, 10%);
+		--light-input-highlight-background: hsl(210, 100%, 80%);
+		--light-field-background: hsla(210, 20%, 98%, 0.8);
+
+		--dark-input-text: hsl(0, 0%, 80%);
+		--dark-input-background: hsl(0, 0%, 12%);
+		--dark-input-highlight-text: hsl(0, 0%, 100%);
+		--dark-input-highlight-background: hsl(210, 80%, 40%);
+		--dark-field-background: hsla(0, 0%, 0%, 0.8);
 
 		--input-text: var(--light-input-text);
-		--input-text-light: var(--light-input-text-light);
 		--input-background-light: var(--light-input-background-light);
 		--input-highlight-background: var(--light-input-highlight-background);
 		--input-highlight-text: var(--light-input-highlight-text);
-
-		--ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-		--ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-		--ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-		--ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-		--ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
-		--ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
-
-		--ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-		--ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
-		--ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
-		--ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
-		--ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
-		--ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
-
-		--ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-		--ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
-		--ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
-		--ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
-		--ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
-		--ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+		--field-background: var(--light-field-background);
 	}
 
 	@media (prefers-color-scheme: dark) {
 		:root {
-			--dark-input-text: hsl(0, 0%, 80%);
-			--dark-input-background: hsl(0, 0%, 12%);
-			--dark-input-highlight-background: hsl(217, 70%, 55%);
-			--dark-input-highlight-text: hsl(0, 0%, 100%);
-
 			--input-text: var(--dark-input-text);
 			--input-background-light: var(--dark-input-background);
 			--input-highlight-background: var(--dark-input-highlight-background);
 			--input-highlight-text: var(--dark-input-highlight-text);
+			--field-background: var(--dark-field-background);
 		}
 	}
 
@@ -135,7 +116,7 @@ const techs = [
 		border: none;
 		-webkit-backdrop-filter: blur(15px);
 		backdrop-filter: blur(15px);
-		background-color: rgba(0, 0, 0, 0.8);
+		background-color: var(--field-background);
 	}
 
 	@media (max-width: 600px) {

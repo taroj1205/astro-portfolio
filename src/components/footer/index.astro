@@ -53,14 +53,20 @@ const { footer } = getTranslations(lang)
 	a {
 		text-decoration: none;
 		color: var(--gray-color);
-		padding: var(--spaces-2);
+		height: 2.5rem;
+		line-height: 2.5rem;
 		display: grid;
 		place-items: center;
+		justify-content: center;
+		align-items: center;
+		transition: all 0.3s ease;
+		border-radius: 0.375rem;
+		padding: var(--spaces-1) var(--spaces-2);
 	}
 
 	a:hover {
-		text-decoration: underline;
 		color: hsl(0, 0%, 83%);
+		background-color: hsl(0, 0%, 20%);
 	}
 
 	@media screen and (max-width: 600px) {
