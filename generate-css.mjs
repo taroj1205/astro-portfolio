@@ -18,7 +18,15 @@ const cssRules = techs
 form#projects-view:has(input[value="${tech}"]:checked)
 + .projects-container
 .project-card.${tech} {
-  display: flex;
+		visibility: visible;
+		opacity: 1;
+		transform: translateY(0);
+		transition:
+			opacity 0.3s ease-in-out,
+			transform 0.3s ease-in-out,
+			visibility 0s linear 0s;
+		pointer-events: auto;
+		position: relative;
 }
 `,
   )

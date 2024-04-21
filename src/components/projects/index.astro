@@ -43,23 +43,28 @@ const techs = [
 
 <style>
 	.projects-container {
-		display: grid;
-		gap: 16px;
-		justify-content: start;
-		break-inside: avoid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 400px));
+		-moz-column-count: 3;
+		-webkit-column-count: 3;
+		column-count: 3;
+		-moz-column-gap: 16px;
+		-webkit-column-gap: 16px;
+		column-gap: 16px;
 		margin-left: 0.5rem;
 	}
 
 	@media (min-width: 640px) {
 		.projects-container {
-			grid-template-columns: repeat(2, 1fr);
+			-moz-column-width: calc((100% / 3) - 10.6667px);
+			-webkit-column-width: calc((100% / 3) - 10.6667px);
+			column-width: calc((100% / 3) - 10.6667px);
 		}
 	}
 
 	@media (min-width: 1280px) {
 		.projects-container {
-			grid-template-columns: repeat(3, 1fr);
+			-moz-column-width: calc((100% / 3) - 10.6667px);
+			-webkit-column-width: calc((100% / 3) - 10.6667px);
+			column-width: calc((100% / 3) - 10.6667px);
 		}
 	}
 </style>
@@ -103,6 +108,7 @@ const techs = [
 		overflow-x: auto;
 		border-radius: 8px;
 		border: none;
+		z-index: var(--overlay-z-index);
 	}
 
 	form fieldset {
@@ -163,12 +169,37 @@ const techs = [
 	}
 
 	:global(.project-card) {
-		display: none;
+		visibility: hidden;
+		opacity: 0;
+		transform: translateY(100%);
+		transition:
+			opacity 0.3s ease-in-out,
+			transform 0.3s ease-in-out,
+			visibility 0s linear 0.3s;
+		pointer-events: none;
+		position: absolute;
 	}
 
 	form:has(input[value="all"]:checked)
 		+ .projects-container
 		:global(.project-card) {
-		display: flex;
+		visibility: visible;
+		opacity: 1;
+		transform: translateY(0);
+		transition:
+			opacity 0.3s ease-in-out,
+			transform 0.3s ease-in-out,
+			visibility 0s linear 0s;
+		pointer-events: auto;
+		position: relative;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:global(.project-card),
+		form:has(input[value="all"]:checked)
+			+ .projects-container
+			:global(.project-card) {
+			transition: none !important;
+		}
 	}
 </style>
