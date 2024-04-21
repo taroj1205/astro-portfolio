@@ -211,6 +211,12 @@ const { metadata } = getTranslations(lang)
 				scroll-behavior: smooth;
 			}
 
+			@media (prefers-reduced-motion: reduce) {
+				html {
+					scroll-behavior: auto;
+				}
+			}
+
 			body {
 				color: var(--text-color);
 				background-color: var(--background-white);
