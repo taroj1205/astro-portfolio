@@ -4,9 +4,9 @@ form#projects-view:has(input[value="nextjs"]:checked)
 .project-card.nextjs {
 		visibility: visible;
 		opacity: 1;
-		transform: translateY(0);
+		transform: translateX(0) translateY(0);
 		transition:
-			opacity 0.3s ease-in-out,
+			opacity 0.1s ease-in-out,
 			transform 0.3s ease-in-out,
 			visibility 0s linear 0s;
 		pointer-events: auto;
@@ -18,9 +18,9 @@ form#projects-view:has(input[value="javascript"]:checked)
 .project-card.javascript {
 		visibility: visible;
 		opacity: 1;
-		transform: translateY(0);
+		transform: translateX(0) translateY(0);
 		transition:
-			opacity 0.3s ease-in-out,
+			opacity 0.1s ease-in-out,
 			transform 0.3s ease-in-out,
 			visibility 0s linear 0s;
 		pointer-events: auto;
@@ -32,9 +32,9 @@ form#projects-view:has(input[value="typescript"]:checked)
 .project-card.typescript {
 		visibility: visible;
 		opacity: 1;
-		transform: translateY(0);
+		transform: translateX(0) translateY(0);
 		transition:
-			opacity 0.3s ease-in-out,
+			opacity 0.1s ease-in-out,
 			transform 0.3s ease-in-out,
 			visibility 0s linear 0s;
 		pointer-events: auto;
@@ -46,9 +46,9 @@ form#projects-view:has(input[value="chrome"]:checked)
 .project-card.chrome {
 		visibility: visible;
 		opacity: 1;
-		transform: translateY(0);
+		transform: translateX(0) translateY(0);
 		transition:
-			opacity 0.3s ease-in-out,
+			opacity 0.1s ease-in-out,
 			transform 0.3s ease-in-out,
 			visibility 0s linear 0s;
 		pointer-events: auto;
@@ -60,9 +60,9 @@ form#projects-view:has(input[value="unity"]:checked)
 .project-card.unity {
 		visibility: visible;
 		opacity: 1;
-		transform: translateY(0);
+		transform: translateX(0) translateY(0);
 		transition:
-			opacity 0.3s ease-in-out,
+			opacity 0.1s ease-in-out,
 			transform 0.3s ease-in-out,
 			visibility 0s linear 0s;
 		pointer-events: auto;
@@ -74,9 +74,9 @@ form#projects-view:has(input[value="cs"]:checked)
 .project-card.cs {
 		visibility: visible;
 		opacity: 1;
-		transform: translateY(0);
+		transform: translateX(0) translateY(0);
 		transition:
-			opacity 0.3s ease-in-out,
+			opacity 0.1s ease-in-out,
 			transform 0.3s ease-in-out,
 			visibility 0s linear 0s;
 		pointer-events: auto;
@@ -88,9 +88,9 @@ form#projects-view:has(input[value="flask"]:checked)
 .project-card.flask {
 		visibility: visible;
 		opacity: 1;
-		transform: translateY(0);
+		transform: translateX(0) translateY(0);
 		transition:
-			opacity 0.3s ease-in-out,
+			opacity 0.1s ease-in-out,
 			transform 0.3s ease-in-out,
 			visibility 0s linear 0s;
 		pointer-events: auto;
@@ -102,9 +102,9 @@ form#projects-view:has(input[value="sqlite3"]:checked)
 .project-card.sqlite3 {
 		visibility: visible;
 		opacity: 1;
-		transform: translateY(0);
+		transform: translateX(0) translateY(0);
 		transition:
-			opacity 0.3s ease-in-out,
+			opacity 0.1s ease-in-out,
 			transform 0.3s ease-in-out,
 			visibility 0s linear 0s;
 		pointer-events: auto;
