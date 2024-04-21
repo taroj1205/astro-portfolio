@@ -1,16 +1,9 @@
 ---
-import Layout from "../../layouts/Layout.astro"
-import Carousel from "../../components/carousel/index.astro"
-import { getLangFromUrl, getTranslations } from "../../i18n/utils"
+import { getLangFromUrl } from "../../i18n/utils"
 import { languages } from "../../i18n/ui"
-import TopMe from "../../components/top-me/index.astro"
-import ContentDivider from "../../components/divider/content-divider.astro"
-import BriefIntro from "../../components/brief-intro/index.astro"
-import Programming from "../../components/programming/index.astro"
-import Projects from "../../components/projects/index.astro"
+import PageWrapped from "../../page-wrapped/index.astro"
 
 const lang = getLangFromUrl(Astro.url)
-const { metadata } = getTranslations(lang)
 
 export const getStaticPaths = () => {
 	return Object.keys(languages).map((lang) => ({
@@ -19,12 +12,4 @@ export const getStaticPaths = () => {
 }
 ---
 
-<Layout title={metadata.title} description={metadata.description}>
-	<TopMe lang={lang} />
-	<Carousel />
-	<ContentDivider />
-	<BriefIntro lang={lang} />
-	<ContentDivider />
-	<Programming lang={lang} />
-	<Projects lang={lang} />
-</Layout>
+<PageWrapped lang={lang} />
