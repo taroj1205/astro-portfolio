@@ -1,0 +1,56 @@
+
+form#projects-view:has(input[value="nextjs"]:checked)
++ .projects-container
+.project-card.nextjs {
+  display: flex;
+  visibility: visible;
+}
+
+form#projects-view:has(input[value="javascript"]:checked)
++ .projects-container
+.project-card.javascript {
+  display: flex;
+  visibility: visible;
+}
+
+form#projects-view:has(input[value="typescript"]:checked)
++ .projects-container
+.project-card.typescript {
+  display: flex;
+  visibility: visible;
+}
+
+form#projects-view:has(input[value="chrome"]:checked)
++ .projects-container
+.project-card.chrome {
+  display: flex;
+  visibility: visible;
+}
+
+form#projects-view:has(input[value="unity"]:checked)
++ .projects-container
+.project-card.unity {
+  display: flex;
+  visibility: visible;
+}
+
+form#projects-view:has(input[value="cs"]:checked)
++ .projects-container
+.project-card.cs {
+  display: flex;
+  visibility: visible;
+}
+
+form#projects-view:has(input[value="flask"]:checked)
++ .projects-container
+.project-card.flask {
+  display: flex;
+  visibility: visible;
+}
+
+form#projects-view:has(input[value="sqlite3"]:checked)
++ .projects-container
+.project-card.sqlite3 {
+  display: flex;
+  visibility: visible;
+}
