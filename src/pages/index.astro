@@ -1,3 +1,7 @@
 ---
-return Astro.redirect('/en/');
+import PageWrapped from "../page-wrapped/index.astro"
+
+const lang = "en"
 ---
+
+<PageWrapped lang={lang} />
