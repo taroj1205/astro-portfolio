@@ -1,11 +1,145 @@
 ---
 import { getTranslations } from "../../i18n/utils"
-import ProjectsCard from "./projects-card.astro"
+import ProjectCard from "./project-card.astro"
+import { projectsArray } from "./projects-array"
+import "./card.css"
 
 const { lang } = Astro.props
 
 const { heading } = getTranslations(lang)
+const projects = projectsArray(lang)
+const techs = [
+	...new Set(
+		projects.flatMap((project) => [project.framework, project.lang]).flat(),
+	),
+]
 ---
 
 <h3>{heading.projects}</h3>
-<ProjectsCard lang={lang} />
+<form id="projects-view">
+	<input id="all" type="radio" name="tech" value="all" checked />
+	<label for="all">{lang === "en" ? "All" : "全て"}</label>
+	{
+		techs.map((tech) => (
+			<>
+				<input
+					id={tech}
+					type="radio"
+					name="tech"
+					value={tech.toLowerCase().replace(/\./g, "").replace(/#/g, "s")}
+				/>
+				<label for={tech} title={tech}>
+					{tech}
+				</label>
+			</>
+		))
+	}
+</form>
+<div class="projects-container">
+	{projects.map((project) => <ProjectCard project={project} />)}
+</div>
+
+<style>
+	.projects-container {
+		display: grid;
+		gap: 16px;
+		justify-content: start;
+		break-inside: avoid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 400px));
+		margin-left: 0.5rem;
+	}
+
+	@media (min-width: 640px) {
+		.projects-container {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (min-width: 1280px) {
+		.projects-container {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+</style>
+
+<style>
+	:root {
+		--light-input-text: hsl(0, 0%, 20%);
+		--light-input-text-light: hsl(0, 0%, 100%);
+		--light-input-background-light: hsl(0, 0%, 96%);
+		--light-input-highlight-background: hsl(217, 100%, 50%);
+		--light-input-highlight-text: hsl(0, 0%, 100%);
+
+		--input-text: var(--light-input-text);
+		--input-text-light: var(--light-input-text-light);
+		--input-background-light: var(--light-input-background-light);
+		--input-highlight-background: var(--light-input-highlight-background);
+		--input-highlight-text: var(--light-input-highlight-text);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--dark-input-text: hsl(0, 0%, 80%);
+			--dark-input-background: hsl(0, 0%, 12%);
+			--dark-input-highlight-background: hsl(217, 70%, 55%);
+			--dark-input-highlight-text: hsl(0, 0%, 100%);
+
+			--input-text: var(--dark-input-text);
+			--input-background-light: var(--dark-input-background);
+			--input-highlight-background: var(--dark-input-highlight-background);
+			--input-highlight-text: var(--dark-input-highlight-text);
+		}
+	}
+
+	form {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		border-radius: 8px;
+		margin-left: 0.5rem;
+	}
+
+	form label {
+		display: block;
+		margin-bottom: 5px;
+		color: var(--input-text);
+		font-size: var(--fontSizes-md);
+		cursor: pointer;
+		padding: var(--spaces-2) var(--spaces-4);
+	}
+
+	form label:hover {
+		background-color: var(--input-highlight-background);
+		color: var(--input-highlight-text);
+		border-radius: 5px;
+		transition: background-color 0.3s;
+	}
+
+	form input[type="radio"] {
+		display: none;
+	}
+
+	form input[type="radio"]:checked + label {
+		background-color: var(--input-highlight-background);
+		color: var(--input-highlight-text);
+		border-radius: 5px;
+	}
+
+	form input[type="radio"]:focus + label {
+		outline: 2px solid var(--input-highlight-background);
+		outline-offset: 2px;
+	}
+
+	:global(.project-card) {
+		display: none;
+	}
+
+	form:has(input[value="all"]:checked)
+		+ .projects-container
+		:global(.project-card) {
+		display: flex;
+	}
+</style>

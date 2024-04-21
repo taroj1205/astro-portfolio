@@ -3,17 +3,25 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "ts-node ./generate-css.mjs && astro dev",
     "start": "astro preview",
-    "build": "astro check && astro build",
+    "build": "ts-node ./generate-css.mjs && astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-css": "ts-node ./generate-css.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "astro": "^4.6.1",
     "astro-seo-metadata": "^0.6.0",
-    "sharp": "^0.33.3",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "sharp": "^0.33.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "husky": "^9.0.11",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
 }
