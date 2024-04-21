@@ -17,23 +17,25 @@ const techs = [
 
 <h3>{heading.projects}</h3>
 <form id="projects-view">
-	<input id="all" type="radio" name="tech" value="all" checked />
-	<label for="all">{lang === "en" ? "All" : "全て"}</label>
-	{
-		techs.map((tech) => (
-			<>
-				<input
-					id={tech}
-					type="radio"
-					name="tech"
-					value={tech.toLowerCase().replace(/\./g, "").replace(/#/g, "s")}
-				/>
-				<label for={tech} title={tech}>
-					{tech}
-				</label>
-			</>
-		))
-	}
+	<fieldset>
+		<input id="all" type="radio" name="tech" value="all" checked />
+		<label for="all">{lang === "en" ? "All" : "全て"}</label>
+		{
+			techs.map((tech) => (
+				<>
+					<input
+						id={tech}
+						type="radio"
+						name="tech"
+						value={tech.toLowerCase().replace(/\./g, "").replace(/#/g, "s")}
+					/>
+					<label for={tech} title={tech}>
+						{tech}
+					</label>
+				</>
+			))
+		}
+	</fieldset>
 </form>
 <div class="projects-container">
 	{projects.map((project) => <ProjectCard project={project} />)}
@@ -75,6 +77,27 @@ const techs = [
 		--input-background-light: var(--light-input-background-light);
 		--input-highlight-background: var(--light-input-highlight-background);
 		--input-highlight-text: var(--light-input-highlight-text);
+
+		--ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+		--ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		--ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+		--ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+		--ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+		--ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+
+		--ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		--ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+		--ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+		--ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+		--ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+		--ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+		--ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+		--ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+		--ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+		--ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+		--ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+		--ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -92,29 +115,55 @@ const techs = [
 	}
 
 	form {
+		position: sticky;
+		top: 4rem;
+		place-self: center;
+		max-width: 90vw;
+		overflow-x: auto;
+		border-radius: 8px;
+		border: none;
+	}
+
+	form fieldset {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		align-items: center;
 		justify-content: center;
-		gap: 0.5rem;
+		gap: var(--spaces-2);
+		padding: var(--spaces-2);
 		border-radius: 8px;
-		margin-left: 0.5rem;
+		border: none;
+		-webkit-backdrop-filter: blur(15px);
+		backdrop-filter: blur(15px);
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	@media (max-width: 600px) {
+		form {
+			top: 5rem;
+		}
+	}
+
+	@media (max-height: 800px) {
+		form {
+			position: relative;
+			top: 0;
+		}
 	}
 
 	form label {
 		display: block;
-		margin-bottom: 5px;
 		color: var(--input-text);
 		font-size: var(--fontSizes-md);
 		cursor: pointer;
 		padding: var(--spaces-2) var(--spaces-4);
+		position: relative;
+		border-radius: 0.4rem;
 	}
 
 	form label:hover {
 		background-color: var(--input-highlight-background);
 		color: var(--input-highlight-text);
-		border-radius: 5px;
 		transition: background-color 0.3s;
 	}
 
@@ -125,7 +174,6 @@ const techs = [
 	form input[type="radio"]:checked + label {
 		background-color: var(--input-highlight-background);
 		color: var(--input-highlight-text);
-		border-radius: 5px;
 	}
 
 	form input[type="radio"]:focus + label {

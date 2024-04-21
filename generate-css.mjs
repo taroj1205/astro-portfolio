@@ -19,7 +19,6 @@ form#projects-view:has(input[value="${tech}"]:checked)
 + .projects-container
 .project-card.${tech} {
   display: flex;
-  visibility: visible;
 }
 `,
   )
