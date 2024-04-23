@@ -15,6 +15,7 @@ const lang = project.lang.join(" / ")
 			src={project.thumbnail}
 			alt={project.description}
 			height="350"
+			widths={[320, 480, 640]}
 			sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
 			loading="lazy"
 		/>
@@ -45,15 +46,11 @@ const lang = project.lang.join(" / ")
 <style>
 	.project-card {
 		background-color: var(--black-color);
-		border: 1px solid var(--card-border);
 		max-width: 400px;
 		flex-direction: column;
 		border-radius: 8px;
 		overflow: hidden;
 		flex: 1 1 auto;
-		height: fit-content;
-		height: -moz-fit-content;
-		margin-bottom: var(--spaces-4);
 	}
 
 	.project-card > div:nth-child(2) {
@@ -63,14 +60,16 @@ const lang = project.lang.join(" / ")
 	}
 
 	.project-card div > :is(div:first-child, img) {
-		max-height: 318px;
+		max-height: 15rem;
 		overflow: hidden;
 		padding: 0;
 	}
 
 	.project-card img {
-		height: auto;
+		height: 100%;
 		width: 100%;
+		object-fit: cover;
+		object-position: center;
 	}
 
 	div > :is(div:nth-child(2), a) {

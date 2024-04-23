@@ -18,15 +18,8 @@ const cssRules = techs
 form#projects-view:has(input[value="${tech}"]:checked)
 + .projects-container
 .project-card.${tech} {
-		visibility: visible;
-		opacity: 1;
-		transform: translateX(0) translateY(0);
-		transition:
-			opacity 0.1s ease-in-out,
-			transform 0.3s ease-in-out,
-			visibility 0s linear 0s;
-		pointer-events: auto;
-		position: relative;
+  animation: card-in 0.5s ease-in-out forwards;
+  pointer-events: auto;
 }
 `,
   )
@@ -38,7 +31,7 @@ const cssFilePath = path.join(
   "./src/components/projects/card.css",
 )
 
-// Append the generated CSS to the file
+// Write the generated CSS to the file
 fs.writeFileSync(cssFilePath, cssRules, "utf8")
 
-console.log("CSS rules appended to ./src/components/projects/card.css")
+console.log("CSS rules written to ./src/components/projects/card.css")
