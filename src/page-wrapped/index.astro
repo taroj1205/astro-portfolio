@@ -13,8 +13,6 @@ interface Props {
 	lang: "en" | "ja"
 }
 
-export const prerender = true
-
 const { lang } = Astro.props
 const { metadata } = getTranslations(lang)
 
