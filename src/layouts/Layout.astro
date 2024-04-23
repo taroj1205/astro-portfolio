@@ -235,30 +235,6 @@ const url = Astro.site
 			}
 
 			@keyframes card-in {
-				0% {
-					visibility: hidden;
-					opacity: 0;
-					transform: translateY(100%);
-					position: absolute;
-					height: 0;
-					width: 0;
-					border: none;
-					margin-bottom: 0;
-				}
-				100% {
-					visibility: visible;
-					opacity: 1;
-					transform: translateY(0);
-					position: relative;
-					height: fit-content;
-					height: -moz-fit-content;
-					width: 100%;
-					border: 1px solid var(--card-border);
-					margin-bottom: var(--spaces-4);
-				}
-			}
-
-			@keyframes card-in {
 				from {
 					opacity: 0;
 					transform: translateY(100%);
@@ -266,6 +242,7 @@ const url = Astro.site
 					width: 0;
 					border: none;
 					margin-bottom: 0;
+					position: absolute;
 				}
 				to {
 					opacity: 1;
@@ -275,6 +252,7 @@ const url = Astro.site
 					width: 100%;
 					border: 1px solid var(--card-border);
 					margin-bottom: var(--spaces-4);
+					position: relative;
 				}
 			}
 
@@ -287,6 +265,7 @@ const url = Astro.site
 					width: 100%;
 					border: 1px solid var(--card-border);
 					margin-bottom: var(--spaces-4);
+					position: relative;
 				}
 				to {
 					opacity: 0;
@@ -295,6 +274,7 @@ const url = Astro.site
 					width: 0;
 					border: none;
 					margin-bottom: 0;
+					position: absolute;
 				}
 			}
 

@@ -16,27 +16,37 @@ const techs = [
 ---
 
 <h3>{heading.projects}</h3>
-<form id="projects-view">
-	<fieldset>
-		<input id="all" type="radio" name="tech" value="all" checked />
-		<label for="all">{lang === "en" ? "All" : "全て"}</label>
-		{
-			techs.map((tech) => (
-				<>
-					<input
-						id={tech}
-						type="radio"
-						name="tech"
-						value={tech.toLowerCase().replace(/\./g, "").replace(/#/g, "s")}
-					/>
-					<label for={tech} title={tech}>
-						{tech}
-					</label>
-				</>
-			))
-		}
-	</fieldset>
-</form>
+<div class="projects-view-container">
+	<form id="projects-view">
+		<fieldset>
+			<input id="all" type="radio" name="tech" value="all" checked />
+			<label for="all">{lang === "en" ? "All" : "全て"}</label>
+			{
+				techs.map((tech) => (
+					<>
+						<input
+							id={tech}
+							type="radio"
+							name="tech"
+							value={tech.toLowerCase().replace(/\./g, "").replace(/#/g, "s")}
+						/>
+						<label for={tech} title={tech}>
+							{tech}
+						</label>
+					</>
+				))
+			}
+		</fieldset>
+	</form>
+	<form id="projects-view-toggle">
+		<input type="checkbox" id="projects-view-expand" />
+		<label class="expand" for="projects-view-expand">
+			<div></div>
+			<div></div>
+			<div></div>
+		</label>
+	</form>
+</div>
 <div class="projects-container">
 	{projects.map((project) => <ProjectCard project={project} />)}
 </div>
@@ -49,7 +59,6 @@ const techs = [
 		-moz-column-gap: 16px;
 		-webkit-column-gap: 16px;
 		column-gap: 16px;
-		margin-left: 0.5rem;
 	}
 
 	@media (min-width: 640px) {
@@ -72,6 +81,82 @@ const techs = [
 			-webkit-column-count: 3;
 			column-count: 3;
 		}
+	}
+
+	#projects-view-expand {
+		display: none;
+	}
+
+	#projects-view-expand:checked ~ label div:first-child {
+		transform: rotate(45deg);
+	}
+
+	#projects-view-expand:checked ~ label div:last-child {
+		transform: rotate(-45deg);
+	}
+
+	#projects-view-expand:checked ~ label div:nth-child(2) {
+		opacity: 0;
+		transform: translateX(10px);
+	}
+
+	.projects-view-container:has(#projects-view-expand:checked)
+		form#projects-view
+		fieldset {
+		flex-wrap: wrap;
+	}
+
+	.projects-view-container:has(#projects-view-expand:checked) .expand {
+		position: absolute;
+		right: 0;
+		background-color: transparent;
+		-webkit-backdrop-filter: none;
+		backdrop-filter: none;
+	}
+
+	.expand {
+		height: 50px;
+		width: 50px;
+		cursor: pointer;
+		padding: 0;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		border-radius: 0.25rem;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		border: none;
+		transition: background-color 0.3s;
+		right: 0;
+		-webkit-backdrop-filter: blur(15px);
+		backdrop-filter: blur(15px);
+		background-color: var(--field-background);
+	}
+
+	@media (max-width: 600px) {
+		.expand {
+			display: flex;
+		}
+	}
+
+	.expand div {
+		width: 1.5rem;
+		height: 0.1rem;
+		background-color: var(--gray-color);
+		transition: all 0.3s;
+		position: absolute;
+	}
+
+	label.expand div:first-child {
+		transform: translateY(-0.5rem);
+	}
+
+	label.expand div:nth-child(2) {
+		transition: all 0.4s;
+	}
+
+	label.expand div:last-child {
+		transform: translateY(0.5rem);
 	}
 </style>
 
@@ -106,70 +191,73 @@ const techs = [
 		}
 	}
 
-	form {
+	.projects-view-container {
 		position: sticky;
 		top: 4rem;
 		place-self: center;
-		max-width: 90vw;
-		overflow-x: auto;
-		border-radius: 8px;
 		border: none;
 		z-index: var(--overlay-z-index);
+		display: flex;
+		gap: 0;
+		max-width: 90vw;
 	}
 
-	form fieldset {
+	form#projects-view {
+		max-width: 90vw;
+		overflow-x: auto;
+	}
+
+	form#projects-view fieldset {
 		display: flex;
 		flex-direction: row;
-		flex-wrap: wrap;
 		justify-content: center;
+		border-radius: 0.4rem;
 		gap: var(--spaces-2);
 		padding: var(--spaces-2);
-		border-radius: 8px;
+		margin: 0;
 		border: none;
+		background: none;
+		position: relative;
 		-webkit-backdrop-filter: blur(15px);
 		backdrop-filter: blur(15px);
 		background-color: var(--field-background);
 	}
 
 	@media (max-width: 600px) {
-		form {
+		.projects-view-container {
 			top: 5rem;
 		}
-	}
-
-	@media (max-height: 800px) {
-		form {
-			position: relative;
-			top: 0;
+		#projects-view fieldset {
+			border-top-right-radius: 0 !important;
+			border-bottom-right-radius: 0 !important;
 		}
 	}
 
-	form label {
+	form#projects-view label {
 		display: block;
 		color: var(--input-text);
 		font-size: var(--fontSizes-md);
 		cursor: pointer;
 		padding: var(--spaces-2) var(--spaces-4);
-		position: relative;
 		border-radius: 0.4rem;
 	}
 
-	form label:hover {
+	form#projects-view label:hover {
 		background-color: var(--input-highlight-background);
 		color: var(--input-highlight-text);
 		transition: background-color 0.3s;
 	}
 
-	form input[type="radio"] {
+	form#projects-view input[type="radio"] {
 		display: none;
 	}
 
-	form input[type="radio"]:checked + label {
+	form#projects-view input[type="radio"]:checked + label {
 		background-color: var(--input-highlight-background);
 		color: var(--input-highlight-text);
 	}
 
-	form input[type="radio"]:focus + label {
+	form#projects-view input[type="radio"]:focus + label {
 		outline: 2px solid var(--input-highlight-background);
 		outline-offset: 2px;
 	}
@@ -179,7 +267,7 @@ const techs = [
 		pointer-events: none;
 	}
 
-	form:has(input[value="all"]:checked)
+	.projects-view-container:has(input[value="all"]:checked)
 		+ .projects-container
 		:global(.project-card) {
 		animation: card-in 0.5s ease-in-out forwards;
@@ -188,7 +276,7 @@ const techs = [
 
 	@media (prefers-reduced-motion: reduce) {
 		:global(.project-card),
-		form:has(input[value="all"]:checked)
+		.projects-view-container:has(input[value="all"]:checked)
 			+ .projects-container
 			:global(.project-card) {
 			transition: none !important;

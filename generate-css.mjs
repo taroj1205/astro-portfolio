@@ -15,7 +15,7 @@ const techs = [
 const cssRules = techs
   .map(
     (tech) => `
-form#projects-view:has(input[value="${tech}"]:checked)
+.projects-view-container:has(input[value="${tech}"]:checked)
 + .projects-container
 .project-card.${tech} {
   animation: card-in 0.5s ease-in-out forwards;
