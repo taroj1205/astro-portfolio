@@ -175,29 +175,15 @@ const techs = [
 	}
 
 	:global(.project-card) {
-		visibility: hidden;
-		opacity: 0;
-		transform: translateX(-100%) translateY(-100%);
-		transition:
-			opacity 0.5s ease-in-out,
-			transform 0.3s ease-in-out,
-			visibility 0s linear 0.3s;
+		animation: card-out 0.5s ease-in-out forwards;
 		pointer-events: none;
-		position: absolute;
 	}
 
 	form:has(input[value="all"]:checked)
 		+ .projects-container
 		:global(.project-card) {
-		visibility: visible;
-		opacity: 1;
-		transform: translateX(0) translateY(0);
-		transition:
-			opacity 0.1s ease-in-out,
-			transform 0.3s ease-in-out,
-			visibility 0s linear 0s;
+		animation: card-in 0.5s ease-in-out forwards;
 		pointer-events: auto;
-		position: relative;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
