@@ -211,9 +211,6 @@ const url = Astro.site
 
 			html {
 				scroll-behavior: smooth;
-				height: 100%;
-				overflow: hidden;
-				width: 100%;
 			}
 
 			@media (prefers-reduced-motion: reduce) {
@@ -231,10 +228,6 @@ const url = Astro.site
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
-				height: 100%;
-				overflow-x: hidden;
-				overflow-y: auto;
-				width: 100%;
 			}
 
 			body:not(:has(#uncheck:checked)) {
