@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro"
 import { getLangFromUrl, getTranslations } from "../i18n/utils"
 import { languages } from "../i18n/ui"
 
+export const prerender = true
+
 const lang = getLangFromUrl(Astro.url)
 const { metadata, notFound } = getTranslations(lang)
 

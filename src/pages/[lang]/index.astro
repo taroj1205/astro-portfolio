@@ -3,6 +3,8 @@ import { getLangFromUrl } from "../../i18n/utils"
 import { languages } from "../../i18n/ui"
 import PageWrapped from "../../page-wrapped/index.astro"
 
+export const prerender = true
+
 const lang = getLangFromUrl(Astro.url)
 
 export const getStaticPaths = () => {
