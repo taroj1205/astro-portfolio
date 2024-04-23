@@ -17,6 +17,9 @@ dependencies:
   astro-seo-metadata:
     specifier: ^0.6.0
     version: 0.6.0
+  astro-single-file:
+    specifier: ^1.1.0
+    version: 1.1.0
   fs:
     specifier: 0.0.1-security
     version: 0.0.1-security
@@ -1583,6 +1586,10 @@ packages:
 
   /astro-seo-metadata@0.6.0:
     resolution: {integrity: sha512-2wN3kHy4KOorieZxvzYdnXl8h3imUrZdKE+N5xLA3T9/fxHXqNXtXEuJSYFSLU+EfpUcdS6jMncuBC4nQpAIuA==}
+    dev: false
+
+  /astro-single-file@1.1.0:
+    resolution: {integrity: sha512-x33yQVzbA6RSNoph1DSXK4tDcbhdENIcizs/6Npvn8w8OKCcQ+qGj+vxMSytkV1WWegXgGRo5k3h6r1r5ZZxyA==}
     dev: false
 
   /astro@4.6.3(@types/node@20.12.7)(typescript@5.4.5):
