@@ -5,8 +5,5 @@ import vercelStatic from "@astrojs/vercel/static"
 export default defineConfig({
   site: "https://astro-taroj.vercel.app",
   output: "static",
-  adapter: vercelStatic({
-    imageService: true,
-    devImageService: "sharp",
-  }),
+  adapter: vercelStatic(),
 })
