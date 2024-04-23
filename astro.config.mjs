@@ -1,9 +1,12 @@
 import { defineConfig } from "astro/config"
-
-import singleFile from "astro-single-file"
+import vercelStatic from "@astrojs/vercel/static"
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astro-taroj.vercel.app",
-  integrations: [singleFile()],
+  site: "https://taroj1205.poyo.jp",
+  output: "static",
+  adapter: vercelStatic({
+    imageService: true,
+    devImageService: "sharp",
+  }),
 })
