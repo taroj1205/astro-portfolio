@@ -87,6 +87,12 @@ const techs = [
 		display: none;
 	}
 
+	#projects-view-toggle {
+		height: 50px;
+		width: 50px;
+		display: none;
+	}
+
 	#projects-view-expand:checked ~ label div:first-child {
 		transform: rotate(45deg);
 	}
@@ -107,11 +113,16 @@ const techs = [
 	}
 
 	.projects-view-container:has(#projects-view-expand:checked) .expand {
-		position: absolute;
 		right: 0;
-		background-color: transparent;
-		-webkit-backdrop-filter: none;
-		backdrop-filter: none;
+	}
+
+	.projects-view-container {
+		-webkit-backdrop-filter: blur(15px);
+		backdrop-filter: blur(15px);
+		transition: background-color 0.3s;
+		background-color: var(--field-background);
+		border-radius: 0.45rem;
+		overflow: hidden;
 	}
 
 	.expand {
@@ -119,22 +130,16 @@ const techs = [
 		width: 50px;
 		cursor: pointer;
 		padding: 0;
-		display: none;
+		top: 0;
 		justify-content: center;
 		align-items: center;
-		border-radius: 0.25rem;
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
 		border: none;
-		transition: background-color 0.3s;
 		right: 0;
-		-webkit-backdrop-filter: blur(15px);
-		backdrop-filter: blur(15px);
-		background-color: var(--field-background);
+		display: flex;
 	}
 
-	@media (max-width: 600px) {
-		.expand {
+	@media (max-width: 800px) and (max-height: 800px) {
+		#projects-view-toggle {
 			display: flex;
 		}
 	}
@@ -210,26 +215,29 @@ const techs = [
 	form#projects-view fieldset {
 		display: flex;
 		flex-direction: row;
-		justify-content: center;
-		border-radius: 0.4rem;
 		gap: var(--spaces-2);
 		padding: var(--spaces-2);
 		margin: 0;
 		border: none;
 		background: none;
 		position: relative;
-		-webkit-backdrop-filter: blur(15px);
-		backdrop-filter: blur(15px);
-		background-color: var(--field-background);
 	}
 
 	@media (max-width: 600px) {
 		.projects-view-container {
 			top: 5rem;
 		}
+	}
+
+	@media (max-width: 800px) and (min-height: 600px) {
 		#projects-view fieldset {
-			border-top-right-radius: 0 !important;
-			border-bottom-right-radius: 0 !important;
+			flex-wrap: wrap;
+		}
+	}
+
+	@media (max-height: 800px) {
+		#projects-view fieldset {
+			flex-wrap: nowrap;
 		}
 	}
 
