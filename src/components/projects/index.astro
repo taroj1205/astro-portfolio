@@ -90,6 +90,7 @@ const techs = [
 	#projects-view-toggle {
 		height: 50px;
 		width: 50px;
+		display: none;
 	}
 
 	#projects-view-expand:checked ~ label div:first-child {
@@ -130,15 +131,15 @@ const techs = [
 		cursor: pointer;
 		padding: 0;
 		top: 0;
-		display: none;
 		justify-content: center;
 		align-items: center;
 		border: none;
 		right: 0;
+		display: flex;
 	}
 
-	@media (max-height: 600px) {
-		.expand {
+	@media (max-width: 800px) and (max-height: 800px) {
+		#projects-view-toggle {
 			display: flex;
 		}
 	}
@@ -228,7 +229,13 @@ const techs = [
 		}
 	}
 
-	@media (max-height: 600px) {
+	@media (max-width: 800px) and (min-height: 600px) {
+		#projects-view fieldset {
+			flex-wrap: wrap;
+		}
+	}
+
+	@media (max-height: 800px) {
 		#projects-view fieldset {
 			flex-wrap: nowrap;
 		}
