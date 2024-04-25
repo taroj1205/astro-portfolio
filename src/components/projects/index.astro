@@ -272,7 +272,6 @@ const techs = [
 
   :global(.project-card) {
     animation: card-out 0.5s ease-in-out forwards;
-    pointer-events: none;
   }
 
   .projects-view-container:not(:has(input[type="radio"]:checked))
@@ -286,14 +285,12 @@ const techs = [
     border: 1px solid var(--card-border);
     margin-bottom: var(--spaces-4);
     position: relative;
-    pointer-events: none;
   }
 
   .projects-view-container:has(input[value="all"]:checked)
     + .projects-container
     :global(.project-card) {
     animation: card-in 0.5s ease-in-out forwards;
-    pointer-events: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {
