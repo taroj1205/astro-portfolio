@@ -9,72 +9,72 @@ const { footer } = getTranslations(lang)
 ---
 
 <footer>
-	<a
-		href={`/${lang === "ja" ? "en" : "ja"}`}
-		class="footer-link"
-		title={lang === "ja" ? "To English" : "日本語へ"}>
-		{
-			lang === "ja" ? (
-				<NewZealandIcon size="1.4rem" />
-			) : (
-				<JapanIcon size="1.4rem" />
-			)
-		}{footer.lang}</a
-	>
-	<a href="#" class="scroll-text" title={footer.scrollToTop}
-		>{footer.scrollToTop}</a
-	>
-	<a href="#" class="arrow-up" title={footer.scrollToTop}><ArrowUpIcon /></a>
-	<Socials />
+  <a
+    href={`/${lang === "ja" ? "en" : "ja"}`}
+    class="footer-link"
+    title={lang === "ja" ? "To English" : "日本語へ"}>
+    {
+      lang === "ja" ? (
+        <NewZealandIcon size="1.4rem" />
+      ) : (
+        <JapanIcon size="1.4rem" />
+      )
+    }{footer.lang}</a
+  >
+  <a href="#" class="scroll-text" title={footer.scrollToTop}
+    >{footer.scrollToTop}</a
+  >
+  <a href="#" class="arrow-up" title={footer.scrollToTop}><ArrowUpIcon /></a>
+  <Socials />
 </footer>
 
 <style>
-	footer {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0 var(--spaces-2);
-		max-width: 600px;
-		margin: 0 auto;
-		height: 4rem;
-	}
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spaces-2);
+    max-width: 600px;
+    margin: 0 auto;
+    height: 4rem;
+  }
 
-	.footer-link {
-		display: flex;
-		align-items: center;
-		gap: var(--spaces-1);
-	}
+  .footer-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spaces-1);
+  }
 
-	.arrow-up {
-		display: none;
-		font-size: 1.5rem;
-	}
+  .arrow-up {
+    display: none;
+    font-size: 1.5rem;
+  }
 
-	a {
-		text-decoration: none;
-		color: var(--gray-color);
-		height: 2.5rem;
-		line-height: 2.5rem;
-		display: grid;
-		place-items: center;
-		justify-content: center;
-		align-items: center;
-		transition: all 0.3s ease;
-		border-radius: 0.375rem;
-		padding: var(--spaces-1) var(--spaces-2);
-	}
+  a {
+    text-decoration: none;
+    color: var(--gray-color);
+    height: 2.5rem;
+    line-height: 2.5rem;
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-radius: 0.375rem;
+    padding: var(--spaces-1) var(--spaces-2);
+  }
 
-	a:hover {
-		color: hsl(0, 0%, 83%);
-		background-color: hsl(0, 0%, 20%);
-	}
+  a:hover {
+    color: hsl(0, 0%, 83%);
+    background-color: hsl(0, 0%, 20%);
+  }
 
-	@media screen and (max-width: 600px) {
-		.arrow-up {
-			display: flex;
-		}
-		.scroll-text {
-			display: none;
-		}
-	}
+  @media screen and (max-width: 600px) {
+    .arrow-up {
+      display: flex;
+    }
+    .scroll-text {
+      display: none;
+    }
+  }
 </style>

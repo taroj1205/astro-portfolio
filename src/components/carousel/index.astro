@@ -9,209 +9,209 @@ import westlakeImg from "../../assets/carousel/westlake_me.webp"
 ---
 
 <div id="carousel">
-	<form class="carousel-wrapper">
-		<input
-			type="radio"
-			id="target-item-1"
-			name="carousel"
-			class="carousel-radio"
-			checked
-		/>
-		<input
-			type="radio"
-			id="target-item-2"
-			name="carousel"
-			class="carousel-radio"
-		/>
-		<input
-			type="radio"
-			id="target-item-3"
-			name="carousel"
-			class="carousel-radio"
-		/>
-		<input
-			type="radio"
-			id="target-item-4"
-			name="carousel"
-			class="carousel-radio"
-		/>
+  <form class="carousel-wrapper">
+    <input
+      type="radio"
+      id="target-item-1"
+      name="carousel"
+      class="carousel-radio"
+      checked
+    />
+    <input
+      type="radio"
+      id="target-item-2"
+      name="carousel"
+      class="carousel-radio"
+    />
+    <input
+      type="radio"
+      id="target-item-3"
+      name="carousel"
+      class="carousel-radio"
+    />
+    <input
+      type="radio"
+      id="target-item-4"
+      name="carousel"
+      class="carousel-radio"
+    />
 
-		<div class="carousel-item" id="item-1">
-			<Image
-				src={jugglingImg}
-				alt="Me juggling"
-				width="480"
-				height="480"
-				loading="lazy"
-				sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
-			/>
-		</div>
-		<div class="carousel-item" id="item-2">
-			<Image
-				src={profileImg}
-				alt="Me with Kendama"
-				width="480"
-				height="480"
-				loading="lazy"
-				sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
-			/>
-		</div>
-		<div class="carousel-item" id="item-3">
-			<Image
-				src={pfpImg}
-				alt="Ny profile picture"
-				width="480"
-				height="480"
-				loading="lazy"
-				sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
-			/>
-		</div>
-		<div class="carousel-item" id="item-4">
-			<Image
-				src={westlakeImg}
-				alt="Westlake Boys High School"
-				width="480"
-				height="480"
-				loading="lazy"
-				sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
-			/>
-		</div>
-		<label class="arrow arrow-prev carousel-1" for="target-item-4"
-			><RightArrow /></label
-		>
-		<label class="arrow arrow-next carousel-1" for="target-item-2"
-			><LeftArrow /></label
-		>
+    <div class="carousel-item" id="item-1">
+      <Image
+        src={jugglingImg}
+        alt="Me juggling"
+        width="480"
+        height="480"
+        loading="lazy"
+        sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
+      />
+    </div>
+    <div class="carousel-item" id="item-2">
+      <Image
+        src={profileImg}
+        alt="Me with Kendama"
+        width="480"
+        height="480"
+        loading="lazy"
+        sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
+      />
+    </div>
+    <div class="carousel-item" id="item-3">
+      <Image
+        src={pfpImg}
+        alt="Ny profile picture"
+        width="480"
+        height="480"
+        loading="lazy"
+        sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
+      />
+    </div>
+    <div class="carousel-item" id="item-4">
+      <Image
+        src={westlakeImg}
+        alt="Westlake Boys High School"
+        width="480"
+        height="480"
+        loading="lazy"
+        sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
+      />
+    </div>
+    <label class="arrow arrow-prev carousel-1" for="target-item-4"
+      ><RightArrow /></label
+    >
+    <label class="arrow arrow-next carousel-1" for="target-item-2"
+      ><LeftArrow /></label
+    >
 
-		<label class="arrow arrow-prev carousel-2" for="target-item-1"
-			><RightArrow /></label
-		>
-		<label class="arrow arrow-next carousel-2" for="target-item-3"
-			><LeftArrow /></label
-		>
+    <label class="arrow arrow-prev carousel-2" for="target-item-1"
+      ><RightArrow /></label
+    >
+    <label class="arrow arrow-next carousel-2" for="target-item-3"
+      ><LeftArrow /></label
+    >
 
-		<label class="arrow arrow-prev carousel-3" for="target-item-2"
-			><RightArrow /></label
-		>
-		<label class="arrow arrow-next carousel-3" for="target-item-4"
-			><LeftArrow /></label
-		>
+    <label class="arrow arrow-prev carousel-3" for="target-item-2"
+      ><RightArrow /></label
+    >
+    <label class="arrow arrow-next carousel-3" for="target-item-4"
+      ><LeftArrow /></label
+    >
 
-		<label class="arrow arrow-prev carousel-4" for="target-item-3"
-			><RightArrow /></label
-		>
-		<label class="arrow arrow-next carousel-4" for="target-item-1"
-			><LeftArrow /></label
-		>
-	</form>
+    <label class="arrow arrow-prev carousel-4" for="target-item-3"
+      ><RightArrow /></label
+    >
+    <label class="arrow arrow-next carousel-4" for="target-item-1"
+      ><LeftArrow /></label
+    >
+  </form>
 </div>
 
 <style>
-	#carousel {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		display: flex;
-	}
+  #carousel {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+  }
 
-	.carousel-radio {
-		display: none;
-	}
-	.carousel-wrapper {
-		position: relative;
-		height: 30rem;
-		width: 30rem;
-		max-width: 90vw;
-		max-height: 90vw;
-		overflow: hidden;
-	}
-	.carousel-item {
-		width: 30rem;
-		max-width: 90vw;
-		max-height: 90vw;
-		height: 30rem;
-		color: var(--text-white);
-		padding-bottom: var(--spaces-4);
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		visibility: hidden;
-	}
+  .carousel-radio {
+    display: none;
+  }
+  .carousel-wrapper {
+    position: relative;
+    height: 30rem;
+    width: 30rem;
+    max-width: 90vw;
+    max-height: 90vw;
+    overflow: hidden;
+  }
+  .carousel-item {
+    width: 30rem;
+    max-width: 90vw;
+    max-height: 90vw;
+    height: 30rem;
+    color: var(--text-white);
+    padding-bottom: var(--spaces-4);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+  }
 
-	.arrow {
-		visibility: hidden;
-	}
+  .arrow {
+    visibility: hidden;
+  }
 
-	#target-item-1:checked ~ .carousel-1,
-	#target-item-1:checked ~ #item-1,
-	#target-item-2:checked ~ .carousel-2,
-	#target-item-2:checked ~ #item-2,
-	#target-item-3:checked ~ .carousel-3,
-	#target-item-3:checked ~ #item-3,
-	#target-item-4:checked ~ .carousel-4,
-	#target-item-4:checked ~ #item-4 {
-		visibility: visible;
-	}
+  #target-item-1:checked ~ .carousel-1,
+  #target-item-1:checked ~ #item-1,
+  #target-item-2:checked ~ .carousel-2,
+  #target-item-2:checked ~ #item-2,
+  #target-item-3:checked ~ .carousel-3,
+  #target-item-3:checked ~ #item-3,
+  #target-item-4:checked ~ .carousel-4,
+  #target-item-4:checked ~ #item-4 {
+    visibility: visible;
+  }
 
-	.carousel-item img {
-		aspect-ratio: 1 / 1;
-		width: 30rem;
-		height: 30rem;
-		max-width: 90vw;
-		max-height: 90vw;
-		overflow: hidden;
-		border-radius: 4%;
-	}
+  .carousel-item img {
+    aspect-ratio: 1 / 1;
+    width: 30rem;
+    height: 30rem;
+    max-width: 90vw;
+    max-height: 90vw;
+    overflow: hidden;
+    border-radius: 4%;
+  }
 
-	.carousel-wrapper .arrow {
-		position: absolute;
-		display: grid;
-		top: 45%;
-		width: 35px;
-		height: 35px;
-		padding: 5px;
-		-webkit-tap-highlight-color: transparent;
-		background-color: var(--background-white);
-		color: var(--text-color);
-		border-radius: 50%;
-		cursor: pointer;
-		place-items: center;
-		z-index: 3;
-	}
+  .carousel-wrapper .arrow {
+    position: absolute;
+    display: grid;
+    top: 45%;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    -webkit-tap-highlight-color: transparent;
+    background-color: var(--background-white);
+    color: var(--text-color);
+    border-radius: 50%;
+    cursor: pointer;
+    place-items: center;
+    z-index: 3;
+  }
 
-	.carousel-wrapper .arrow.arrow-prev {
-		left: 10px;
-	}
-	.carousel-wrapper .arrow.arrow-next {
-		right: 10px;
-	}
+  .carousel-wrapper .arrow.arrow-prev {
+    left: 10px;
+  }
+  .carousel-wrapper .arrow.arrow-next {
+    right: 10px;
+  }
 
-	#target-item-1:checked ~ .carousel-item#item-1,
-	#target-item-2:checked ~ .carousel-item#item-2,
-	#target-item-3:checked ~ .carousel-item#item-3,
-	#target-item-4:checked ~ .carousel-item#item-4 {
-		z-index: 2;
-		visibility: visible;
-	}
+  #target-item-1:checked ~ .carousel-item#item-1,
+  #target-item-2:checked ~ .carousel-item#item-2,
+  #target-item-3:checked ~ .carousel-item#item-3,
+  #target-item-4:checked ~ .carousel-item#item-4 {
+    z-index: 2;
+    visibility: visible;
+  }
 
-	@media (max-width: 480px) {
-		.carousel-wrapper .arrow {
-			background-size: 10px;
-			background-position: 10px 50%;
-			width: 2rem;
-			height: 2rem;
-		}
+  @media (max-width: 480px) {
+    .carousel-wrapper .arrow {
+      background-size: 10px;
+      background-position: 10px 50%;
+      width: 2rem;
+      height: 2rem;
+    }
 
-		.carousel-wrapper .arrow::after {
-			width: 2rem;
-			height: 2rem;
-		}
+    .carousel-wrapper .arrow::after {
+      width: 2rem;
+      height: 2rem;
+    }
 
-		.carousel-item {
-			margin-left: auto;
-			margin-right: auto;
-		}
-	}
+    .carousel-item {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 </style>

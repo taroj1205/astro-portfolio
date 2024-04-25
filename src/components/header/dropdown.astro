@@ -8,130 +8,130 @@ const { lang } = Astro.props
 ---
 
 <ul class="dropdown">
-	<li class="dropdown-label" data-section="apps">
-		<div>
-			<CubesIcon size="1em" />
-			{lang === "en" ? "Apps" : "アプリ"}
-			<div class="indicator"><div></div></div>
-		</div>
-		<div class="content apps">
-			<DropdownContent lang={lang} section="apps" />
-		</div>
-	</li>
+  <li class="dropdown-label" data-section="apps">
+    <div>
+      <CubesIcon size="1em" />
+      {lang === "en" ? "Apps" : "アプリ"}
+      <div class="indicator"><div></div></div>
+    </div>
+    <div class="content apps">
+      <DropdownContent lang={lang} section="apps" />
+    </div>
+  </li>
 
-	<li class="dropdown-label" data-section="social">
-		<div>
-			<DropboxIcon size="1em" />
-			{lang === "en" ? "Social" : "SNS"}
-			<div class="indicator"><div></div></div>
-		</div>
-		<div class="content social">
-			<DropdownContent lang={lang} section="social" />
-		</div>
-	</li>
+  <li class="dropdown-label" data-section="social">
+    <div>
+      <DropboxIcon size="1em" />
+      {lang === "en" ? "Social" : "SNS"}
+      <div class="indicator"><div></div></div>
+    </div>
+    <div class="content social">
+      <DropdownContent lang={lang} section="social" />
+    </div>
+  </li>
 
-	<li class="dropdown-label" data-section="blog">
-		<div>
-			<BlogIcon size="1em" />
-			{lang === "en" ? "Blog" : "ブログ"}
-			<div class="indicator"><div></div></div>
-		</div>
-		<div class="content blog">
-			<DropdownContent lang={lang} section="blog" />
-		</div>
-	</li>
+  <li class="dropdown-label" data-section="blog">
+    <div>
+      <BlogIcon size="1em" />
+      {lang === "en" ? "Blog" : "ブログ"}
+      <div class="indicator"><div></div></div>
+    </div>
+    <div class="content blog">
+      <DropdownContent lang={lang} section="blog" />
+    </div>
+  </li>
 </ul>
 
 <style>
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-	.dropdown {
-		position: relative;
-		display: flex;
-		flex-direction: row;
-		gap: var(--spaces-4);
-	}
+  .dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: var(--spaces-4);
+  }
 
-	.dropdown-label {
-		position: relative;
-		cursor: pointer;
-		padding: var(--spaces-2) var(--spaces-4);
-		border-radius: 0.25rem;
-		transition: background-color 0.3s;
-		display: grid;
-		place-items: center;
-	}
+  .dropdown-label {
+    position: relative;
+    cursor: pointer;
+    padding: var(--spaces-2) var(--spaces-4);
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+    display: grid;
+    place-items: center;
+  }
 
-	.dropdown-label:hover {
-		background-color: var(--button-hover-background);
-	}
+  .dropdown-label:hover {
+    background-color: var(--button-hover-background);
+  }
 
-	.content {
-		visibility: hidden;
-		position: absolute;
-		opacity: 0;
-		transition:
-			opacity 0.5s ease-in-out,
-			visibility 0s linear 0.5s;
-		top: 2.7rem;
-	}
+  .content {
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    transition:
+      opacity 0.5s ease-in-out,
+      visibility 0s linear 0.5s;
+    top: 2.7rem;
+  }
 
-	.dropdown-label:hover .content {
-		visibility: visible;
-		opacity: 1;
-		transition-delay: 0s;
-	}
+  .dropdown-label:hover .content {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
 
-	.dropdown-label div {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: var(--spaces-2);
-	}
+  .dropdown-label div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spaces-2);
+  }
 
-	.indicator {
-		display: grid;
-		place-items: center;
-		margin-top: 1px;
-	}
+  .indicator {
+    display: grid;
+    place-items: center;
+    margin-top: 1px;
+  }
 
-	.indicator div {
-		position: relative;
-		width: 0.5rem;
-		height: 0.5rem;
-		transform: rotate(90deg) scale(0.7);
-	}
+  .indicator div {
+    position: relative;
+    width: 0.5rem;
+    height: 0.5rem;
+    transform: rotate(90deg) scale(0.7);
+  }
 
-	.indicator div::before {
-		content: "";
-		position: absolute;
-		right: 0;
-		width: 10px;
-		height: 2px;
-		background-color: var(--text-color);
-		transition: transform 0.3s ease-in-out;
-		transform: translateY(-3px) rotate(45deg);
-	}
-	.indicator div::after {
-		content: "";
-		position: absolute;
-		right: 0;
-		width: 10px;
-		height: 2px;
-		background-color: var(--text-color);
-		transition: transform 0.3s ease-in-out;
-		transform: translateY(3px) rotate(-45deg);
-	}
+  .indicator div::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 10px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-3px) rotate(45deg);
+  }
+  .indicator div::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 10px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(3px) rotate(-45deg);
+  }
 
-	.dropdown-label:hover .indicator div::before {
-		transform: translateY(-3px) rotate(-45deg);
-	}
+  .dropdown-label:hover .indicator div::before {
+    transform: translateY(-3px) rotate(-45deg);
+  }
 
-	.dropdown-label:hover .indicator div::after {
-		transform: translateY(3px) rotate(45deg);
-	}
+  .dropdown-label:hover .indicator div::after {
+    transform: translateY(3px) rotate(45deg);
+  }
 </style>

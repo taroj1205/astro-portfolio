@@ -3,54 +3,54 @@ const { text, tooltip, float } = Astro.props
 ---
 
 <div class="tooltip">
-	{text}
-	<span class={`tooltiptext ${float === "right" ? "float-right" : ""}`}
-		>{tooltip}</span
-	>
+  {text}
+  <span class={`tooltiptext ${float === "right" ? "float-right" : ""}`}
+    >{tooltip}</span
+  >
 </div>
 
 <style>
-	.tooltip {
-		position: relative;
-		display: inline-block;
-		border-bottom: 1px dotted black;
-		cursor: pointer;
-	}
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    cursor: pointer;
+  }
 
-	.tooltip .tooltiptext {
-		visibility: hidden;
-		min-width: 120px;
-		max-width: 240px;
-		background-color: black;
-		color: #fff;
-		text-align: center;
-		border-radius: 6px;
-		padding: 5px 0;
-		white-space: nowrap;
-		word-wrap: break-word;
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    min-width: 120px;
+    max-width: 240px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    white-space: nowrap;
+    word-wrap: break-word;
 
-		position: absolute;
-		z-index: 1;
-		bottom: 100%;
-		left: 50%;
-		transform: translateX(-50%);
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 
-		opacity: 0;
-		transition: opacity 0.3s;
-	}
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
 
-	.tooltip:hover .tooltiptext {
-		visibility: visible;
-		opacity: 1;
-		white-space: normal;
-		padding-left: 0.5rem;
-		padding-right: 0.5rem;
-	}
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    white-space: normal;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 
-	.tooltip .tooltiptext.float-right {
-		left: 100%;
-		margin-left: 10px;
-		transform: translate(0, 50%);
-		width: max-content;
-	}
+  .tooltip .tooltiptext.float-right {
+    left: 100%;
+    margin-left: 10px;
+    transform: translate(0, 50%);
+    width: max-content;
+  }
 </style>

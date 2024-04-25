@@ -1,5 +1,5 @@
-import fs from "fs"
-import path from "path"
+import fs from "node:fs"
+import path from "node:path"
 
 const techs = [
   "nextjs",
@@ -25,20 +25,17 @@ const cssRules = techs
   )
   .join("")
 
-const mediaPrefersReducedMotion =
-  "@media (prefers-reduced-motion: reduce) {" +
-  techs
-    .map(
-      (tech) => `
+const mediaPrefersReducedMotion = `@media (prefers-reduced-motion: reduce) {${techs
+  .map(
+    (tech) => `
   .projects-view-container:has(input[value="${tech}"]:checked)
 + .projects-container
 .project-card.${tech} {
   animation: none;
   display: flex;
 }`,
-    )
-    .join("") +
-  "}"
+  )
+  .join("")}}`
 
 // Path to the CSS file
 const cssFilePath = path.join(
