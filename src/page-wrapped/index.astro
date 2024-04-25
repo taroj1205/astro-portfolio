@@ -10,16 +10,16 @@ import Programming from "../components/programming/index.astro"
 import Projects from "../components/projects/index.astro"
 
 interface Props {
-	lang: "en" | "ja"
+  lang: "en" | "ja"
 }
 
 const { lang } = Astro.props
 const { metadata } = getTranslations(lang)
 
 export const getStaticPaths = () => {
-	return Object.keys(languages).map((lang) => ({
-		params: { lang },
-	}))
+  return Object.keys(languages).map((lang) => ({
+    params: { lang },
+  }))
 }
 ---
 

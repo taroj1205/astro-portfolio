@@ -9,9 +9,9 @@ const { lang } = Astro.props
 const { heading } = getTranslations(lang)
 const projects = projectsArray(lang)
 const techs = [
-	...new Set(
-		projects.flatMap((project) => [project.framework, project.lang]).flat(),
-	),
+  ...new Set(
+    projects.flatMap((project) => [project.framework, project.lang]).flat(),
+  ),
 ]
 ---
 
