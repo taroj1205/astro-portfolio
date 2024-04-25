@@ -3,56 +3,56 @@ const { lang } = Astro.props
 ---
 
 <h1 class="title">
-	{
-		lang === "en" && (
-			<span class="greeting">
-				Hi👋 I'm <span class="name">Shintaro Jokagi.</span>
-			</span>
-		)
-	}
-	{
-		lang === "ja" && (
-			<>
-				<span class="greeting-ja">こんにちは👋 </span>
-				<ruby class="name-ja">
-					上鍵<rp>(</rp>
-					<rt>じょうかぎ</rt>
-					<rp>)</rp>心太朗<rp>(</rp>
-					<rt>しんたろう</rt>
-					<rp>)</rp>
-				</ruby>
-				<span class="suffix-ja">です。</span>
-			</>
-		)
-	}
+  {
+    lang === "en" && (
+      <span class="greeting">
+        Hi👋 I'm <span class="name">Shintaro Jokagi.</span>
+      </span>
+    )
+  }
+  {
+    lang === "ja" && (
+      <>
+        <span class="greeting-ja">こんにちは👋 </span>
+        <ruby class="name-ja">
+          上鍵<rp>(</rp>
+          <rt>じょうかぎ</rt>
+          <rp>)</rp>心太朗<rp>(</rp>
+          <rt>しんたろう</rt>
+          <rp>)</rp>
+        </ruby>
+        <span class="suffix-ja">です。</span>
+      </>
+    )
+  }
 </h1>
 
 <style>
-	.title {
-		text-align: center;
-		font-size: var(--fontSizes-4xl);
-		overflow-wrap: break-word;
-		margin: var(--spaces-2) 0;
-	}
+  .title {
+    text-align: center;
+    font-size: var(--fontSizes-4xl);
+    overflow-wrap: break-word;
+    margin: var(--spaces-2) 0;
+  }
 
-	.greeting,
-	.greeting-ja {
-		text-wrap: balance;
-	}
+  .greeting,
+  .greeting-ja {
+    text-wrap: balance;
+  }
 
-	.name {
-		text-wrap: nowrap;
-		font-size: var(--fontSizes-5xl);
-		margin-left: auto;
-		margin-right: auto;
-	}
+  .name {
+    text-wrap: nowrap;
+    font-size: var(--fontSizes-5xl);
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-	.name-ja {
-		font-size: var(--fontSizes-5xl);
-		text-wrap: nowrap;
-	}
+  .name-ja {
+    font-size: var(--fontSizes-5xl);
+    text-wrap: nowrap;
+  }
 
-	.suffix-ja {
-		text-wrap: nowrap;
-	}
+  .suffix-ja {
+    text-wrap: nowrap;
+  }
 </style>

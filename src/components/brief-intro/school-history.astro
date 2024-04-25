@@ -8,108 +8,108 @@ const { education } = getTranslations(lang)
 ---
 
 <div class="vstack">
-	<table class="education-table">
-		<thead>
-			<tr class="table-header">
-				<th class="table-header-cell table-header-cell--left">
-					{education.headings.period}
-				</th>
-				<th class="table-header-cell">
-					{education.headings.schoolName}
-				</th>
-				<th class="table-header-cell table-header-cell--right">
-					{education.headings.location}
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			{
-				education.schools.map((school, index) => (
-					<tr
-						class={`table-row ${index % 2 === 0 ? "table-row--even" : "table-row--odd"}`}>
-						<td
-							class={`table-cell ${index === education.schools.length - 1 ? "table-cell--bottom-left" : ""}`}>
-							<Tooltip
-								text={school.duration}
-								tooltip={`${school.start} - ${school.end}`}
-								float="right"
-							/>
-						</td>
-						<td class="table-cell">
-							<Tooltip text={school.name} tooltip={school.grade} />
-						</td>
-						<td
-							class={`table-cell ${index === education.schools.length - 1 ? "table-cell--bottom-right" : ""}`}>
-							<Tooltip
-								text={school.location.country}
-								tooltip={school.location.region}
-							/>
-						</td>
-					</tr>
-				))
-			}
-		</tbody>
-	</table>
+  <table class="education-table">
+    <thead>
+      <tr class="table-header">
+        <th class="table-header-cell table-header-cell--left">
+          {education.headings.period}
+        </th>
+        <th class="table-header-cell">
+          {education.headings.schoolName}
+        </th>
+        <th class="table-header-cell table-header-cell--right">
+          {education.headings.location}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        education.schools.map((school, index) => (
+          <tr
+            class={`table-row ${index % 2 === 0 ? "table-row--even" : "table-row--odd"}`}>
+            <td
+              class={`table-cell ${index === education.schools.length - 1 ? "table-cell--bottom-left" : ""}`}>
+              <Tooltip
+                text={school.duration}
+                tooltip={`${school.start} - ${school.end}`}
+                float="right"
+              />
+            </td>
+            <td class="table-cell">
+              <Tooltip text={school.name} tooltip={school.grade} />
+            </td>
+            <td
+              class={`table-cell ${index === education.schools.length - 1 ? "table-cell--bottom-right" : ""}`}>
+              <Tooltip
+                text={school.location.country}
+                tooltip={school.location.region}
+              />
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
 </div>
 
 <style>
-	.vstack {
-		overflow-x: auto;
-		max-width: min(50rem, 80vw);
-	}
+  .vstack {
+    overflow-x: auto;
+    max-width: min(50rem, 80vw);
+  }
 
-	.education-table {
-		table-layout: auto;
-		white-space: nowrap;
-		border-radius: 0.5rem;
-		border-collapse: collapse;
-		margin: 0.5rem;
-		table-layout: fixed;
-	}
+  .education-table {
+    table-layout: auto;
+    white-space: nowrap;
+    border-radius: 0.5rem;
+    border-collapse: collapse;
+    margin: 0.5rem;
+    table-layout: fixed;
+  }
 
-	@media screen and (max-width: 768px) {
-		.education-table {
-			margin: 0;
-		}
-	}
+  @media screen and (max-width: 768px) {
+    .education-table {
+      margin: 0;
+    }
+  }
 
-	.table-header {
-		background-color: var(--table-head);
-		padding: 1rem;
-	}
+  .table-header {
+    background-color: var(--table-head);
+    padding: 1rem;
+  }
 
-	.table-header-cell {
-		padding: 0.7rem 1rem;
-		font-size: 1rem;
-	}
+  .table-header-cell {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+  }
 
-	.table-header-cell--left {
-		border-top-left-radius: 0.5rem;
-	}
+  .table-header-cell--left {
+    border-top-left-radius: 0.5rem;
+  }
 
-	.table-header-cell--right {
-		border-top-right-radius: 0.5rem;
-	}
+  .table-header-cell--right {
+    border-top-right-radius: 0.5rem;
+  }
 
-	.table-row--even {
-		background-color: var(--table-row-even-bg);
-	}
+  .table-row--even {
+    background-color: var(--table-row-even-bg);
+  }
 
-	.table-row--odd {
-		background-color: var(--table-row-odd-bg);
-	}
+  .table-row--odd {
+    background-color: var(--table-row-odd-bg);
+  }
 
-	.table-cell {
-		padding: 0.5rem 1rem;
-		vertical-align: middle;
-		font-size: 1rem;
-	}
+  .table-cell {
+    padding: 0.5rem 1rem;
+    vertical-align: middle;
+    font-size: 1rem;
+  }
 
-	.table-cell--bottom-left {
-		border-bottom-left-radius: 0.5rem;
-	}
+  .table-cell--bottom-left {
+    border-bottom-left-radius: 0.5rem;
+  }
 
-	.table-cell--bottom-right {
-		border-bottom-right-radius: 0.5rem;
-	}
+  .table-cell--bottom-right {
+    border-bottom-right-radius: 0.5rem;
+  }
 </style>

@@ -13,7 +13,7 @@ export const translations = {
     sitemap: "サイトマップ",
     blog: "ブログ",
     scrollToTop: "トップへスクロール",
-    lang: "English"
+    lang: "English",
   },
   header: {
     about: "僕について",
@@ -353,5 +353,5 @@ export const translations = {
   notFound: {
     title: "ページが見つかりません",
     goBack: "ホームに戻る",
-  }
+  },
 }

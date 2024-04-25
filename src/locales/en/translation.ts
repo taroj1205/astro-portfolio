@@ -13,7 +13,7 @@ export const translations = {
     sitemap: "Sitemap",
     blog: "Blog",
     scrollToTop: "Scroll to Top",
-    lang: "日本語"
+    lang: "日本語",
   },
   header: {
     about: "About",
@@ -350,7 +350,7 @@ export const translations = {
   notFound: {
     title: "Page not found",
     goBack: "Go back to Home",
-  }
+  },
 }
 
 export type Translation = typeof translations

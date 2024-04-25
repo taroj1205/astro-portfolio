@@ -9,151 +9,151 @@ const lang = project.lang.join(" / ")
 ---
 
 <div
-	class={`project-card ${project.framework.join(" ").toLowerCase().replace(/\./g, "")} ${project.lang.join(" ").toLowerCase().replace(/\./g, "").replace(/#/g, "s")}`}>
-	<div>
-		<Image
-			src={project.thumbnail}
-			alt={project.description}
-			height="350"
-			sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
-			loading="lazy"
-		/>
-	</div>
-	<div>
-		<a href={project.link} target="_blank" rel="noopener noreferrer">
-			{project.title}
-		</a>
-		<p class="card-description">{project.description}</p>
-	</div>
-	<hr />
-	<div class="card-footer">
-		<div>
-			<p>{lang}</p>
-			<hr class="vertical" />
-			<p>{framework}</p>
-		</div>
-		<a
-			href={project.githubLink}
-			target="_blank"
-			rel="noopener noreferrer"
-			title="GitHub">
-			<GithubIcon />
-		</a>
-	</div>
+  class={`project-card ${project.framework.join(" ").toLowerCase().replace(/\./g, "")} ${project.lang.join(" ").toLowerCase().replace(/\./g, "").replace(/#/g, "s")}`}>
+  <div>
+    <Image
+      src={project.thumbnail}
+      alt={project.description}
+      height="350"
+      sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
+      loading="lazy"
+    />
+  </div>
+  <div>
+    <a href={project.link} target="_blank" rel="noopener noreferrer">
+      {project.title}
+    </a>
+    <p class="card-description">{project.description}</p>
+  </div>
+  <hr />
+  <div class="card-footer">
+    <div>
+      <p>{lang}</p>
+      <hr class="vertical" />
+      <p>{framework}</p>
+    </div>
+    <a
+      href={project.githubLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      title="GitHub">
+      <GithubIcon />
+    </a>
+  </div>
 </div>
 
 <style>
-	.project-card {
-		background-color: var(--black-color);
-		max-width: 400px;
-		flex-direction: column;
-		border-radius: 8px;
-		overflow: hidden;
-		flex: 1 1 auto;
-		margin-left: auto;
-		margin-right: auto;
-	}
+  .project-card {
+    background-color: var(--black-color);
+    max-width: 400px;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spaces-4);
+  }
 
-	.project-card > div:nth-child(2) {
-		flex-grow: 1;
-		display: flex;
-		flex-direction: column;
-	}
+  .project-card > div:nth-child(2) {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
 
-	.project-card div > :is(div:first-child, img) {
-		max-height: 15rem;
-		overflow: hidden;
-		padding: 0;
-	}
+  .project-card div > :is(div:first-child, img) {
+    max-height: 15rem;
+    overflow: hidden;
+    padding: 0;
+  }
 
-	.project-card img {
-		height: 100%;
-		width: 100%;
-		object-fit: cover;
-		object-position: center;
-	}
+  .project-card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 
-	div > :is(div:nth-child(2), a) {
-		padding: 8px;
-	}
+  div > :is(div:nth-child(2), a) {
+    padding: 8px;
+  }
 
-	div > p.card-description {
-		padding-top: 8px;
-		padding-bottom: 8px;
-	}
+  div > p.card-description {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 
-	a {
-		font-size: 1.25rem;
-		color: var(--link-color);
-		text-decoration: none;
-	}
-	a:hover {
-		text-decoration: underline;
-	}
+  a {
+    font-size: 1.25rem;
+    color: var(--link-color);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 
-	p {
-		font-size: 1rem;
-	}
+  p {
+    font-size: 1rem;
+  }
 
-	.project-card > div:last-child {
-		max-height: 2rem;
-		padding: 8px;
-		display: flex;
-		align-items: center;
-		background-color: var(--card-footer-bg);
-	}
+  .project-card > div:last-child {
+    max-height: 2rem;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    background-color: var(--card-footer-bg);
+  }
 
-	.project-card p:first-of-type,
-	.project-card p:last-of-type {
-		font-size: 0.875rem;
-		margin: 0 8px;
-	}
+  .project-card p:first-of-type,
+  .project-card p:last-of-type {
+    font-size: 0.875rem;
+    margin: 0 8px;
+  }
 
-	.project-card a[title="GitHub"] {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 1.5rem;
-		height: 1.5rem;
-		margin: 0;
-		color: var(--text-color);
-		font-size: var(--fontSizes-md);
-		border-radius: 0.25rem;
-		transition: background-color 0.2s ease-in-out;
-	}
+  .project-card a[title="GitHub"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+    color: var(--text-color);
+    font-size: var(--fontSizes-md);
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease-in-out;
+  }
 
-	.project-card a[title="GitHub"]:hover {
-		background-color: var(--button-hover-background);
-	}
+  .project-card a[title="GitHub"]:hover {
+    background-color: var(--button-hover-background);
+  }
 
-	hr {
-		margin: 0;
-	}
+  hr {
+    margin: 0;
+  }
 
-	hr:not(.vertical) {
-		border: 0px;
-		border-style: solid;
-		border-color: var(--line-color);
-		border-bottom-width: 1px;
-		width: 100%;
-	}
+  hr:not(.vertical) {
+    border: 0px;
+    border-style: solid;
+    border-color: var(--line-color);
+    border-bottom-width: 1px;
+    width: 100%;
+  }
 
-	hr.vertical {
-		border: none;
-		border-left: 1px solid var(--line-color);
-		height: 1.5rem;
-		width: 1px;
-	}
+  hr.vertical {
+    border: none;
+    border-left: 1px solid var(--line-color);
+    height: 1.5rem;
+    width: 1px;
+  }
 
-	.card-footer {
-		display: flex;
-		justify-content: space-between;
-		flex-direction: row;
-	}
-	.card-footer div {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: row;
-	}
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .card-footer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
 </style>

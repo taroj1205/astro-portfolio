@@ -6,8 +6,8 @@ import { getLangFromUrl, getTranslations } from "../i18n/utils"
 import { SEOMetadata } from "astro-seo-metadata"
 
 interface Props {
-	title: string
-	description: string
+  title: string
+  description: string
 }
 
 const { title, description } = Astro.props
@@ -18,326 +18,325 @@ const url = Astro.site
 
 <!doctype html>
 <html lang={lang}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="theme-color" content="#005A9C" />
-		<SEOMetadata
-			siteName={metadata.title}
-			title={metadata.title}
-			description={metadata.description}
-			image={url + "header/opengraph-image.png"}
-			favicon={url + "favicon.ico"}
-			author="Shintaro Jokagi"
-			astroSitemap={true}
-			canonicalUrl={String(url)}
-			type="website"
-			astroGenerator={true}
-		/>
-		<title>{title}</title>
-	</head>
-	<body>
-		<Header lang={lang} />
-		<main><slot /></main>
-		<div class="footer">
-			<SectionDivider />
-			<Footer lang={lang} />
-		</div>
-		<style is:global>
-			:root {
-				--spaces-1: 0.25rem;
-				--spaces-2: 0.5rem;
-				--spaces-4: 1rem;
-				--overlay-z-index: 99;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#005A9C" />
+    <SEOMetadata
+      siteName={metadata.title}
+      title={metadata.title}
+      description={metadata.description}
+      image={url + "header/opengraph-image.png"}
+      favicon={url + "favicon.ico"}
+      author="Shintaro Jokagi"
+      astroSitemap={true}
+      canonicalUrl={String(url)}
+      type="website"
+      astroGenerator={true}
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header lang={lang} />
+    <main><slot /></main>
+    <div class="footer">
+      <SectionDivider />
+      <Footer lang={lang} />
+    </div>
+    <style is:global>
+      :root {
+        --spaces-1: 0.25rem;
+        --spaces-2: 0.5rem;
+        --spaces-4: 1rem;
+        --overlay-z-index: 99;
 
-				--text-4xl: 2.25rem;
-				--text-5xl: 3rem;
-				--text-3xl: 1.75rem;
-				--text-2xl: 1.5rem;
-				--fontSizes-2xs: 0.625rem;
-				--fontSizes-xs: 0.75rem;
-				--fontSizes-sm: 0.875rem;
-				--fontSizes-md: 1rem;
-				--fontSizes-lg: 1.125rem;
-				--fontSizes-xl: 1.25rem;
-				--fontSizes-2xl: 1.5rem;
-				--fontSizes-3xl: 1.875rem;
-				--fontSizes-4xl: 2rem;
-				--fontSizes-5xl: 2.25rem;
-				--fontSizes-6xl: 3rem;
-				--fontSizes-7xl: 3.75rem;
-				--fontSizes-8xl: 4.5rem;
-				--fontSizes-9xl: 6rem;
+        --text-4xl: 2.25rem;
+        --text-5xl: 3rem;
+        --text-3xl: 1.75rem;
+        --text-2xl: 1.5rem;
+        --fontSizes-2xs: 0.625rem;
+        --fontSizes-xs: 0.75rem;
+        --fontSizes-sm: 0.875rem;
+        --fontSizes-md: 1rem;
+        --fontSizes-lg: 1.125rem;
+        --fontSizes-xl: 1.25rem;
+        --fontSizes-2xl: 1.5rem;
+        --fontSizes-3xl: 1.875rem;
+        --fontSizes-4xl: 2rem;
+        --fontSizes-5xl: 2.25rem;
+        --fontSizes-6xl: 3rem;
+        --fontSizes-7xl: 3.75rem;
+        --fontSizes-8xl: 4.5rem;
+        --fontSizes-9xl: 6rem;
 
-				/* Link Colors */
-				--hatena-blog-color: hsl(210, 90%, 30%);
-				--note-link-color: hsl(30, 90%, 30%);
-				--chat-app-link-color: hsl(90, 90%, 30%);
-				--connect4-link-color: hsl(180, 90%, 30%);
-				--typing-game-link-color: hsl(270, 90%, 30%);
-				--search-app-link-color: hsl(60, 90%, 30%);
-				--uoa-links-link-color: hsl(300, 90%, 30%);
-				--analytics-link-color: hsl(0, 90%, 30%);
-				--twitter-color: hsl(190, 90%, 30%);
-				--github-color: var(--text-color);
-				--instagram-color: hsl(330, 90%, 30%);
-				--youtube-color: hsl(0, 90%, 40%);
-				--linkedin-color: hsl(210, 70%, 25%);
-				--facebook-color: hsl(240, 90%, 50%);
+        /* Link Colors */
+        --hatena-blog-color: hsl(210, 90%, 30%);
+        --note-link-color: hsl(30, 90%, 30%);
+        --chat-app-link-color: hsl(90, 90%, 30%);
+        --connect4-link-color: hsl(180, 90%, 30%);
+        --typing-game-link-color: hsl(270, 90%, 30%);
+        --search-app-link-color: hsl(60, 90%, 30%);
+        --uoa-links-link-color: hsl(300, 90%, 30%);
+        --analytics-link-color: hsl(0, 90%, 30%);
+        --twitter-color: hsl(190, 90%, 30%);
+        --github-color: var(--light-text-color);
+        --instagram-color: hsl(330, 90%, 30%);
+        --youtube-color: hsl(0, 90%, 40%);
+        --linkedin-color: hsl(210, 70%, 25%);
+        --facebook-color: hsl(240, 90%, 50%);
 
-				/* light mode */
-				--light-background-white: hsl(210, 33%, 98%);
-				--light-background-black: hsl(0, 0%, 8%);
-				--light-black-color: hsl(210, 33%, 98%);
+        /* light mode */
+        --light-background-white: hsl(210, 33%, 98%);
+        --light-background-black: hsl(0, 0%, 8%);
+        --light-black-color: hsl(210, 33%, 98%);
 
-				--light-link-color: hsl(212, 100%, 40%);
-				--light-accent-color: hsl(16, 100%, 40%);
-				--light-text-color: hsl(0, 0%, 8%);
-				--light-text-white: hsl(0, 0%, 98%);
-				--light-h2-color: hsl(0, 0%, 5%);
-				--light-h3-color: hsl(0, 0%, 6%);
-				--light-h4-color: hsl(0, 0%, 7%);
-				--light-gray-color: hsl(0, 0%, 20%);
-				--light-button-hover-background: hsl(300, 8.17%, 88.04%);
-				--light-overlay-background-color: rgba(255, 255, 255, 0.9);
-				--light-overlay-button-background-color: hsl(30, 100%, 98%);
-				--light-overlay-button-hover-color: hsl(210, 50%, 80%);
-				--light-overlay-button-text-color: hsl(210, 20%, 20%);
-				--light-table-row-even-bg: hsl(210, 66%, 97%);
-				--light-table-row-odd-bg: hsl(216, 33%, 94%);
-				--light-table-head: hsl(180, 100%, 75%);
-				--light-card-bg: #f0f4f8;
-				--light-card-border: #ccc;
-				--light-card-footer-bg: hsl(210, 20%, 94%);
-				--light-line-color: hsl(0, 3%, 87%);
+        --light-link-color: hsl(212, 100%, 40%);
+        --light-accent-color: hsl(16, 100%, 40%);
+        --light-text-color: hsl(0, 0%, 8%);
+        --light-text-white: hsl(0, 0%, 98%);
+        --light-h2-color: hsl(0, 0%, 5%);
+        --light-h3-color: hsl(0, 0%, 6%);
+        --light-h4-color: hsl(0, 0%, 7%);
+        --light-gray-color: hsl(0, 0%, 20%);
+        --light-button-hover-background: hsl(300, 8.17%, 88.04%);
+        --light-overlay-background-color: rgba(255, 255, 255, 0.9);
+        --light-overlay-button-background-color: hsl(30, 100%, 98%);
+        --light-overlay-button-hover-color: hsl(210, 50%, 80%);
+        --light-overlay-button-text-color: hsl(210, 20%, 20%);
+        --light-table-row-even-bg: hsl(210, 66%, 97%);
+        --light-table-row-odd-bg: hsl(216, 33%, 94%);
+        --light-table-head: hsl(180, 100%, 75%);
+        --light-card-bg: #f0f4f8;
+        --light-card-border: #ccc;
+        --light-card-footer-bg: hsl(210, 20%, 94%);
+        --light-line-color: hsl(0, 3%, 87%);
 
-				--light-section-divider: hsl(220, 8%, 75%);
-				--light-content-divider: hsl(213, 9%, 46%);
+        --light-section-divider: hsl(220, 8%, 75%);
+        --light-content-divider: hsl(213, 9%, 46%);
 
-				/* dark mode */
-				--dark-background-white: hsl(0, 0%, 8%);
-				--dark-background-black: hsl(0, 0%, 92%);
-				--dark-black-color: hsl(200, 13%, 5%);
+        /* dark mode */
+        --dark-background-white: hsl(0, 0%, 8%);
+        --dark-background-black: hsl(0, 0%, 92%);
+        --dark-black-color: hsl(200, 13%, 5%);
 
-				--dark-link-color: hsl(212, 100%, 60%);
-				--dark-accent-color: hsl(16, 100%, 60%);
-				--dark-text-color: hsl(0, 0%, 98%);
-				--dark-text-white: hsl(0, 0%, 8%);
-				--dark-h2-color: hsl(0, 0%, 95%);
-				--dark-h3-color: hsl(0, 0%, 94%);
-				--dark-h4-color: hsl(0, 0%, 93%);
-				--dark-gray-color: hsl(0, 0%, 60%);
-				--dark-button-hover-background: hsl(0, 0%, 20%);
-				--dark-overlay-background-color: rgba(0, 0, 0, 0.95);
-				--dark-overlay-button-background-color: hsl(0, 0%, 8%);
-				--dark-overlay-button-hover-color: hsl(210, 25%, 45%);
-				--dark-overlay-button-text-color: hsl(0, 0%, 98%);
-				--dark-table-row-even-bg: hsl(210, 30%, 15%);
-				--dark-table-row-odd-bg: hsl(216, 25%, 20%);
-				--dark-table-head: hsl(180, 100%, 20%);
-				--dark-card-bg: hsl(0, 0%, 8%);
-				--dark-card-border: hsl(0, 0%, 28%);
-				--dark-card-footer-bg: hsl(0, 0%, 10%);
-				--dark-line-color: hsl(0, 0%, 25%);
+        --dark-link-color: hsl(212, 100%, 60%);
+        --dark-accent-color: hsl(16, 100%, 60%);
+        --dark-text-color: hsl(0, 0%, 98%);
+        --dark-text-white: hsl(0, 0%, 8%);
+        --dark-h2-color: hsl(0, 0%, 95%);
+        --dark-h3-color: hsl(0, 0%, 94%);
+        --dark-h4-color: hsl(0, 0%, 93%);
+        --dark-gray-color: hsl(0, 0%, 60%);
+        --dark-button-hover-background: hsl(0, 0%, 20%);
+        --dark-overlay-background-color: rgba(0, 0, 0, 0.95);
+        --dark-overlay-button-background-color: hsl(0, 0%, 8%);
+        --dark-overlay-button-hover-color: hsl(210, 25%, 45%);
+        --dark-overlay-button-text-color: hsl(0, 0%, 98%);
+        --dark-table-row-even-bg: hsl(210, 30%, 15%);
+        --dark-table-row-odd-bg: hsl(216, 25%, 20%);
+        --dark-table-head: hsl(180, 100%, 20%);
+        --dark-card-bg: hsl(0, 0%, 8%);
+        --dark-card-border: hsl(0, 0%, 28%);
+        --dark-card-footer-bg: hsl(0, 0%, 10%);
+        --dark-line-color: hsl(0, 0%, 25%);
 
-				--dark-section-divider: hsl(220, 8%, 30%);
-				--dark-content-divider: hsl(213, 9%, 26%);
+        --dark-section-divider: hsl(220, 8%, 30%);
+        --dark-content-divider: hsl(213, 9%, 26%);
 
-				--background-white: var(--light-background-white);
-				--background-black: var(--light-background-black);
-				--link-color: var(--light-link-color);
-				--accent-color: var(--light-accent-color);
-				--text-color: var(--light-text-color);
-				--text-white: var(--light-text-white);
-				--h2-color: var(--light-h2-color);
-				--h3-color: var(--light-h3-color);
-				--h4-color: var(--light-h4-color);
-				--gray-color: var(--light-gray-color);
-				--black-color: var(--light-black-color);
-				--button-hover-background: var(--light-button-hover-background);
-				--overlay-background-color: var(--light-overlay-background-color);
-				--overlay-button-background-color: var(
-					--light-overlay-button-background-color
-				);
-				--overlay-button-hover-color: var(--light-overlay-button-text-color);
-				--overlay-button-text-color: var(--light-overlay-button-text-color);
-				--overlay-button-hover-color: var(--light-overlay-button-hover-color);
-				--table-row-even-bg: var(--light-table-row-even-bg);
-				--table-row-odd-bg: var(--light-table-row-odd-bg);
-				--table-head: var(--light-table-head);
-				--card-bg: var(--light-card-bg);
-				--card-border: var(--light-card-border);
-				--card-footer-bg: var(--light-card-footer-bg);
-				--line-color: var(--light-line-color);
+        --background-white: var(--light-background-white);
+        --background-black: var(--light-background-black);
+        --link-color: var(--light-link-color);
+        --accent-color: var(--light-accent-color);
+        --text-color: var(--light-text-color);
+        --text-white: var(--light-text-white);
+        --h2-color: var(--light-h2-color);
+        --h3-color: var(--light-h3-color);
+        --h4-color: var(--light-h4-color);
+        --gray-color: var(--light-gray-color);
+        --black-color: var(--light-black-color);
+        --button-hover-background: var(--light-button-hover-background);
+        --overlay-background-color: var(--light-overlay-background-color);
+        --overlay-button-background-color: var(
+          --light-overlay-button-background-color
+        );
+        --overlay-button-hover-color: var(--light-overlay-button-text-color);
+        --overlay-button-text-color: var(--light-overlay-button-text-color);
+        --overlay-button-hover-color: var(--light-overlay-button-hover-color);
+        --table-row-even-bg: var(--light-table-row-even-bg);
+        --table-row-odd-bg: var(--light-table-row-odd-bg);
+        --table-head: var(--light-table-head);
+        --card-bg: var(--light-card-bg);
+        --card-border: var(--light-card-border);
+        --card-footer-bg: var(--light-card-footer-bg);
+        --line-color: var(--light-line-color);
 
-				--section-divider: var(--light-section-divider);
-				--content-divider: var(--light-content-divider);
-			}
+        --section-divider: var(--light-section-divider);
+        --content-divider: var(--light-content-divider);
+      }
 
-			@media (prefers-color-scheme: dark) {
-				:root {
-					--background-white: var(--dark-background-white);
-					--background-black: var(--dark-background-black);
-					--link-color: var(--dark-link-color);
-					--accent-color: var(--dark-accent-color);
-					--text-color: var(--dark-text-color);
-					--text-white: var(--dark-text-white);
-					--h2-color: var(--dark-h2-color);
-					--h3-color: var(--dark-h3-color);
-					--h4-color: var(--dark-h4-color);
-					--gray-color: var(--dark-gray-color);
-					--black-color: var(--dark-black-color);
-					--button-hover-background: var(--dark-button-hover-background);
-					--overlay-background-color: var(--dark-overlay-background-color);
-					--overlay-button-background-color: var(
-						--dark-overlay-button-background-color
-					);
-					--overlay-button-text-color: var(--dark-overlay-button-text-color);
-					--overlay-button-hover-color: var(--dark-overlay-button-hover-color);
-					--table-row-even-bg: var(--dark-table-row-even-bg);
-					--table-row-odd-bg: var(--dark-table-row-odd-bg);
-					--table-head: var(--dark-table-head);
-					--card-bg: var(--dark-card-bg);
-					--card-border: var(--dark-card-border);
-					--card-footer-bg: var(--dark-card-footer-bg);
-					--line-color: var(--dark-line-color);
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --background-white: var(--dark-background-white);
+          --background-black: var(--dark-background-black);
+          --link-color: var(--dark-link-color);
+          --accent-color: var(--dark-accent-color);
+          --text-color: var(--dark-text-color);
+          --text-white: var(--dark-text-white);
+          --h2-color: var(--dark-h2-color);
+          --h3-color: var(--dark-h3-color);
+          --h4-color: var(--dark-h4-color);
+          --gray-color: var(--dark-gray-color);
+          --black-color: var(--dark-black-color);
+          --button-hover-background: var(--dark-button-hover-background);
+          --overlay-background-color: var(--dark-overlay-background-color);
+          --overlay-button-background-color: var(
+            --dark-overlay-button-background-color
+          );
+          --overlay-button-text-color: var(--dark-overlay-button-text-color);
+          --overlay-button-hover-color: var(--dark-overlay-button-hover-color);
+          --table-row-even-bg: var(--dark-table-row-even-bg);
+          --table-row-odd-bg: var(--dark-table-row-odd-bg);
+          --table-head: var(--dark-table-head);
+          --card-bg: var(--dark-card-bg);
+          --card-border: var(--dark-card-border);
+          --card-footer-bg: var(--dark-card-footer-bg);
+          --line-color: var(--dark-line-color);
 
-					--section-divider: var(--dark-section-divider);
-					--content-divider: var(--dark-content-divider);
-				}
-			}
+          --section-divider: var(--dark-section-divider);
+          --content-divider: var(--dark-content-divider);
+        }
+      }
 
-			html {
-				scroll-behavior: smooth;
-			}
+      html {
+        scroll-behavior: smooth;
+      }
 
-			@media (prefers-reduced-motion: reduce) {
-				html {
-					scroll-behavior: auto;
-				}
-			}
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
 
-			body {
-				color: var(--text-color);
-				background-color: var(--background-white);
-				font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans";
-				margin: 0;
-				min-height: 100svh;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-			}
+      body {
+        color: var(--text-color);
+        background-color: var(--background-white);
+        font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans";
+        margin: 0;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
 
-			body:not(:has(#uncheck:checked)) {
-				overflow: hidden;
-			}
+      body:not(:has(#uncheck:checked)) {
+        overflow: hidden;
+      }
 
-			@keyframes card-in {
-				from {
-					opacity: 0;
-					transform: translateY(100%);
-					height: 0;
-					width: 0;
-					border: none;
-					margin-bottom: 0;
-					position: absolute;
-				}
-				to {
-					opacity: 1;
-					transform: translateY(0);
-					height: fit-content;
-					height: -moz-fit-content;
-					width: 100%;
-					border: 1px solid var(--card-border);
-					margin-bottom: var(--spaces-4);
-					position: relative;
-				}
-			}
+      @keyframes card-in {
+        from {
+          opacity: 0;
+          transform: translateY(100%);
+          height: 0;
+          width: 0;
+          border: none;
+          margin-bottom: 0;
+          position: absolute;
+          display: none;
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+          height: auto;
+          width: 100%;
+          border: 1px solid var(--card-border);
+          margin-bottom: var(--spaces-4);
+          position: relative;
+          display: flex;
+        }
+      }
 
-			@keyframes card-out {
-				from {
-					opacity: 1;
-					transform: translateY(0);
-					height: fit-content;
-					height: -moz-fit-content;
-					width: 100%;
-					border: 1px solid var(--card-border);
-					margin-bottom: var(--spaces-4);
-					position: relative;
-				}
-				to {
-					opacity: 0;
-					transform: translateY(100%);
-					height: 0;
-					width: 0;
-					border: none;
-					margin-bottom: 0;
-					position: absolute;
-				}
-			}
+      @keyframes card-out {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+          height: auto;
+          width: 100%;
+          border: 1px solid var(--card-border);
+          margin-bottom: var(--spaces-4);
+          position: relative;
+          display: flex;
+        }
+        to {
+          opacity: 0;
+          transform: translateY(100%);
+          height: 0;
+          width: 0;
+          border: none;
+          margin-bottom: 0;
+          position: absolute;
+          display: none;
+        }
+      }
 
-			main {
-				max-width: 64rem;
-				margin: 1rem auto;
-				padding: 0 var(--spaces-4);
-				z-index: 0;
-				gap: var(--spaces-4);
-				display: flex;
-				flex-direction: column;
-			}
+      main {
+        max-width: 64rem;
+        margin-inline: auto;
+        padding: var(--spaces-4) var(--spaces-4);
+        z-index: 0;
+        gap: var(--spaces-4);
+        display: flex;
+        flex-direction: column;
+        overflow-y: clip;
+      }
 
-			section {
-				margin-left: var(--spaces-2);
-			}
+      section {
+        margin-left: var(--spaces-2);
+      }
 
-			.vstack {
-				display: flex;
-				flex-direction: column;
-			}
+      .vstack {
+        display: flex;
+        flex-direction: column;
+      }
 
-			.disc-list {
-				list-style-type: disc;
-				padding-left: 20px;
-				gap: var(--spaces-2);
-				display: flex;
-				flex-direction: column;
-			}
+      .disc-list {
+        list-style-type: disc;
+        padding-left: 20px;
+        gap: var(--spaces-2);
+        display: flex;
+        flex-direction: column;
+      }
 
-			p,
-			li,
-			strong {
-				font-size: var(--fontSizes-lg);
-			}
+      p,
+      li,
+      strong {
+        font-size: var(--fontSizes-lg);
+      }
 
-			p,
-			ul {
-				margin: var(--spaces-2) 0;
-			}
+      p,
+      ul {
+        margin: var(--spaces-2) 0;
+      }
 
-			h1,
-			h2,
-			h3,
-			h4 {
-				margin: var(--spaces-2) 0;
-			}
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: var(--spaces-2) 0;
+      }
 
-			h2 {
-				font-size: var(--text-4xl);
-			}
+      h2 {
+        font-size: var(--text-4xl);
+      }
 
-			h3 {
-				font-size: var(--text-3xl);
-			}
+      h3 {
+        font-size: var(--text-3xl);
+      }
 
-			h4 {
-				font-size: var(--text-2xl);
-			}
-
-			.footer {
-				margin-top: var(--spaces-4);
-			}
-		</style>
-	</body>
+      h4 {
+        font-size: var(--text-2xl);
+      }
+    </style>
+  </body>
 </html>

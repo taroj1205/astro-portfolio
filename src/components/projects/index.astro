@@ -9,324 +9,310 @@ const { lang } = Astro.props
 const { heading } = getTranslations(lang)
 const projects = projectsArray(lang)
 const techs = [
-	...new Set(
-		projects.flatMap((project) => [project.framework, project.lang]).flat(),
-	),
+  ...new Set(
+    projects.flatMap((project) => [project.framework, project.lang]).flat(),
+  ),
 ]
 ---
 
 <h3>{heading.projects}</h3>
 <div class="projects-view-container">
-	<form id="projects-view">
-		<fieldset>
-			<input id="all" type="radio" name="tech" value="all" />
-			<label for="all">{lang === "en" ? "All" : "全て"}</label>
-			{
-				techs.map((tech) => (
-					<>
-						<input
-							id={tech}
-							type="radio"
-							name="tech"
-							value={tech.toLowerCase().replace(/\./g, "").replace(/#/g, "s")}
-						/>
-						<label for={tech} title={tech}>
-							{tech}
-						</label>
-					</>
-				))
-			}
-		</fieldset>
-	</form>
-	<form id="projects-view-toggle">
-		<input type="checkbox" id="projects-view-expand" />
-		<label class="expand" for="projects-view-expand">
-			<div></div>
-			<div></div>
-			<div></div>
-		</label>
-	</form>
+  <form id="projects-view">
+    <fieldset>
+      <input id="all" type="radio" name="tech" value="all" />
+      <label for="all">{lang === "en" ? "All" : "全て"}</label>
+      {
+        techs.map((tech) => (
+          <>
+            <input
+              id={tech}
+              type="radio"
+              name="tech"
+              value={tech.toLowerCase().replace(/\./g, "").replace(/#/g, "s")}
+            />
+            <label for={tech} title={tech}>
+              {tech}
+            </label>
+          </>
+        ))
+      }
+    </fieldset>
+  </form>
+  <form id="projects-view-toggle">
+    <input type="checkbox" id="projects-view-expand" />
+    <label class="expand" for="projects-view-expand">
+      <div></div>
+      <div></div>
+      <div></div>
+    </label>
+  </form>
 </div>
 <div class="projects-container">
-	{projects.map((project) => <ProjectCard project={project} />)}
+  {projects.map((project) => <ProjectCard project={project} />)}
 </div>
 
 <style>
-	.projects-container {
-		-moz-column-count: 1;
-		-webkit-column-count: 1;
-		column-count: 1;
-		-moz-column-gap: 16px;
-		-webkit-column-gap: 16px;
-		column-gap: 16px;
-	}
+  .projects-container {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+    -moz-column-gap: var(--spaces-4);
+    -webkit-column-gap: var(--spaces-4);
+    column-gap: var(--spaces-4);
+  }
 
-	@media (min-width: 640px) {
-		.projects-container {
-			-moz-column-width: calc((100% / 3) - 10.6667px);
-			-webkit-column-width: calc((100% / 3) - 10.6667px);
-			column-width: calc((100% / 3) - 10.6667px);
-			-moz-column-count: 2;
-			-webkit-column-count: 2;
-			column-count: 2;
-		}
-	}
+  @media (min-width: 640px) {
+    .projects-container {
+      -moz-column-count: 2;
+      -webkit-column-count: 2;
+      column-count: 2;
+    }
+  }
 
-	@media (min-width: 1280px) {
-		.projects-container {
-			-moz-column-width: calc((100% / 3) - 10.6667px);
-			-webkit-column-width: calc((100% / 3) - 10.6667px);
-			column-width: calc((100% / 3) - 10.6667px);
-			-moz-column-count: 3;
-			-webkit-column-count: 3;
-			column-count: 3;
-		}
-	}
+  @media (min-width: 1280px) {
+    .projects-container {
+      -moz-column-count: 3;
+      -webkit-column-count: 3;
+      column-count: 3;
+    }
+  }
 
-	#projects-view-expand {
-		display: none;
-	}
+  #projects-view-expand {
+    display: none;
+  }
 
-	#projects-view-toggle {
-		height: 50px;
-		width: 50px;
-		display: none;
-	}
+  #projects-view-toggle {
+    height: 50px;
+    width: 50px;
+    display: none;
+  }
 
-	#projects-view-expand:checked ~ label div:first-child {
-		transform: rotate(45deg);
-	}
+  #projects-view-expand:checked ~ label div:first-child {
+    transform: rotate(45deg);
+  }
 
-	#projects-view-expand:checked ~ label div:last-child {
-		transform: rotate(-45deg);
-	}
+  #projects-view-expand:checked ~ label div:last-child {
+    transform: rotate(-45deg);
+  }
 
-	#projects-view-expand:checked ~ label div:nth-child(2) {
-		opacity: 0;
-		transform: translateX(10px);
-	}
+  #projects-view-expand:checked ~ label div:nth-child(2) {
+    opacity: 0;
+    transform: translateX(10px);
+  }
 
-	.projects-view-container:has(#projects-view-expand:checked)
-		form#projects-view
-		fieldset {
-		flex-wrap: wrap;
-	}
+  .projects-view-container:has(#projects-view-expand:checked)
+    form#projects-view
+    fieldset {
+    flex-wrap: wrap;
+  }
 
-	.projects-view-container:has(#projects-view-expand:checked) .expand {
-		right: 0;
-	}
+  .projects-view-container:has(#projects-view-expand:checked) .expand {
+    right: 0;
+  }
 
-	.projects-view-container {
-		-webkit-backdrop-filter: blur(15px);
-		backdrop-filter: blur(15px);
-		transition: background-color 0.3s;
-		background-color: var(--field-background);
-		border-radius: 0.45rem;
-		overflow: hidden;
-	}
+  .projects-view-container {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    transition: background-color 0.3s;
+    background-color: var(--field-background);
+    border-radius: 0.45rem;
+    overflow: hidden;
+  }
 
-	.expand {
-		height: 50px;
-		width: 50px;
-		cursor: pointer;
-		padding: 0;
-		top: 0;
-		justify-content: center;
-		align-items: center;
-		border: none;
-		right: 0;
-		display: flex;
-	}
+  .expand {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    padding: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    right: 0;
+    display: flex;
+  }
 
-	@media (max-width: 800px) and (max-height: 800px) {
-		#projects-view-toggle {
-			display: flex;
-		}
-	}
+  @media (max-width: 800px) and (max-height: 800px) {
+    #projects-view-toggle {
+      display: flex;
+    }
+  }
 
-	.expand div {
-		width: 1.5rem;
-		height: 0.1rem;
-		background-color: var(--gray-color);
-		transition: all 0.3s;
-		position: absolute;
-	}
+  .expand div {
+    width: 1.5rem;
+    height: 0.1rem;
+    background-color: var(--gray-color);
+    transition: all 0.3s;
+    position: absolute;
+  }
 
-	label.expand div:first-child {
-		transform: translateY(-0.5rem);
-	}
+  label.expand div:first-child {
+    transform: translateY(-0.5rem);
+  }
 
-	label.expand div:nth-child(2) {
-		transition: all 0.4s;
-	}
+  label.expand div:nth-child(2) {
+    transition: all 0.4s;
+  }
 
-	label.expand div:last-child {
-		transform: translateY(0.5rem);
-	}
+  label.expand div:last-child {
+    transform: translateY(0.5rem);
+  }
 </style>
 
 <style>
-	:root {
-		--light-input-text: hsl(0, 0%, 20%);
-		--light-input-background-light: hsl(0, 0%, 96%);
-		--light-input-highlight-text: hsl(0, 0%, 10%);
-		--light-input-highlight-background: hsl(210, 100%, 80%);
-		--light-field-background: hsla(210, 20%, 98%, 0.8);
+  :root {
+    --light-input-text: hsl(0, 0%, 20%);
+    --light-input-background-light: hsl(0, 0%, 96%);
+    --light-input-highlight-text: hsl(0, 0%, 10%);
+    --light-input-highlight-background: hsl(210, 100%, 80%);
+    --light-field-background: hsla(210, 20%, 98%, 0.8);
 
-		--dark-input-text: hsl(0, 0%, 80%);
-		--dark-input-background: hsl(0, 0%, 12%);
-		--dark-input-highlight-text: hsl(0, 0%, 100%);
-		--dark-input-highlight-background: hsl(210, 80%, 40%);
-		--dark-field-background: hsla(0, 0%, 0%, 0.8);
+    --dark-input-text: hsl(0, 0%, 80%);
+    --dark-input-background: hsl(0, 0%, 12%);
+    --dark-input-highlight-text: hsl(0, 0%, 100%);
+    --dark-input-highlight-background: hsl(210, 80%, 40%);
+    --dark-field-background: hsla(0, 0%, 0%, 0.8);
 
-		--input-text: var(--light-input-text);
-		--input-background-light: var(--light-input-background-light);
-		--input-highlight-background: var(--light-input-highlight-background);
-		--input-highlight-text: var(--light-input-highlight-text);
-		--field-background: var(--light-field-background);
-	}
+    --input-text: var(--light-input-text);
+    --input-background-light: var(--light-input-background-light);
+    --input-highlight-background: var(--light-input-highlight-background);
+    --input-highlight-text: var(--light-input-highlight-text);
+    --field-background: var(--light-field-background);
+  }
 
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--input-text: var(--dark-input-text);
-			--input-background-light: var(--dark-input-background);
-			--input-highlight-background: var(--dark-input-highlight-background);
-			--input-highlight-text: var(--dark-input-highlight-text);
-			--field-background: var(--dark-field-background);
-		}
-	}
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --input-text: var(--dark-input-text);
+      --input-background-light: var(--dark-input-background);
+      --input-highlight-background: var(--dark-input-highlight-background);
+      --input-highlight-text: var(--dark-input-highlight-text);
+      --field-background: var(--dark-field-background);
+    }
+  }
 
-	.projects-view-container {
-		position: sticky;
-		top: 4rem;
-		place-self: center;
-		border: none;
-		z-index: var(--overlay-z-index);
-		display: flex;
-		gap: 0;
-		max-width: 90vw;
-	}
+  .projects-view-container {
+    position: sticky;
+    top: 4rem;
+    place-self: center;
+    border: none;
+    z-index: var(--overlay-z-index);
+    display: flex;
+    gap: 0;
+    max-width: 90vw;
+  }
 
-	form#projects-view {
-		max-width: 90vw;
-		overflow-x: auto;
-	}
+  form#projects-view {
+    max-width: 90vw;
+    overflow-x: auto;
+  }
 
-	form#projects-view fieldset {
-		display: flex;
-		flex-direction: row;
-		gap: var(--spaces-2);
-		padding: var(--spaces-2);
-		margin: 0;
-		border: none;
-		background: none;
-		position: relative;
-	}
+  form#projects-view fieldset {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spaces-2);
+    padding: var(--spaces-2);
+    margin: 0;
+    border: none;
+    background: none;
+    position: relative;
+  }
 
-	@media (max-width: 600px) {
-		.projects-view-container {
-			top: 5rem;
-		}
-	}
+  @media (max-width: 600px) {
+    .projects-view-container {
+      top: 5rem;
+    }
+  }
 
-	@media (max-width: 800px) and (min-height: 600px) {
-		#projects-view fieldset {
-			flex-wrap: wrap;
-		}
-	}
+  @media (max-width: 800px) and (min-height: 600px) {
+    #projects-view fieldset {
+      flex-wrap: wrap;
+    }
+  }
 
-	@media (max-height: 800px) {
-		#projects-view fieldset {
-			flex-wrap: nowrap;
-		}
-	}
+  @media (max-height: 800px) {
+    #projects-view fieldset {
+      flex-wrap: nowrap;
+    }
+  }
 
-	form#projects-view label {
-		display: block;
-		color: var(--input-text);
-		font-size: var(--fontSizes-md);
-		cursor: pointer;
-		padding: var(--spaces-2) var(--spaces-4);
-		border-radius: 0.4rem;
-	}
+  form#projects-view label {
+    display: block;
+    color: var(--input-text);
+    font-size: var(--fontSizes-md);
+    cursor: pointer;
+    padding: var(--spaces-2) var(--spaces-4);
+    border-radius: 0.4rem;
+  }
 
-	form#projects-view label:hover {
-		background-color: var(--input-highlight-background);
-		color: var(--input-highlight-text);
-		transition: background-color 0.3s;
-	}
+  form#projects-view label:hover {
+    background-color: var(--input-highlight-background);
+    color: var(--input-highlight-text);
+    transition: background-color 0.3s;
+  }
 
-	form#projects-view input[type="radio"] {
-		display: none;
-	}
+  form#projects-view input[type="radio"] {
+    display: none;
+  }
 
-	form#projects-view input[type="radio"]:checked + label {
-		background-color: var(--input-highlight-background);
-		color: var(--input-highlight-text);
-	}
+  form#projects-view input[type="radio"]:checked + label {
+    background-color: var(--input-highlight-background);
+    color: var(--input-highlight-text);
+  }
 
-	.projects-view-container:not(:has(input[type="radio"]:checked))
-		label[for="all"] {
-		background-color: var(--input-highlight-background);
-		color: var(--input-highlight-text) !important;
-	}
+  .projects-view-container:not(:has(input[type="radio"]:checked))
+    label[for="all"] {
+    background-color: var(--input-highlight-background);
+    color: var(--input-highlight-text) !important;
+  }
 
-	form#projects-view input[type="radio"]:focus + label {
-		outline: 2px solid var(--input-highlight-background);
-		outline-offset: 2px;
-	}
+  form#projects-view input[type="radio"]:focus + label {
+    outline: 2px solid var(--input-highlight-background);
+    outline-offset: 2px;
+  }
 
-	:global(.project-card) {
-		animation: card-out 0.5s ease-in-out forwards;
-		pointer-events: none;
-	}
+  :global(.project-card) {
+    animation: card-out 0.5s ease-in-out forwards;
+    pointer-events: none;
+  }
 
-	.projects-view-container:not(:has(input[type="radio"]:checked))
-		+ .projects-container
-		:global(.project-card) {
-		animation: none;
-		opacity: 1;
-		transform: translateY(0);
-		height: fit-content;
-		height: -moz-fit-content;
-		width: 100%;
-		border: 1px solid var(--card-border);
-		margin-bottom: var(--spaces-4);
-		position: relative;
-		pointer-events: none;
-	}
+  .projects-view-container:not(:has(input[type="radio"]:checked))
+    + .projects-container
+    :global(.project-card) {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+    height: auto;
+    width: 100%;
+    border: 1px solid var(--card-border);
+    margin-bottom: var(--spaces-4);
+    position: relative;
+    pointer-events: none;
+  }
 
-	.projects-view-container:has(input[value="all"]:checked)
-		+ .projects-container
-		:global(.project-card) {
-		animation: card-in 0.5s ease-in-out forwards;
-		pointer-events: auto;
-	}
+  .projects-view-container:has(input[value="all"]:checked)
+    + .projects-container
+    :global(.project-card) {
+    animation: card-in 0.5s ease-in-out forwards;
+    pointer-events: auto;
+  }
 
-	@media (prefers-reduced-motion: reduce) {
-		:global(.project-card) {
-			opacity: 0;
-			transform: translateY(100%);
-			height: 0;
-			width: 0;
-			border: none;
-			margin-bottom: 0;
-			transition: none;
-			animation: none;
-		}
-		.projects-view-container:has(input[value="all"]:checked)
-			+ .projects-container
-			:global(.project-card) {
-			animation: none;
-			opacity: 1;
-			transform: translateY(0);
-			height: fit-content;
-			height: -moz-fit-content;
-			width: 100%;
-			border: 1px solid var(--card-border);
-			margin-bottom: var(--spaces-4);
-			position: relative;
-			pointer-events: none;
-		}
-	}
+  @media (prefers-reduced-motion: reduce) {
+    :global(.project-card) {
+      animation: none;
+      border: 1px solid var(--card-border);
+      display: none;
+    }
+    .projects-view-container:not(:has(input[type="radio"]:checked))
+      + .projects-container
+      :global(.project-card) {
+      animation: none;
+      display: flex;
+    }
+    .projects-view-container:has(input[value="all"]:checked)
+      + .projects-container
+      :global(.project-card) {
+      animation: none;
+      display: flex;
+    }
+  }
 </style>

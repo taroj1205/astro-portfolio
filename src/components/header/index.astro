@@ -13,108 +13,108 @@ const { header } = getTranslations(lang)
 ---
 
 <header>
-	<div id="header-wrapper">
-		<a href={`/${lang}/`}
-			><Image src={pfpImg} width="24" height="24" alt={header.title} /></a
-		>
-		<div class="spacer"></div>
-		<div id="dropdown-section"><Dropdown lang={lang} /></div>
-		<div id="mobile-menu">
-			<MobileToggle />
-		</div>
-		<div class="spacer"></div>
-		<div class="lang-toggle"><LangToggle lang={lang} /></div>
-	</div>
-	<SectionDivider />
+  <div id="header-wrapper">
+    <a href={`/${lang}/`}
+      ><Image src={pfpImg} width="24" height="24" alt={header.title} /></a
+    >
+    <div class="spacer"></div>
+    <div id="dropdown-section"><Dropdown lang={lang} /></div>
+    <div id="mobile-menu">
+      <MobileToggle />
+    </div>
+    <div class="spacer"></div>
+    <div class="lang-toggle"><LangToggle lang={lang} /></div>
+  </div>
+  <SectionDivider />
 </header>
 
 <style>
-	header {
-		position: sticky;
-		top: 0;
-		left: 0;
-		z-index: var(--overlay-z-index);
-		-webkit-backdrop-filter: blur(15px);
-		backdrop-filter: blur(15px);
-	}
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: var(--overlay-z-index);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+  }
 
-	#header-wrapper {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		max-width: 64rem;
-		margin-left: auto;
-		margin-right: auto;
-		height: 3rem;
-		position: relative;
-		padding: 0 1rem;
-	}
+  #header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+    position: relative;
+    padding: 0 1rem;
+  }
 
-	#mobile-menu {
-		display: none;
-	}
+  #mobile-menu {
+    display: none;
+  }
 
-	#dropdown-section {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-	}
+  #dropdown-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-	img {
-		margin: 0;
-		border-radius: 100%;
-	}
+  img {
+    margin: 0;
+    border-radius: 100%;
+  }
 
-	a {
-		text-decoration: none;
-		padding: 0.5rem;
-		border-radius: 100%;
-		display: flex;
-		justify-content: center;
-		transition: background-color 0.2s ease-in-out;
-	}
+  a {
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out;
+  }
 
-	a:hover {
-		background: var(--button-hover-background);
-	}
+  a:hover {
+    background: var(--button-hover-background);
+  }
 
-	a:focus {
-		outline: rgba(191, 219, 254, 0.5) solid 3px;
-	}
+  a:focus {
+    outline: rgba(191, 219, 254, 0.5) solid 3px;
+  }
 
-	.spacer {
-		webkit-flex: 1;
-		-ms-flex: 1;
-		flex: 1;
-		justify-self: stretch;
-		-webkit-align-self: stretch;
-		-ms-flex-item-align: stretch;
-		align-self: stretch;
-	}
+  .spacer {
+    webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    justify-self: stretch;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+  }
 
-	@media (max-width: 600px) {
-		#header-wrapper {
-			padding: 0;
-			margin: 0;
-			height: 4rem;
-		}
-		#mobile-menu {
-			display: flex;
-			margin: 0;
-		}
+  @media (max-width: 600px) {
+    #header-wrapper {
+      padding: 0;
+      margin: 0;
+      height: 4rem;
+    }
+    #mobile-menu {
+      display: flex;
+      margin: 0;
+    }
 
-		.lang-toggle {
-			margin-right: 0.5rem;
-		}
+    .lang-toggle {
+      margin-right: 0.5rem;
+    }
 
-		h1,
-		#dropdown-section {
-			display: none;
-		}
+    h1,
+    #dropdown-section {
+      display: none;
+    }
 
-		.spacer,
-		a {
-			display: none;
-		}
-	}
+    .spacer,
+    a {
+      display: none;
+    }
+  }
 </style>
