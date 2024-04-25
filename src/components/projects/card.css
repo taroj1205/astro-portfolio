@@ -54,3 +54,116 @@
   animation: card-in 0.5s ease-in-out forwards;
   pointer-events: auto;
 }
+@media (prefers-reduced-motion: reduce) {
+  .projects-view-container:has(input[value="nextjs"]:checked)
++ .projects-container
+.project-card.nextjs {
+    animation: none !important;
+      opacity: 1;
+    transform: translateY(0);
+    height: fit-content;
+    height: -moz-fit-content;
+    width: 100%;
+    border: 1px solid var(--card-border);
+    margin-bottom: var(--spaces-4);
+    position: relative;
+    pointer-events: none;
+  }
+  .projects-view-container:has(input[value="javascript"]:checked)
++ .projects-container
+.project-card.javascript {
+    animation: none !important;
+      opacity: 1;
+    transform: translateY(0);
+    height: fit-content;
+    height: -moz-fit-content;
+    width: 100%;
+    border: 1px solid var(--card-border);
+    margin-bottom: var(--spaces-4);
+    position: relative;
+    pointer-events: none;
+  }
+  .projects-view-container:has(input[value="typescript"]:checked)
++ .projects-container
+.project-card.typescript {
+    animation: none !important;
+      opacity: 1;
+    transform: translateY(0);
+    height: fit-content;
+    height: -moz-fit-content;
+    width: 100%;
+    border: 1px solid var(--card-border);
+    margin-bottom: var(--spaces-4);
+    position: relative;
+    pointer-events: none;
+  }
+  .projects-view-container:has(input[value="chrome"]:checked)
++ .projects-container
+.project-card.chrome {
+    animation: none !important;
+      opacity: 1;
+    transform: translateY(0);
+    height: fit-content;
+    height: -moz-fit-content;
+    width: 100%;
+    border: 1px solid var(--card-border);
+    margin-bottom: var(--spaces-4);
+    position: relative;
+    pointer-events: none;
+  }
+  .projects-view-container:has(input[value="unity"]:checked)
++ .projects-container
+.project-card.unity {
+    animation: none !important;
+      opacity: 1;
+    transform: translateY(0);
+    height: fit-content;
+    height: -moz-fit-content;
+    width: 100%;
+    border: 1px solid var(--card-border);
+    margin-bottom: var(--spaces-4);
+    position: relative;
+    pointer-events: none;
+  }
+  .projects-view-container:has(input[value="cs"]:checked)
++ .projects-container
+.project-card.cs {
+    animation: none !important;
+      opacity: 1;
+    transform: translateY(0);
+    height: fit-content;
+    height: -moz-fit-content;
+    width: 100%;
+    border: 1px solid var(--card-border);
+    margin-bottom: var(--spaces-4);
+    position: relative;
+    pointer-events: none;
+  }
+  .projects-view-container:has(input[value="flask"]:checked)
++ .projects-container
+.project-card.flask {
+    animation: none !important;
+      opacity: 1;
+    transform: translateY(0);
+    height: fit-content;
+    height: -moz-fit-content;
+    width: 100%;
+    border: 1px solid var(--card-border);
+    margin-bottom: var(--spaces-4);
+    position: relative;
+    pointer-events: none;
+  }
+  .projects-view-container:has(input[value="sqlite3"]:checked)
++ .projects-container
+.project-card.sqlite3 {
+    animation: none !important;
+      opacity: 1;
+    transform: translateY(0);
+    height: fit-content;
+    height: -moz-fit-content;
+    width: 100%;
+    border: 1px solid var(--card-border);
+    margin-bottom: var(--spaces-4);
+    position: relative;
+    pointer-events: none;
+  }}
