@@ -242,12 +242,14 @@ const techs = [
     cursor: pointer;
     padding: var(--spaces-2) var(--spaces-4);
     border-radius: 0.4rem;
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
   }
 
   form#projects-view label:hover {
     background-color: var(--input-highlight-background);
     color: var(--input-highlight-text);
-    transition: background-color 0.3s;
   }
 
   form#projects-view input[type="radio"] {
