@@ -20,6 +20,7 @@
     "sharp": "^0.33.3"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.7.1",
     "@types/node": "^20.12.7",
     "husky": "^9.0.11",
     "ts-node": "^10.9.2",

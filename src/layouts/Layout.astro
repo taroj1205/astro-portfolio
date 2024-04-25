@@ -81,7 +81,7 @@ const url = Astro.site
 				--uoa-links-link-color: hsl(300, 90%, 30%);
 				--analytics-link-color: hsl(0, 90%, 30%);
 				--twitter-color: hsl(190, 90%, 30%);
-				--github-color: var(--text-color);
+				--github-color: var(--light-text-color);
 				--instagram-color: hsl(330, 90%, 30%);
 				--youtube-color: hsl(0, 90%, 40%);
 				--linkedin-color: hsl(210, 70%, 25%);
@@ -243,16 +243,17 @@ const url = Astro.site
 					border: none;
 					margin-bottom: 0;
 					position: absolute;
+					display: none;
 				}
 				to {
 					opacity: 1;
 					transform: translateY(0);
-					height: fit-content;
-					height: -moz-fit-content;
+					height: auto;
 					width: 100%;
 					border: 1px solid var(--card-border);
 					margin-bottom: var(--spaces-4);
 					position: relative;
+					display: flex;
 				}
 			}
 
@@ -260,12 +261,12 @@ const url = Astro.site
 				from {
 					opacity: 1;
 					transform: translateY(0);
-					height: fit-content;
-					height: -moz-fit-content;
+					height: auto;
 					width: 100%;
 					border: 1px solid var(--card-border);
 					margin-bottom: var(--spaces-4);
 					position: relative;
+					display: flex;
 				}
 				to {
 					opacity: 0;
@@ -275,17 +276,19 @@ const url = Astro.site
 					border: none;
 					margin-bottom: 0;
 					position: absolute;
+					display: none;
 				}
 			}
 
 			main {
 				max-width: 64rem;
-				margin: 1rem auto;
-				padding: 0 var(--spaces-4);
+				margin-inline: auto;
+				padding: var(--spaces-4) var(--spaces-4);
 				z-index: 0;
 				gap: var(--spaces-4);
 				display: flex;
 				flex-direction: column;
+				overflow-y: clip;
 			}
 
 			section {
@@ -333,10 +336,6 @@ const url = Astro.site
 
 			h4 {
 				font-size: var(--text-2xl);
-			}
-
-			.footer {
-				margin-top: var(--spaces-4);
 			}
 		</style>
 	</body>
