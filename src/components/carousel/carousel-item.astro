@@ -1,0 +1,117 @@
+---
+import { Image } from "astro:assets"
+const { id, item, imgSrc, alt, carousel, prevId, nextId, checked } = Astro.props
+---
+
+<astro:fragment>
+  <input
+    type="radio"
+    id={id}
+    name="carousel"
+    class="carousel-radio"
+    checked={checked}
+  />
+  <div class="carousel-item" id={item}>
+    <Image
+      src={imgSrc}
+      alt={alt}
+      width="480"
+      height="480"
+      loading={carousel === 1 ? "eager" : "lazy"}
+      sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
+    />
+  </div>
+  <label class={`arrow arrow-prev carousel-${carousel}`} for={prevId}
+    ><slot name="prevArrow" /></label
+  >
+  <label class={`arrow arrow-next carousel-${carousel}`} for={nextId}
+    ><slot name="nextArrow" /></label
+  >
+</astro:fragment>
+
+<style>
+  .carousel-item,
+  .carousel-item img {
+    width: 30rem;
+    max-width: 90vw;
+    max-height: 90vw;
+    height: 30rem;
+    overflow: hidden;
+  }
+
+  .carousel-item {
+    color: var(--text-white);
+    padding-bottom: var(--spaces-4);
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    user-select: none;
+  }
+
+  .arrow {
+    visibility: hidden;
+  }
+
+  input[type="radio"].carousel-radio:checked + .carousel-item + label,
+  input[type="radio"].carousel-radio:checked + .carousel-item + label + label {
+    visibility: visible;
+  }
+
+  input[type="radio"].carousel-radio:checked + .carousel-item {
+    z-index: 2;
+    visibility: visible;
+  }
+
+  .carousel-item img {
+    aspect-ratio: 1 / 1;
+    border-radius: 4%;
+  }
+
+  .arrow {
+    position: absolute;
+    display: grid;
+    top: 45%;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    -webkit-tap-highlight-color: transparent;
+    background-color: var(--background-white);
+    color: var(--text-color);
+    border-radius: 50%;
+    cursor: pointer;
+    place-items: center;
+    z-index: 3;
+    transition: background-color 0.3s;
+  }
+
+  .arrow:active {
+    background-color: var(--button-hover-background);
+  }
+
+  .arrow.arrow-prev {
+    left: 10px;
+  }
+
+  .arrow.arrow-next {
+    right: 10px;
+  }
+
+  @media (max-width: 480px) {
+    .arrow {
+      background-size: 10px;
+      background-position: 10px 50%;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .arrow::after {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .carousel-item {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
