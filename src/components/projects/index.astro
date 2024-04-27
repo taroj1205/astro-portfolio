@@ -272,7 +272,12 @@ const techs = [
     text-wrap: nowrap;
     place-items: center;
     vertical-align: middle;
-    place-self: start;
+  }
+
+  @media (max-width: 800px) and (min-height: 600px) {
+    form#projects-view label {
+      place-self: start;
+    }
   }
 
   form#projects-view label:hover {
