@@ -330,20 +330,17 @@ const techs = [
 
   @media (prefers-reduced-motion: reduce) {
     :global(.project-card) {
-      animation: none;
       border: 1px solid var(--card-border);
       display: none;
     }
     .projects-view-container:not(:has(input[type="radio"]:checked))
       + .projects-container
       :global(.project-card) {
-      animation: none;
       display: flex;
     }
     .projects-view-container:has(input[value="all"]:checked)
       + .projects-container
       :global(.project-card) {
-      animation: none;
       display: flex;
     }
   }
