@@ -21,10 +21,12 @@ const { footer } = getTranslations(lang)
       )
     }{footer.lang}</a
   >
-  <a href="#" class="scroll-text" title={footer.scrollToTop}
+  <a href="#" class="scroll scroll-text" title={footer.scrollToTop}
     >{footer.scrollToTop}</a
   >
-  <a href="#" class="arrow-up" title={footer.scrollToTop}><ArrowUpIcon /></a>
+  <a href="#" class="scroll arrow-up" title={footer.scrollToTop}
+    ><ArrowUpIcon /></a
+  >
   <Socials />
 </footer>
 
@@ -33,7 +35,7 @@ const { footer } = getTranslations(lang)
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 var(--spaces-2);
+    padding: 0;
     max-width: 600px;
     margin: 0 auto;
     height: 4rem;
@@ -76,5 +78,12 @@ const { footer } = getTranslations(lang)
     .scroll-text {
       display: none;
     }
+  }
+</style>
+
+<style is:global>
+  footer .footer-link,
+  footer .social-icons {
+    width: 7rem;
   }
 </style>
