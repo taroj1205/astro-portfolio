@@ -4,6 +4,8 @@ import MobileToggle from "./mobile-toggle.astro"
 import SectionDivider from "../divider/section-divider.astro"
 import LangToggle from "../lang-toggle/index.astro"
 import Dropdown from "./dropdown.astro"
+import pfpImg from "../../assets/carousel/pfp.webp"
+import { Image } from "astro:assets"
 
 const { lang } = Astro.props
 
@@ -13,7 +15,13 @@ const { header } = getTranslations(lang)
 <header>
   <div id="header-wrapper">
     <a href={`/${lang}/`}
-      ><img src="/favicon.ico" width="24" height="24" alt={header.title} /></a
+      ><Image
+        src={pfpImg}
+        sizes="(max-width: 600px) 24px, (max-width: 900px) 32px, 48px"
+        width="24"
+        height="24"
+        alt={header.title}
+      /></a
     >
     <div class="spacer"></div>
     <div id="dropdown-section"><Dropdown lang={lang} /></div>
