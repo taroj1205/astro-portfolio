@@ -104,19 +104,12 @@ const techs = [
     form#projects-view
     fieldset {
     flex-wrap: wrap;
+    height: 10rem;
+    overflow: hidden;
   }
 
   .projects-view-container:has(#projects-view-expand:checked) .expand {
     right: 0;
-  }
-
-  .projects-view-container {
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
-    transition: background-color 0.3s;
-    background-color: var(--field-background);
-    border-radius: 0.45rem;
-    overflow: hidden;
   }
 
   .expand {
@@ -199,6 +192,12 @@ const techs = [
     display: flex;
     gap: 0;
     max-width: 90vw;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    transition: background-color 0.3s;
+    background-color: var(--field-background);
+    border-radius: 0.45rem;
+    overflow: hidden;
   }
 
   form#projects-view {
@@ -215,6 +214,9 @@ const techs = [
     border: none;
     background: none;
     position: relative;
+
+    height: 2.5rem;
+    transition: height 0.3s;
   }
 
   @media (max-width: 600px) {
@@ -226,6 +228,8 @@ const techs = [
   @media (max-width: 800px) and (min-height: 600px) {
     #projects-view fieldset {
       flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -236,7 +240,7 @@ const techs = [
   }
 
   form#projects-view label {
-    display: block;
+    display: flex;
     color: var(--input-text);
     font-size: var(--fontSizes-md);
     cursor: pointer;
@@ -245,6 +249,9 @@ const techs = [
     transition:
       background-color 0.3s ease-in-out,
       color 0.3s ease-in-out;
+    text-wrap: nowrap;
+    place-items: center;
+    vertical-align: middle;
   }
 
   form#projects-view label:hover {
