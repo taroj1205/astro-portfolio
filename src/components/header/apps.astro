@@ -1,0 +1,55 @@
+---
+import ChatIcon from "../../icons/chat.astro"
+import Connect4Icon from "../../icons/connect-4.astro"
+import KeyboardIcon from "../../icons/keyboard.astro"
+import SearchIcon from "../../icons/search.astro"
+import UniversityIcon from "../../icons/university.astro"
+
+const { lang } = Astro.props
+---
+
+<a
+  id="chat-app-link"
+  href="https://chat-taroj.vercel.app/"
+  target="_blank"
+  class="social-icon app-icon"
+  title={lang === "ja" ? "チャットアプリ" : "Chat App"}>
+  <ChatIcon color="hsl(90, 90%, 30%)" />
+  <span>{lang === "ja" ? "チャットアプリ" : "Chat App"}</span>
+</a>
+<a
+  id="connect4-link"
+  href="https://connect4-taroj.vercel.app/"
+  target="_blank"
+  class="social-icon app-icon"
+  title="Connect 4">
+  <Connect4Icon color="hsl(180, 90%, 30%)" />
+  <span>Connect 4</span>
+</a>
+<a
+  id="typing-game-link"
+  href="https://typing-game-nextjs.vercel.app/"
+  target="_blank"
+  class="social-icon app-icon"
+  title={lang === "ja" ? "タイピングゲーム" : "Typing Game"}>
+  <KeyboardIcon color="hsl(270, 90%, 30%)" />
+  <span>{lang === "ja" ? "タイピングゲーム" : "Typing Game"}</span>
+</a>
+<a
+  id="search-app-link"
+  href="https://taroj.vercel.app/apps/search"
+  target="_blank"
+  class="social-icon app-icon"
+  title={lang === "ja" ? "検索アプリ" : "Search App"}>
+  <SearchIcon color="hsl(60, 90%, 30%)" />
+  <span>{lang === "ja" ? "検索アプリ" : "Search App"}</span>
+</a>
+<a
+  id="uoa-links-link"
+  href="https://taroj1205.poyo.jp/uoa"
+  target="_blank"
+  class="social-icon app-icon"
+  title={lang === "ja" ? "UoAのリンク等" : "UoA Links"}>
+  <UniversityIcon color="hsl(300, 90%, 30%)" />
+  <span>{lang === "ja" ? "UoAのリンク等" : "UoA Links"}</span>
+</a>

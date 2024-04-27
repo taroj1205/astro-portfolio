@@ -29,7 +29,20 @@ const { id, item, imgSrc, alt, carousel, prevId, nextId, checked } = Astro.props
   >
 </astro:fragment>
 
-<style>
+<style is:global>
+  .carousel-radio {
+    display: none;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    height: 30rem;
+    width: 30rem;
+    max-width: 90vw;
+    max-height: 90vw;
+    overflow: hidden;
+  }
+
   .carousel-item,
   .carousel-item img {
     width: 30rem;

@@ -9,14 +9,14 @@ import XIcon from "../../icons/x.astro"
     target="_blank"
     class="social-icon x-icon"
     title="X (Twitter)">
-    <XIcon />
+    <XIcon size="100%" />
   </a>
   <a
     href="https://github.com/taroj1205"
     target="_blank"
     class="social-icon github-icon"
     title="GitHub">
-    <GitHubIcon />
+    <GitHubIcon size="100%" />
   </a>
 </div>
 
@@ -28,7 +28,6 @@ import XIcon from "../../icons/x.astro"
   }
 
   .social-icon {
-    font-size: 1.5rem;
     border-radius: 15%;
     display: grid;
     place-items: center;
@@ -37,6 +36,8 @@ import XIcon from "../../icons/x.astro"
     transition: all 0.3s ease;
     padding: var(--spaces-2);
     color: var(--gray-color);
+    background-color: transparent;
+    font-size: var(--fontSizes-2xl);
   }
   .social-icon:hover {
     color: hsl(0, 0%, 83%);

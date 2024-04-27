@@ -47,6 +47,12 @@ const { lang } = Astro.props
     margin-right: auto;
   }
 
+  @media (max-width: 300px) {
+    .name {
+      text-wrap: balance;
+    }
+  }
+
   .name-ja {
     font-size: var(--fontSizes-5xl);
     text-wrap: nowrap;

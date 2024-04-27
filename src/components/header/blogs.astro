@@ -1,0 +1,25 @@
+---
+import HatenaIcon from "../../icons/hatena.astro"
+import NoteIcon from "../../icons/note.astro"
+
+const { lang } = Astro.props
+---
+
+<a
+  id="hatena-blog-link"
+  href="https://taroj1205.hatenablog.com"
+  target="_blank"
+  class="social-icon blog-icon"
+  title={lang === "ja" ? "はてなブログ" : "Hatena Blog"}>
+  <HatenaIcon />
+  <span>{lang === "ja" ? "はてなブログ" : "Hatena Blog"}</span>
+</a>
+<a
+  id="note-link"
+  href="https://note.com/taroj1205"
+  target="_blank"
+  class="social-icon blog-icon"
+  title="note">
+  <NoteIcon />
+  <span>note</span>
+</a>
