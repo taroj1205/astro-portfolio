@@ -104,33 +104,7 @@ const techs = [
     form#projects-view
     fieldset {
     flex-wrap: wrap;
-    height: 7rem;
     overflow: hidden;
-  }
-
-  @media (max-width: 530px) {
-    .projects-view-container:has(#projects-view-expand:checked)
-      form#projects-view
-      fieldset {
-      height: 8rem;
-    }
-  }
-
-  @media (max-width: 400px) {
-    .projects-view-container:has(#projects-view-expand:checked)
-      form#projects-view
-      fieldset {
-      height: 10rem;
-    }
-  }
-
-  @media (max-width: 350px) {
-    .projects-view-container:has(#projects-view-expand:checked)
-      form#projects-view
-      fieldset {
-      height: fit-content;
-      height: -webkit-fit-content;
-    }
   }
 
   .projects-view-container:has(#projects-view-expand:checked) .expand {
@@ -158,7 +132,7 @@ const techs = [
     width: 1.5rem;
     height: 0.1rem;
     background-color: var(--gray-color);
-    transition: all 0.3s;
+    transition: transform 0.3s;
     position: absolute;
   }
 
@@ -167,7 +141,7 @@ const techs = [
   }
 
   label.expand div:nth-child(2) {
-    transition: all 0.4s;
+    transition: transform 0.4s;
   }
 
   label.expand div:last-child {
@@ -235,8 +209,6 @@ const techs = [
     border: none;
     background: none;
     position: relative;
-    height: 2.5rem;
-    transition: height 0.3s;
   }
 
   @media (max-width: 600px) {
@@ -248,7 +220,6 @@ const techs = [
   @media (max-width: 800px) and (min-height: 600px) {
     #projects-view fieldset {
       flex-wrap: wrap;
-      justify-content: center;
       align-items: center;
     }
   }
