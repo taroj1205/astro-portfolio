@@ -1,7 +1,7 @@
 ---
 import Apps from "./apps.astro"
-import Socials from "./socials.astro"
 import Blogs from "./blogs.astro"
+import Socials from "./socials.astro"
 
 const { lang } = Astro.props
 ---
@@ -27,7 +27,7 @@ const { lang } = Astro.props
   </section>
 </div>
 
-<style>
+<style is:global>
   .mobile-content {
     display: flex;
     flex-direction: column;

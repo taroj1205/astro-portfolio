@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import { getLangFromUrl, getTranslations } from "../i18n/utils"
 import { languages } from "../i18n/ui"
+import { getLangFromUrl, getTranslations } from "../i18n/utils"
+import Layout from "../layouts/Layout.astro"
 
 const lang = getLangFromUrl(Astro.url)
 const { metadata, notFound } = getTranslations(lang)
@@ -19,7 +19,7 @@ export const getStaticPaths = () => {
   <a href={`/${lang}`}>{notFound.goBack}</a>
 </Layout>
 
-<style>
+<style is:global>
   h1 {
     font-size: var(--fontSizes-7xl);
   }

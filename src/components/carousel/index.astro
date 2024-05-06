@@ -1,11 +1,11 @@
 ---
-import CarouselItem from "./carousel-item.astro"
-import RightArrow from "../../icons/right-arrow.astro"
-import LeftArrow from "../../icons/left-arrow.astro"
 import jugglingImg from "../../assets/carousel/juggling.webp"
 import pfpImg from "../../assets/carousel/pfp.webp"
 import profileImg from "../../assets/carousel/profile.webp"
 import westlakeImg from "../../assets/carousel/westlake_me.webp"
+import LeftArrow from "../../icons/left-arrow.astro"
+import RightArrow from "../../icons/right-arrow.astro"
+import CarouselItem from "./carousel-item.astro"
 
 const carouselItems = [
   {
@@ -61,7 +61,7 @@ const carouselItems = [
   </form>
 </div>
 
-<style>
+<style is:global>
   #carousel {
     display: flex;
     justify-content: center;
