@@ -13,5 +13,5 @@ export default defineConfig({
   build: {
     inlineStylesheets: "never",
   },
-  scopedStyleStrategy: "class",
+  scopedStyleStrategy: "where",
 })

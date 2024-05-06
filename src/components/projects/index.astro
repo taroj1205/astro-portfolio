@@ -1,8 +1,8 @@
 ---
 import { getTranslations } from "../../i18n/utils"
+import "./card.css"
 import ProjectCard from "./project-card.astro"
 import { projectsArray } from "./projects-array"
-import "./card.css"
 
 const { lang } = Astro.props
 
@@ -51,7 +51,7 @@ const techs = [
   {projects.map((project) => <ProjectCard project={project} />)}
 </div>
 
-<style>
+<style is:global>
   .projects-container {
     -moz-column-count: 1;
     -webkit-column-count: 1;

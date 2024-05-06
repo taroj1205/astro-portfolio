@@ -1,5 +1,3 @@
-import type { ui } from "../../i18n/ui"
-import { getTranslations } from "../../i18n/utils"
 import appPyImage from "../../assets/projects/app_py.webp"
 import chatImage from "../../assets/projects/chat.webp"
 import connect4Image from "../../assets/projects/connect-4.webp"
@@ -9,6 +7,8 @@ import reversiImage from "../../assets/projects/reversi.webp"
 import saveTwitterLinksImage from "../../assets/projects/save-twitter-links.webp"
 import typingGameImage from "../../assets/projects/typing-game.webp"
 import unityTypingGameImage from "../../assets/projects/unity-typing.webp"
+import type { ui } from "../../i18n/ui"
+import { getTranslations } from "../../i18n/utils"
 
 export const projectsArray = (lang: keyof typeof ui) => {
   const { projects } = getTranslations(lang)
