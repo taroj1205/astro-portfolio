@@ -62,6 +62,8 @@ const { id, item, imgSrc, alt, carousel, prevId, nextId, checked } = Astro.props
 
   .arrow {
     visibility: hidden;
+    place-items: center;
+    display: grid;
   }
 
   input[type="radio"].carousel-radio:checked
@@ -121,8 +123,6 @@ const { id, item, imgSrc, alt, carousel, prevId, nextId, checked } = Astro.props
 
   @media (max-width: 480px) {
     .arrow {
-      background-size: 10px;
-      background-position: 10px 50%;
       width: 2rem;
       height: 2rem;
     }

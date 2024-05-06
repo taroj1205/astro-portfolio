@@ -53,15 +53,15 @@ const carouselItems = [
     {
       carouselItems.map((item) => (
         <CarouselItem {...item}>
-          <RightArrow slot="prevArrow" />
-          <LeftArrow slot="nextArrow" />
+          <LeftArrow slot="prevArrow" />
+          <RightArrow slot="nextArrow" />
         </CarouselItem>
       ))
     }
   </form>
 </div>
 
-<style>
+<style is:global>
   #carousel {
     display: flex;
     justify-content: center;
