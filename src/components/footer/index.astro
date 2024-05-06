@@ -1,9 +1,9 @@
 ---
 import { getTranslations } from "../../i18n/utils"
-import Socials from "../socials/index.astro"
 import ArrowUpIcon from "../../icons/arrow-up.astro"
 import JapanIcon from "../../icons/japan.astro"
 import NewZealandIcon from "../../icons/new-zealand.astro"
+import Socials from "../socials/index.astro"
 const { lang } = Astro.props
 const { footer } = getTranslations(lang)
 ---
@@ -30,7 +30,7 @@ const { footer } = getTranslations(lang)
   <Socials />
 </footer>
 
-<style>
+<style is:global>
   footer {
     display: flex;
     justify-content: space-between;
