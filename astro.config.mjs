@@ -10,8 +10,4 @@ export default defineConfig({
     defaultLocale: "en",
     locales: ["en", "ja"],
   },
-  build: {
-    inlineStylesheets: "never",
-  },
-  scopedStyleStrategy: "class",
 })
