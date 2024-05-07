@@ -1,9 +1,9 @@
 ---
-import SectionDivider from "../components/divider/section-divider.astro"
-import Header from "../components/header/index.astro"
-import Footer from "../components/footer/index.astro"
-import { getLangFromUrl, getTranslations } from "../i18n/utils"
 import { SEOMetadata } from "astro-seo-metadata"
+import SectionDivider from "../components/divider/section-divider.astro"
+import Footer from "../components/footer/index.astro"
+import Header from "../components/header/index.astro"
+import { getLangFromUrl, getTranslations } from "../i18n/utils"
 
 interface Props {
   title: string
@@ -45,301 +45,301 @@ const url = Astro.site
       <SectionDivider />
       <Footer lang={lang} />
     </div>
-    <style is:global>
-      :root {
-        --spaces-1: 0.25rem;
-        --spaces-2: 0.5rem;
-        --spaces-4: 1rem;
-        --overlay-z-index: 99;
-        --rounded-md: 0.375rem;
-        --rounded-lg: 0.5rem;
-
-        --text-4xl: 2.25rem;
-        --text-5xl: 3rem;
-        --text-3xl: 1.75rem;
-        --text-2xl: 1.5rem;
-        --fontSizes-2xs: 0.625rem;
-        --fontSizes-xs: 0.75rem;
-        --fontSizes-sm: 0.875rem;
-        --fontSizes-md: 1rem;
-        --fontSizes-lg: 1.125rem;
-        --fontSizes-xl: 1.25rem;
-        --fontSizes-2xl: 1.5rem;
-        --fontSizes-3xl: 1.875rem;
-        --fontSizes-4xl: 2rem;
-        --fontSizes-5xl: 2.25rem;
-        --fontSizes-6xl: 3rem;
-        --fontSizes-7xl: 3.75rem;
-        --fontSizes-8xl: 4.5rem;
-        --fontSizes-9xl: 6rem;
-
-        --chat-app-link-color: hsl(90, 90%, 30%);
-        --connect4-link-color: hsl(180, 90%, 30%);
-        --typing-game-link-color: hsl(270, 90%, 30%);
-        --search-app-link-color: hsl(60, 90%, 30%);
-        --uoa-links-link-color: hsl(300, 90%, 30%);
-        --analytics-link-color: hsl(0, 90%, 30%);
-
-        --light-background-white: hsl(210, 33%, 98%);
-        --light-background-black: hsl(0, 0%, 8%);
-        --light-black-color: hsl(210, 33%, 98%);
-
-        --light-link-color: hsl(212, 100%, 40%);
-        --light-accent-color: hsl(16, 100%, 40%);
-        --light-text-color: hsl(0, 0%, 8%);
-        --light-text-white: hsl(0, 0%, 98%);
-        --light-h2-color: hsl(0, 0%, 5%);
-        --light-h3-color: hsl(0, 0%, 6%);
-        --light-h4-color: hsl(0, 0%, 7%);
-        --light-gray-color: hsl(0, 0%, 20%);
-        --light-button-hover-background: hsl(300, 8.17%, 88.04%);
-        --light-overlay-background-color: rgba(255, 255, 255, 0.9);
-        --light-overlay-button-background-color: hsl(30, 100%, 98%);
-        --light-overlay-button-hover-color: hsl(210, 50%, 80%);
-        --light-overlay-button-text-color: hsl(210, 20%, 20%);
-        --light-table-row-even-bg: hsl(210, 66%, 97%);
-        --light-table-row-odd-bg: hsl(216, 33%, 94%);
-        --light-table-head: hsl(180, 100%, 75%);
-        --light-card-bg: hsl(210, 25%, 95%);
-        --light-card-border: hsl(0, 0%, 80%);
-        --light-card-footer-bg: hsl(210, 20%, 94%);
-        --light-line-color: hsl(0, 3%, 87%);
-
-        --light-section-divider: hsl(220, 8%, 75%);
-        --light-content-divider: hsl(213, 9%, 46%);
-
-        --dark-background-white: hsl(0, 0%, 8%);
-        --dark-background-black: hsl(0, 0%, 92%);
-        --dark-black-color: hsl(200, 13%, 5%);
-
-        --dark-link-color: hsl(212, 100%, 60%);
-        --dark-accent-color: hsl(16, 100%, 60%);
-        --dark-text-color: hsl(0, 0%, 98%);
-        --dark-text-white: hsl(0, 0%, 8%);
-        --dark-h2-color: hsl(0, 0%, 95%);
-        --dark-h3-color: hsl(0, 0%, 94%);
-        --dark-h4-color: hsl(0, 0%, 93%);
-        --dark-gray-color: hsl(0, 0%, 60%);
-        --dark-button-hover-background: hsl(0, 0%, 20%);
-        --dark-overlay-background-color: hsla(0, 0%, 0%, 0.9);
-        --dark-overlay-button-background-color: hsl(0, 0%, 8%);
-        --dark-overlay-button-hover-color: hsl(210, 25%, 45%);
-        --dark-overlay-button-text-color: hsl(0, 0%, 98%);
-        --dark-table-row-even-bg: hsl(210, 30%, 15%);
-        --dark-table-row-odd-bg: hsl(216, 25%, 20%);
-        --dark-table-head: hsl(180, 100%, 20%);
-        --dark-card-bg: hsl(0, 0%, 8%);
-        --dark-card-border: hsl(0, 0%, 28%);
-        --dark-card-footer-bg: hsl(0, 0%, 10%);
-        --dark-line-color: hsl(0, 0%, 25%);
-
-        --dark-section-divider: hsl(220, 8%, 30%);
-        --dark-content-divider: hsl(213, 9%, 26%);
-
-        --background-white: var(--light-background-white);
-        --background-black: var(--light-background-black);
-        --link-color: var(--light-link-color);
-        --accent-color: var(--light-accent-color);
-        --text-color: var(--light-text-color);
-        --text-white: var(--light-text-white);
-        --h2-color: var(--light-h2-color);
-        --h3-color: var(--light-h3-color);
-        --h4-color: var(--light-h4-color);
-        --gray-color: var(--light-gray-color);
-        --black-color: var(--light-black-color);
-        --button-hover-background: var(--light-button-hover-background);
-        --overlay-background-color: var(--light-overlay-background-color);
-        --overlay-button-background-color: var(
-          --light-overlay-button-background-color
-        );
-        --overlay-button-hover-color: var(--light-overlay-button-text-color);
-        --overlay-button-text-color: var(--light-overlay-button-text-color);
-        --overlay-button-hover-color: var(--light-overlay-button-hover-color);
-        --table-row-even-bg: var(--light-table-row-even-bg);
-        --table-row-odd-bg: var(--light-table-row-odd-bg);
-        --table-head: var(--light-table-head);
-        --card-bg: var(--light-card-bg);
-        --card-border: var(--light-card-border);
-        --card-footer-bg: var(--light-card-footer-bg);
-        --line-color: var(--light-line-color);
-
-        --section-divider: var(--light-section-divider);
-        --content-divider: var(--light-content-divider);
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --background-white: var(--dark-background-white);
-          --background-black: var(--dark-background-black);
-          --link-color: var(--dark-link-color);
-          --accent-color: var(--dark-accent-color);
-          --text-color: var(--dark-text-color);
-          --text-white: var(--dark-text-white);
-          --h2-color: var(--dark-h2-color);
-          --h3-color: var(--dark-h3-color);
-          --h4-color: var(--dark-h4-color);
-          --gray-color: var(--dark-gray-color);
-          --black-color: var(--dark-black-color);
-          --button-hover-background: var(--dark-button-hover-background);
-          --overlay-background-color: var(--dark-overlay-background-color);
-          --overlay-button-background-color: var(
-            --dark-overlay-button-background-color
-          );
-          --overlay-button-text-color: var(--dark-overlay-button-text-color);
-          --overlay-button-hover-color: var(--dark-overlay-button-hover-color);
-          --table-row-even-bg: var(--dark-table-row-even-bg);
-          --table-row-odd-bg: var(--dark-table-row-odd-bg);
-          --table-head: var(--dark-table-head);
-          --card-bg: var(--dark-card-bg);
-          --card-border: var(--dark-card-border);
-          --card-footer-bg: var(--dark-card-footer-bg);
-          --line-color: var(--dark-line-color);
-
-          --section-divider: var(--dark-section-divider);
-          --content-divider: var(--dark-content-divider);
-        }
-      }
-
-      .blur {
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-        * {
-          transition: none !important;
-          animation: none !important;
-        }
-      }
-
-      body {
-        color: var(--text-color);
-        background-color: var(--background-white);
-        font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans";
-        margin: 0;
-        min-height: 100svh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        text-wrap: balance;
-        word-wrap: break-word;
-        vertical-align: middle;
-      }
-
-      body:not(:has(#uncheck:checked)) {
-        overflow: hidden;
-      }
-
-      @keyframes card-in {
-        from {
-          opacity: 0;
-          transform: translateY(100%);
-          height: 0;
-          width: 0;
-          border: none;
-          margin-bottom: 0;
-          position: absolute;
-          display: none;
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-          height: auto;
-          width: 100%;
-          border: 1px solid var(--card-border);
-          margin-bottom: var(--spaces-4);
-          position: relative;
-          display: flex;
-        }
-      }
-
-      @keyframes card-out {
-        from {
-          opacity: 1;
-          transform: translateY(0);
-          height: auto;
-          width: 100%;
-          border: 1px solid var(--card-border);
-          margin-bottom: var(--spaces-4);
-          position: relative;
-          display: flex;
-        }
-        to {
-          opacity: 0;
-          transform: translateY(100%);
-          height: 0;
-          width: 0;
-          border: none;
-          margin-bottom: 0;
-          position: absolute;
-          display: none;
-        }
-      }
-
-      main {
-        max-width: min(64rem, 100%);
-        margin-inline: auto;
-        padding: var(--spaces-4) var(--spaces-4);
-        z-index: 0;
-        gap: var(--spaces-4);
-        display: flex;
-        flex-direction: column;
-        overflow-y: clip;
-      }
-
-      section {
-        margin-left: var(--spaces-2);
-      }
-
-      .vstack {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .disc-list {
-        list-style-type: disc;
-        padding-left: 20px;
-        gap: var(--spaces-2);
-        display: flex;
-        flex-direction: column;
-      }
-
-      p,
-      li,
-      strong {
-        font-size: var(--fontSizes-lg);
-      }
-
-      p,
-      ul {
-        margin: var(--spaces-2) 0;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4 {
-        margin: var(--spaces-2) 0;
-      }
-
-      h2 {
-        font-size: var(--text-4xl);
-      }
-
-      h3 {
-        font-size: var(--text-3xl);
-      }
-
-      h4 {
-        font-size: var(--text-2xl);
-      }
-    </style>
   </body>
+  <style is:global>
+    :root {
+      --spaces-1: 0.25rem;
+      --spaces-2: 0.5rem;
+      --spaces-4: 1rem;
+      --overlay-z-index: 99;
+      --rounded-md: 0.375rem;
+      --rounded-lg: 0.5rem;
+
+      --text-4xl: 2.25rem;
+      --text-5xl: 3rem;
+      --text-3xl: 1.75rem;
+      --text-2xl: 1.5rem;
+      --fontSizes-2xs: 0.625rem;
+      --fontSizes-xs: 0.75rem;
+      --fontSizes-sm: 0.875rem;
+      --fontSizes-md: 1rem;
+      --fontSizes-lg: 1.125rem;
+      --fontSizes-xl: 1.25rem;
+      --fontSizes-2xl: 1.5rem;
+      --fontSizes-3xl: 1.875rem;
+      --fontSizes-4xl: 2rem;
+      --fontSizes-5xl: 2.25rem;
+      --fontSizes-6xl: 3rem;
+      --fontSizes-7xl: 3.75rem;
+      --fontSizes-8xl: 4.5rem;
+      --fontSizes-9xl: 6rem;
+
+      --chat-app-link-color: hsl(90, 90%, 30%);
+      --connect4-link-color: hsl(180, 90%, 30%);
+      --typing-game-link-color: hsl(270, 90%, 30%);
+      --search-app-link-color: hsl(60, 90%, 30%);
+      --uoa-links-link-color: hsl(300, 90%, 30%);
+      --analytics-link-color: hsl(0, 90%, 30%);
+
+      --light-background-white: hsl(210, 33%, 98%);
+      --light-background-black: hsl(0, 0%, 8%);
+      --light-black-color: hsl(210, 33%, 98%);
+
+      --light-link-color: hsl(212, 100%, 40%);
+      --light-accent-color: hsl(16, 100%, 40%);
+      --light-text-color: hsl(0, 0%, 8%);
+      --light-text-white: hsl(0, 0%, 98%);
+      --light-h2-color: hsl(0, 0%, 5%);
+      --light-h3-color: hsl(0, 0%, 6%);
+      --light-h4-color: hsl(0, 0%, 7%);
+      --light-gray-color: hsl(0, 0%, 20%);
+      --light-button-hover-background: hsl(300, 8.17%, 88.04%);
+      --light-overlay-background-color: rgba(255, 255, 255, 0.9);
+      --light-overlay-button-background-color: hsl(30, 100%, 98%);
+      --light-overlay-button-hover-color: hsl(210, 50%, 80%);
+      --light-overlay-button-text-color: hsl(210, 20%, 20%);
+      --light-table-row-even-bg: hsl(210, 66%, 97%);
+      --light-table-row-odd-bg: hsl(216, 33%, 94%);
+      --light-table-head: hsl(180, 100%, 75%);
+      --light-card-bg: hsl(210, 25%, 95%);
+      --light-card-border: hsl(0, 0%, 80%);
+      --light-card-footer-bg: hsl(210, 20%, 94%);
+      --light-line-color: hsl(0, 3%, 87%);
+
+      --light-section-divider: hsl(220, 8%, 75%);
+      --light-content-divider: hsl(213, 9%, 46%);
+
+      --dark-background-white: hsl(0, 0%, 8%);
+      --dark-background-black: hsl(0, 0%, 92%);
+      --dark-black-color: hsl(200, 13%, 5%);
+
+      --dark-link-color: hsl(212, 100%, 60%);
+      --dark-accent-color: hsl(16, 100%, 60%);
+      --dark-text-color: hsl(0, 0%, 98%);
+      --dark-text-white: hsl(0, 0%, 8%);
+      --dark-h2-color: hsl(0, 0%, 95%);
+      --dark-h3-color: hsl(0, 0%, 94%);
+      --dark-h4-color: hsl(0, 0%, 93%);
+      --dark-gray-color: hsl(0, 0%, 60%);
+      --dark-button-hover-background: hsl(0, 0%, 20%);
+      --dark-overlay-background-color: hsla(0, 0%, 0%, 0.9);
+      --dark-overlay-button-background-color: hsl(0, 0%, 8%);
+      --dark-overlay-button-hover-color: hsl(210, 25%, 45%);
+      --dark-overlay-button-text-color: hsl(0, 0%, 98%);
+      --dark-table-row-even-bg: hsl(210, 30%, 15%);
+      --dark-table-row-odd-bg: hsl(216, 25%, 20%);
+      --dark-table-head: hsl(180, 100%, 20%);
+      --dark-card-bg: hsl(0, 0%, 8%);
+      --dark-card-border: hsl(0, 0%, 28%);
+      --dark-card-footer-bg: hsl(0, 0%, 10%);
+      --dark-line-color: hsl(0, 0%, 25%);
+
+      --dark-section-divider: hsl(220, 8%, 30%);
+      --dark-content-divider: hsl(213, 9%, 26%);
+
+      --background-white: var(--light-background-white);
+      --background-black: var(--light-background-black);
+      --link-color: var(--light-link-color);
+      --accent-color: var(--light-accent-color);
+      --text-color: var(--light-text-color);
+      --text-white: var(--light-text-white);
+      --h2-color: var(--light-h2-color);
+      --h3-color: var(--light-h3-color);
+      --h4-color: var(--light-h4-color);
+      --gray-color: var(--light-gray-color);
+      --black-color: var(--light-black-color);
+      --button-hover-background: var(--light-button-hover-background);
+      --overlay-background-color: var(--light-overlay-background-color);
+      --overlay-button-background-color: var(
+        --light-overlay-button-background-color
+      );
+      --overlay-button-hover-color: var(--light-overlay-button-text-color);
+      --overlay-button-text-color: var(--light-overlay-button-text-color);
+      --overlay-button-hover-color: var(--light-overlay-button-hover-color);
+      --table-row-even-bg: var(--light-table-row-even-bg);
+      --table-row-odd-bg: var(--light-table-row-odd-bg);
+      --table-head: var(--light-table-head);
+      --card-bg: var(--light-card-bg);
+      --card-border: var(--light-card-border);
+      --card-footer-bg: var(--light-card-footer-bg);
+      --line-color: var(--light-line-color);
+
+      --section-divider: var(--light-section-divider);
+      --content-divider: var(--light-content-divider);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background-white: var(--dark-background-white);
+        --background-black: var(--dark-background-black);
+        --link-color: var(--dark-link-color);
+        --accent-color: var(--dark-accent-color);
+        --text-color: var(--dark-text-color);
+        --text-white: var(--dark-text-white);
+        --h2-color: var(--dark-h2-color);
+        --h3-color: var(--dark-h3-color);
+        --h4-color: var(--dark-h4-color);
+        --gray-color: var(--dark-gray-color);
+        --black-color: var(--dark-black-color);
+        --button-hover-background: var(--dark-button-hover-background);
+        --overlay-background-color: var(--dark-overlay-background-color);
+        --overlay-button-background-color: var(
+          --dark-overlay-button-background-color
+        );
+        --overlay-button-text-color: var(--dark-overlay-button-text-color);
+        --overlay-button-hover-color: var(--dark-overlay-button-hover-color);
+        --table-row-even-bg: var(--dark-table-row-even-bg);
+        --table-row-odd-bg: var(--dark-table-row-odd-bg);
+        --table-head: var(--dark-table-head);
+        --card-bg: var(--dark-card-bg);
+        --card-border: var(--dark-card-border);
+        --card-footer-bg: var(--dark-card-footer-bg);
+        --line-color: var(--dark-line-color);
+
+        --section-divider: var(--dark-section-divider);
+        --content-divider: var(--dark-content-divider);
+      }
+    }
+
+    .blur {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+
+    body {
+      color: var(--text-color);
+      background-color: var(--background-white);
+      font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans";
+      margin: 0;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-wrap: balance;
+      word-wrap: break-word;
+      vertical-align: middle;
+    }
+
+    body:not(:has(#uncheck:checked)) {
+      overflow: hidden;
+    }
+
+    @keyframes card-in {
+      from {
+        opacity: 0;
+        transform: translateY(100%);
+        height: 0;
+        width: 0;
+        border: none;
+        margin-bottom: 0;
+        position: absolute;
+        display: none;
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        height: auto;
+        width: 100%;
+        border: 1px solid var(--card-border);
+        margin-bottom: var(--spaces-4);
+        position: relative;
+        display: flex;
+      }
+    }
+
+    @keyframes card-out {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+        height: auto;
+        width: 100%;
+        border: 1px solid var(--card-border);
+        margin-bottom: var(--spaces-4);
+        position: relative;
+        display: flex;
+      }
+      to {
+        opacity: 0;
+        transform: translateY(100%);
+        height: 0;
+        width: 0;
+        border: none;
+        margin-bottom: 0;
+        position: absolute;
+        display: none;
+      }
+    }
+
+    main {
+      max-width: min(64rem, 100%);
+      margin-inline: auto;
+      padding: var(--spaces-4) var(--spaces-4);
+      z-index: 0;
+      gap: var(--spaces-4);
+      display: flex;
+      flex-direction: column;
+      overflow-y: clip;
+    }
+
+    section {
+      margin-left: var(--spaces-2);
+    }
+
+    .vstack {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .disc-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      gap: var(--spaces-2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    p,
+    li,
+    strong {
+      font-size: var(--fontSizes-lg);
+    }
+
+    p,
+    ul {
+      margin: var(--spaces-2) 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: var(--spaces-2) 0;
+    }
+
+    h2 {
+      font-size: var(--text-4xl);
+    }
+
+    h3 {
+      font-size: var(--text-3xl);
+    }
+
+    h4 {
+      font-size: var(--text-2xl);
+    }
+  </style>
 </html>
