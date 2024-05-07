@@ -15,7 +15,8 @@ const lang = project.lang.join(" / ")
       src={project.thumbnail}
       alt={project.description}
       height="350"
-      sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
+      widths={[240, 540, 720, 1024, project.thumbnail.width]}
+      sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1024px) 720px, (max-width: 1600px) 1024px, ${project.thumbnail.width}px`}
       loading="lazy"
     />
   </div>
