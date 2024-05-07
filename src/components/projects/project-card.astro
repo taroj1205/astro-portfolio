@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets"
-import GithubIcon from "../../icons/github.astro"
+import GithubLight from "../../assets/icons/github_light.svg"
+import GithubDark from "../../assets/icons/github_dark.svg"
 
 const { project } = Astro.props
 
@@ -38,7 +39,24 @@ const lang = project.lang.join(" / ")
       target="_blank"
       rel="noopener noreferrer"
       title="GitHub">
-      <GithubIcon size="100%" />
+      <Image
+        class="github dark"
+        src={GithubDark}
+        width="24"
+        height="24"
+        alt="GitHub"
+        widths={[24, 48, 72]}
+        sizes="(max-width: 600px) 24px, (max-width: 900px) 48px, 72px"
+      />
+      <Image
+        class="github light"
+        src={GithubLight}
+        width="24"
+        height="24"
+        alt="GitHub"
+        widths={[24, 48, 72]}
+        sizes="(max-width: 600px) 24px, (max-width: 900px) 48px, 72px"
+      />
     </a>
   </div>
 </div>
@@ -88,6 +106,25 @@ const lang = project.lang.join(" / ")
     color: var(--link-color);
     text-decoration: none;
   }
+
+  .github.dark {
+    display: none;
+  }
+
+  .github.light {
+    display: block;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .github.dark {
+      display: block;
+    }
+
+    .github.light {
+      display: none;
+    }
+  }
+
   a:hover {
     text-decoration: underline;
   }
