@@ -1,11 +1,11 @@
 ---
+import { Image } from "astro:assets"
+import pfpImg from "../../assets/carousel/pfp.webp"
 import { getTranslations } from "../../i18n/utils"
-import MobileToggle from "./mobile-toggle.astro"
 import SectionDivider from "../divider/section-divider.astro"
 import LangToggle from "../lang-toggle/index.astro"
 import Dropdown from "./dropdown.astro"
-import pfpImg from "../../assets/carousel/pfp.webp"
-import { Image } from "astro:assets"
+import MobileToggle from "./mobile-toggle.astro"
 
 const { lang } = Astro.props
 
@@ -17,10 +17,11 @@ const { header } = getTranslations(lang)
     <a href={`/${lang}/`}
       ><Image
         src={pfpImg}
-        sizes="(max-width: 600px) 24px, (max-width: 900px) 32px, 48px"
         width="24"
         height="24"
         alt={header.title}
+        widths={[24, 32, 48]}
+        sizes="(max-width: 600px) 24px, (max-width: 900px) 32px, 48px"
       /></a
     >
     <div class="spacer"></div>
