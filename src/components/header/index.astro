@@ -16,13 +16,13 @@ const { header } = getTranslations(lang)
   <div id="header-wrapper">
     <a href={`/${lang}/`}
       ><Image
-    src={pfpImg}
-    alt={header.title}
-    width="24"
-    height="24"
-    sizes="(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1024px) 720px, (max-width: 1600px) 1024px, ${pfpImg.width}px"
-    widths={[240, 540, 720, 1024, pfpImg.width]}
-/></a
+        src={pfpImg}
+        width="24"
+        height="24"
+        alt={header.title}
+        widths={[24, 32, 48]}
+        sizes="(max-width: 600px) 24px, (max-width: 900px) 32px, 48px"
+      /></a
     >
     <div class="spacer"></div>
     <div id="dropdown-section"><Dropdown lang={lang} /></div>
