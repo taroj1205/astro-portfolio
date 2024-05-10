@@ -46,7 +46,7 @@ const url = Astro.site
       <Footer lang={lang} />
     </div>
   </body>
-  <style is:global>
+  <style is:global is:inline>
     :root {
       --spaces-1: 0.25rem;
       --spaces-2: 0.5rem;
@@ -81,123 +81,64 @@ const url = Astro.site
       --uoa-links-link-color: hsl(300, 90%, 30%);
       --analytics-link-color: hsl(0, 90%, 30%);
 
-      --light-background-white: hsl(210, 33%, 98%);
-      --light-background-black: hsl(0, 0%, 8%);
-      --light-black-color: hsl(210, 33%, 98%);
+      --background-white: hsl(210, 33%, 98%);
+      --background-black: hsl(0, 0%, 8%);
+      --black-color: hsl(210, 33%, 98%);
 
-      --light-link-color: hsl(212, 100%, 40%);
-      --light-accent-color: hsl(16, 100%, 40%);
-      --light-text-color: hsl(0, 0%, 8%);
-      --light-text-white: hsl(0, 0%, 98%);
-      --light-h2-color: hsl(0, 0%, 5%);
-      --light-h3-color: hsl(0, 0%, 6%);
-      --light-h4-color: hsl(0, 0%, 7%);
-      --light-gray-color: hsl(0, 0%, 20%);
-      --light-button-hover-background: hsl(300, 8.17%, 88.04%);
-      --light-overlay-background-color: rgba(255, 255, 255, 0.9);
-      --light-overlay-button-background-color: hsl(30, 100%, 98%);
-      --light-overlay-button-hover-color: hsl(210, 50%, 80%);
-      --light-overlay-button-text-color: hsl(210, 20%, 20%);
-      --light-table-row-even-bg: hsl(210, 66%, 97%);
-      --light-table-row-odd-bg: hsl(216, 33%, 94%);
-      --light-table-head: hsl(180, 100%, 75%);
-      --light-card-bg: hsl(210, 25%, 95%);
-      --light-card-border: hsl(0, 0%, 80%);
-      --light-card-footer-bg: hsl(210, 20%, 94%);
-      --light-line-color: hsl(0, 3%, 87%);
+      --link-color: hsl(212, 100%, 40%);
+      --accent-color: hsl(16, 100%, 40%);
+      --text-color: hsl(0, 0%, 8%);
+      --text-white: hsl(0, 0%, 98%);
+      --h2-color: hsl(0, 0%, 5%);
+      --h3-color: hsl(0, 0%, 6%);
+      --h4-color: hsl(0, 0%, 7%);
+      --gray-color: hsl(0, 0%, 20%);
+      --button-hover-background: hsl(300, 8.17%, 88.04%);
+      --overlay-background-color: rgba(255, 255, 255, 0.9);
+      --overlay-button-background-color: hsl(30, 100%, 98%);
+      --overlay-button-hover-color: hsl(210, 50%, 80%);
+      --overlay-button-text-color: hsl(210, 20%, 20%);
+      --table-row-even-bg: hsl(210, 66%, 97%);
+      --table-row-odd-bg: hsl(216, 33%, 94%);
+      --table-head: hsl(180, 100%, 75%);
+      --card-bg: hsl(210, 25%, 95%);
+      --card-border: hsl(0, 0%, 80%);
+      --card-footer-bg: hsl(210, 20%, 94%);
+      --line-color: hsl(0, 3%, 87%);
 
-      --light-section-divider: hsl(220, 8%, 75%);
-      --light-content-divider: hsl(213, 9%, 46%);
-
-      --dark-background-white: hsl(0, 0%, 8%);
-      --dark-background-black: hsl(0, 0%, 92%);
-      --dark-black-color: hsl(200, 13%, 5%);
-
-      --dark-link-color: hsl(212, 100%, 60%);
-      --dark-accent-color: hsl(16, 100%, 60%);
-      --dark-text-color: hsl(0, 0%, 98%);
-      --dark-text-white: hsl(0, 0%, 8%);
-      --dark-h2-color: hsl(0, 0%, 95%);
-      --dark-h3-color: hsl(0, 0%, 94%);
-      --dark-h4-color: hsl(0, 0%, 93%);
-      --dark-gray-color: hsl(0, 0%, 60%);
-      --dark-button-hover-background: hsl(0, 0%, 20%);
-      --dark-overlay-background-color: hsla(0, 0%, 0%, 0.9);
-      --dark-overlay-button-background-color: hsl(0, 0%, 8%);
-      --dark-overlay-button-hover-color: hsl(210, 25%, 45%);
-      --dark-overlay-button-text-color: hsl(0, 0%, 98%);
-      --dark-table-row-even-bg: hsl(210, 30%, 15%);
-      --dark-table-row-odd-bg: hsl(216, 25%, 20%);
-      --dark-table-head: hsl(180, 100%, 20%);
-      --dark-card-bg: hsl(0, 0%, 8%);
-      --dark-card-border: hsl(0, 0%, 28%);
-      --dark-card-footer-bg: hsl(0, 0%, 10%);
-      --dark-line-color: hsl(0, 0%, 25%);
-
-      --dark-section-divider: hsl(220, 8%, 30%);
-      --dark-content-divider: hsl(213, 9%, 26%);
-
-      --background-white: var(--light-background-white);
-      --background-black: var(--light-background-black);
-      --link-color: var(--light-link-color);
-      --accent-color: var(--light-accent-color);
-      --text-color: var(--light-text-color);
-      --text-white: var(--light-text-white);
-      --h2-color: var(--light-h2-color);
-      --h3-color: var(--light-h3-color);
-      --h4-color: var(--light-h4-color);
-      --gray-color: var(--light-gray-color);
-      --black-color: var(--light-black-color);
-      --button-hover-background: var(--light-button-hover-background);
-      --overlay-background-color: var(--light-overlay-background-color);
-      --overlay-button-background-color: var(
-        --light-overlay-button-background-color
-      );
-      --overlay-button-hover-color: var(--light-overlay-button-text-color);
-      --overlay-button-text-color: var(--light-overlay-button-text-color);
-      --overlay-button-hover-color: var(--light-overlay-button-hover-color);
-      --table-row-even-bg: var(--light-table-row-even-bg);
-      --table-row-odd-bg: var(--light-table-row-odd-bg);
-      --table-head: var(--light-table-head);
-      --card-bg: var(--light-card-bg);
-      --card-border: var(--light-card-border);
-      --card-footer-bg: var(--light-card-footer-bg);
-      --line-color: var(--light-line-color);
-
-      --section-divider: var(--light-section-divider);
-      --content-divider: var(--light-content-divider);
+      --section-divider: hsl(220, 8%, 75%);
+      --content-divider: hsl(213, 9%, 46%);
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --background-white: var(--dark-background-white);
-        --background-black: var(--dark-background-black);
-        --link-color: var(--dark-link-color);
-        --accent-color: var(--dark-accent-color);
-        --text-color: var(--dark-text-color);
-        --text-white: var(--dark-text-white);
-        --h2-color: var(--dark-h2-color);
-        --h3-color: var(--dark-h3-color);
-        --h4-color: var(--dark-h4-color);
-        --gray-color: var(--dark-gray-color);
-        --black-color: var(--dark-black-color);
-        --button-hover-background: var(--dark-button-hover-background);
-        --overlay-background-color: var(--dark-overlay-background-color);
-        --overlay-button-background-color: var(
-          --dark-overlay-button-background-color
-        );
-        --overlay-button-text-color: var(--dark-overlay-button-text-color);
-        --overlay-button-hover-color: var(--dark-overlay-button-hover-color);
-        --table-row-even-bg: var(--dark-table-row-even-bg);
-        --table-row-odd-bg: var(--dark-table-row-odd-bg);
-        --table-head: var(--dark-table-head);
-        --card-bg: var(--dark-card-bg);
-        --card-border: var(--dark-card-border);
-        --card-footer-bg: var(--dark-card-footer-bg);
-        --line-color: var(--dark-line-color);
+        --background-white: hsl(0, 0%, 8%);
+        --background-black: hsl(0, 0%, 92%);
+        --black-color: hsl(200, 13%, 5%);
 
-        --section-divider: var(--dark-section-divider);
-        --content-divider: var(--dark-content-divider);
+        --link-color: hsl(212, 100%, 60%);
+        --accent-color: hsl(16, 100%, 60%);
+        --text-color: hsl(0, 0%, 98%);
+        --text-white: hsl(0, 0%, 8%);
+        --h2-color: hsl(0, 0%, 95%);
+        --h3-color: hsl(0, 0%, 94%);
+        --h4-color: hsl(0, 0%, 93%);
+        --gray-color: hsl(0, 0%, 60%);
+        --button-hover-background: hsl(0, 0%, 20%);
+        --overlay-background-color: hsla(0, 0%, 0%, 0.9);
+        --overlay-button-background-color: hsl(0, 0%, 8%);
+        --overlay-button-hover-color: hsl(210, 25%, 45%);
+        --overlay-button-text-color: hsl(0, 0%, 98%);
+        --table-row-even-bg: hsl(210, 30%, 15%);
+        --table-row-odd-bg: hsl(216, 25%, 20%);
+        --table-head: hsl(180, 100%, 20%);
+        --card-bg: hsl(0, 0%, 8%);
+        --card-border: hsl(0, 0%, 28%);
+        --card-footer-bg: hsl(0, 0%, 10%);
+        --line-color: hsl(0, 0%, 25%);
+
+        --section-divider: hsl(220, 8%, 30%);
+        --content-divider: hsl(213, 9%, 26%);
       }
     }
 
@@ -208,6 +149,7 @@ const url = Astro.site
 
     html {
       scroll-behavior: smooth;
+      color-scheme: dark light;
     }
 
     @media (prefers-reduced-motion: reduce) {
