@@ -168,7 +168,7 @@ timelineJSON.sort(
   .content:has(img) > p,
   .content:has(img) > h3 {
     padding-bottom: 0px;
-    padding-inline: 20px;
+    padding-inline: 30px;
   }
 
   @container (max-width: 600px) {
@@ -200,6 +200,12 @@ timelineJSON.sort(
 
     .right {
       left: 0%;
+    }
+
+    .content:has(img) > p,
+    .content:has(img) > h3,
+    .content:not(:has(img)) {
+      padding-inline: 20px;
     }
   }
 
