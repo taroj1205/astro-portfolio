@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets"
+import { generateSizesAndWidths } from "../utils/image"
 const { id, item, imgSrc, alt, carousel, prevId, nextId, checked } = Astro.props
 ---
 
@@ -14,11 +15,8 @@ const { id, item, imgSrc, alt, carousel, prevId, nextId, checked } = Astro.props
   <Image
     src={imgSrc}
     alt={alt}
-    width="480"
-    height="480"
     loading={carousel === 1 ? "eager" : "lazy"}
-    widths={[284, 557, 784]}
-    sizes="(max-width: 600px) 284px, (max-width: 900px) 557px, 784px"
+    {...generateSizesAndWidths(imgSrc.width, imgSrc.height)}
   />
 </div>
 <label class={`arrow arrow-prev carousel-${carousel}`} for={prevId}
