@@ -80,10 +80,13 @@ export const timelineJSON: timelineJSONProps = [
   {
     timestamp: "2023, Dec",
     date: "2023-12-01",
-    title: { ja: "5年ぶりに日本へ帰国", en: "Back to Japan since 5 years!" },
+    title: {
+      ja: "5年ぶりに日本へ帰国",
+      en: "Back to Japan for the first time in 5 years!",
+    },
     description: {
       ja: "5年ぶりに日本へ帰国し、4つの企業を訪問しました。\n- マイクロソフト\n- HENNGE\n- サイボウズ\n- Soulware",
-      en: "I went back to Japan since 5 years! I have visited 4 companies:\n- Microsoft\n- HENNGE\n- Cybozu\n- Soulware",
+      en: "I went back to Japan for the first time in 5 years! I have visited 4 companies:\n- Microsoft\n- HENNGE\n- Cybozu\n- Soulware",
     },
   },
   {
