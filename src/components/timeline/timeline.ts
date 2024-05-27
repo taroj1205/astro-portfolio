@@ -42,7 +42,7 @@ export const timelineJSON: timelineJSONProps = [
     },
   },
   {
-    timestamp: "2018, Aug",
+    timestamp: "2019, July",
     date: "2018-08-01",
     title: { ja: "ニュージーランドへ移住", en: "Went back to New Zealand" },
     description: {
@@ -51,8 +51,8 @@ export const timelineJSON: timelineJSONProps = [
     },
   },
   {
-    timestamp: "2018, October",
-    date: "2018-10-01",
+    timestamp: "2019, October",
+    date: "2019-10-01",
     title: { ja: "サッカーで膝を怪我", en: "Injury from playing soccer" },
     description: {
       ja: "膝前十字靭帯損傷（ACL）という怪我をする。\nPhysioへ通い始める。",
@@ -64,8 +64,8 @@ export const timelineJSON: timelineJSONProps = [
     date: "2020-06-01",
     title: { ja: "2度目のACL", en: "ACL 2nd time" },
     description: {
-      ja: "Physioへ一年行った結果、ほぼ回復したので軽いスポーツを始めました。見事にACL再発です。",
-      en: "After going to physio for a year, I've almost recovered and started doing some light sports.\nThis resulted in a 2nd ACL.",
+      ja: "Physioへ半年行った結果、ほぼ回復したので軽いスポーツを始めました。見事にACL再発です。",
+      en: "After going to physio for half a year, I've almost recovered and started doing some light sports.\nThis resulted in a 2nd ACL.",
     },
   },
   {
