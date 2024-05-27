@@ -1,0 +1,9 @@
+---
+const { lang, dir } = Astro.props
+---
+
+<div class=`container ${dir ?? "left"}`>
+  <div class="content">
+    <slot />
+  </div>
+</div>

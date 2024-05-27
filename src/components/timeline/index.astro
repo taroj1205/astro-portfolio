@@ -1,0 +1,204 @@
+---
+import { marked } from "marked"
+import Container from "./container.astro"
+import { timelineJSON } from "./timeline"
+
+const { lang } = Astro.props as { lang: "en" | "ja" }
+
+timelineJSON.sort(
+  (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+)
+---
+
+<h2>{lang === "ja" ? "僕の旅" : "My Journey"}</h2>
+<div class="timeline">
+  {
+    timelineJSON.map((item, index) => (
+      <Container dir={index % 2 === 0 ? "left" : "right"}>
+        {item.timestamp && (
+          <time datetime={item.timestamp}>{item.timestamp}</time>
+        )}
+        <h3>{item.title[lang]}</h3>
+        <p set:html={marked.parse(item.description[lang])} />
+      </Container>
+    ))
+  }
+</div>
+
+<style is:global>
+  :root {
+    --darker-bg: hsl(210, 33%, 93%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --darker-bg: hsl(0, 0%, 15%);
+    }
+  }
+
+  /* The actual timeline (the vertical ruler) */
+  .timeline {
+    position: relative;
+    margin: 0 auto;
+    width: min(50rem, 90vw);
+  }
+
+  .timeline h3 {
+    font-size: 1.5rem;
+  }
+
+  .timeline ul {
+    padding-left: inherit;
+  }
+
+  .timeline time {
+    position: absolute;
+    top: -0.7rem;
+    left: 0.5rem;
+    z-index: 1;
+    background-color: var(--label-bg);
+    padding-inline: 0.7rem;
+    padding-block: 0.25rem;
+    border-radius: 0.5rem;
+    color: white;
+  }
+
+  /* The actual timeline (the vertical ruler) */
+  .timeline::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    background-color: var(--darker-bg);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+
+  /* Container around content */
+  .container {
+    padding: 10px 0;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    text-wrap: pretty;
+  }
+
+  /* The circles on the timeline */
+  .container::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 0;
+    background-color: white;
+    border: 4px solid #ff9f55;
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .left::after {
+    transform: translateX(50%);
+  }
+
+  .right::after {
+    transform: translateX(15%);
+  }
+
+  /* Place the container to the left */
+  .left {
+    left: 0;
+    padding-right: 35px;
+  }
+
+  /* Place the container to the right */
+  .right {
+    left: 50%;
+    padding-left: 35px;
+  }
+
+  /* Add arrows to the left container (pointing right) */
+  .left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 25px;
+    border: medium solid var(--darker-bg);
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent var(--darker-bg);
+  }
+
+  /* Add arrows to the right container (pointing left) */
+  .right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 25px;
+    border: medium solid var(--darker-bg);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--darker-bg) transparent transparent;
+  }
+
+  /* Fix the circle for containers on the right side */
+  .right::after {
+    left: -16px;
+  }
+
+  /* The actual content */
+  .content {
+    padding: 20px 30px;
+    background-color: var(--darker-bg);
+    position: relative;
+    border-radius: 6px;
+  }
+
+  @container (max-width: 600px) {
+    /* Place the timelime to the left */
+    .timeline::after {
+      left: 31px;
+    }
+
+    /* Full-width containers */
+    .container {
+      width: 100%;
+      padding-left: 60px;
+      padding-right: 0;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .container::before {
+      left: 50px;
+      border: medium solid var(--darker-bg);
+      border-width: 10px 10px 10px 0;
+      border-color: transparent var(--darker-bg) transparent transparent;
+    }
+
+    /* Make sure all circles are at the same spot */
+    .left::after,
+    .right::after {
+      left: 15px;
+    }
+
+    .left::after {
+      transform: translateX(15%);
+    }
+
+    /* Make all right containers behave like the left ones */
+    .right {
+      left: 0%;
+    }
+  }
+
+  @container (max-width: 400px) {
+    .content {
+      padding: 5px 15px;
+    }
+  }
+</style>
