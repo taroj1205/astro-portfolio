@@ -9,6 +9,13 @@ const { lang } = Astro.props as { lang: "en" | "ja" }
 timelineJSON.sort(
   (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
 )
+
+const generateSizesAndWidths = (width: number, height: number) => {
+  const aspectRatio = height / width
+  const widths = [284, 557, 784].map((w) => Math.round(w * aspectRatio))
+  const sizes = `(max-width: 600px) ${widths[0]}px, (max-width: 900px) ${widths[1]}px, ${widths[2]}px`
+  return { widths, sizes }
+}
 ---
 
 <h2>{lang === "ja" ? "僕の旅" : "My Journey"}</h2>
@@ -26,10 +33,9 @@ timelineJSON.sort(
             src={item.image}
             alt={item.title[lang]}
             loading="lazy"
-            widths={[284, 557, 784]}
             width={item.image.width}
             height={item.image.height}
-            sizes="(max-width: 600px) 284px, (max-width: 900px) 557px, 784px"
+            {...generateSizesAndWidths(item.image.width, item.image.height)}
           />
         )}
       </Container>
