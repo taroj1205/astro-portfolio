@@ -9,6 +9,11 @@ const { briefIntro } = getTranslations(lang)
 
 <div class="vstack">
   <h2>{briefIntro.title}</h2>
+  <a href="#timeline"
+    >{">"}
+    {lang === "ja" ? "僕の旅を見てみよう！" : "Have a look at my jorney!"}
+    {"<"}</a
+  >
   <ul class="disc-list">
     <li>{briefIntro.born}</li>
     <li>{briefIntro.age}</li>
@@ -89,7 +94,7 @@ const { briefIntro } = getTranslations(lang)
     <li>{briefIntro.hobbies["pen spinning"]}</li>
   </ul>
   <h3>{briefIntro["part time job"].heading}</h3>
-  <ul class="disc-list">
+  <ul class="disc-list" id="timeline">
     <li>{briefIntro["part time job"].westlake}</li>
   </ul>
 </div>
@@ -144,5 +149,16 @@ const { briefIntro } = getTranslations(lang)
   .disc-list > li {
     font-size: large;
     line-height: 1.5;
+  }
+
+  a {
+    font-size: large;
+    width: -webkit-fit-content;
+    width: fit-content;
+    color: var(--link-color);
+  }
+
+  a:hover {
+    text-decoration: none;
   }
 </style>

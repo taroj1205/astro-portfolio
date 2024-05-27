@@ -1,4 +1,8 @@
-<hr class="content-divider" />
+---
+const props = Astro.props
+---
+
+<hr class="content-divider" {...props} />
 
 <style is:global>
   .content-divider {

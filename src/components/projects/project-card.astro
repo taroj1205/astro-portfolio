@@ -96,14 +96,6 @@ const lang = project.lang.join(" / ")
     font-size: 1rem;
   }
 
-  .project-card > div:last-child {
-    max-height: 2rem;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    background-color: var(--card-footer-bg);
-  }
-
   .project-card p:first-of-type,
   .project-card p:last-of-type {
     font-size: 0.875rem;
@@ -114,8 +106,8 @@ const lang = project.lang.join(" / ")
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     margin: 0;
     color: var(--text-color);
     font-size: var(--fontSizes-md);
@@ -150,6 +142,12 @@ const lang = project.lang.join(" / ")
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    max-height: 2rem;
+    padding-block: 1.5rem;
+    padding-inline: 0.3rem;
+    display: flex;
+    align-items: center;
+    background-color: var(--card-footer-bg);
   }
   .card-footer div {
     display: flex;

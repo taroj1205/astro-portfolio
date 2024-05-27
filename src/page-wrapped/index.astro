@@ -4,6 +4,7 @@ import Carousel from "../components/carousel/index.astro"
 import ContentDivider from "../components/divider/content-divider.astro"
 import Programming from "../components/programming/index.astro"
 import Projects from "../components/projects/index.astro"
+import Timeline from "../components/timeline/index.astro"
 import TopMe from "../components/top-me/index.astro"
 import { languages } from "../i18n/ui"
 import { getTranslations } from "../i18n/utils"
@@ -28,6 +29,8 @@ export const getStaticPaths = () => {
   <Carousel />
   <ContentDivider />
   <BriefIntro lang={lang} />
+  <ContentDivider />
+  <Timeline lang={lang} />
   <ContentDivider />
   <Programming lang={lang} />
   <Projects lang={lang} />

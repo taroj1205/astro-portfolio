@@ -3,19 +3,13 @@ import MobileContent from "./mobile-content.astro"
 ---
 
 <form id="mobile-toggle">
-  <input id="uncheck" type="radio" name="drawer" checked />
-  <input id="close-drawer" type="radio" name="drawer" />
+  <input id="close-drawer" type="checkbox" name="drawer" />
   <label class="toggle" for="close-drawer" title="Open mobile menu">
     <div></div>
     <div></div>
     <div></div>
   </label>
   <div id="drawer-content">
-    <label id="click-to-close" for="uncheck" title="Close mobile menu">
-      <div></div>
-      <div></div>
-      <div></div>
-    </label>
     <MobileContent />
   </div>
 </form>
@@ -29,36 +23,15 @@ import MobileContent from "./mobile-content.astro"
     display: none;
   }
 
-  #click-to-close {
-    z-index: calc(var(--overlay-z-index) + 2);
-  }
-
-  #click-to-close div {
-    background-color: hsl(210, 33%, 98%);
-  }
-
-  #click-to-close:hover {
-    background-color: hsl(0, 0%, 15%);
-  }
-
-  #click-to-close label div {
-    background-color: hsl(210, 33%, 98%);
-  }
-
-  #click-to-close div:first-child,
-  #close-drawer:checked ~ label div:first-child,
-  #close-drawer:checked ~ #drawer-content #click-to-close div:first-child {
+  #close-drawer:checked ~ label div:first-child {
     transform: rotate(45deg);
   }
 
-  #click-to-close div:last-child,
-  #close-drawer:checked ~ label div:last-child,
-  #close-drawer:checked ~ #drawer-content #click-to-close div:last-child {
+  #close-drawer:checked ~ label div:last-child {
     transform: rotate(-45deg);
   }
 
-  #close-drawer:checked ~ label div:nth-child(2),
-  #close-drawer:checked ~ #drawer-content #click-to-close div:nth-child(2) {
+  #close-drawer:checked ~ label div:nth-child(2) {
     opacity: 0;
     transform: translateX(10px);
   }
@@ -72,12 +45,14 @@ import MobileContent from "./mobile-content.astro"
     visibility: visible;
   }
 
-  #close-drawer:checked #drawer-content #click-to-close {
-    display: flex;
+  #close-drawer:checked ~ .toggle div {
+    background-color: var(--mobile-toggle-bg);
   }
 
   .toggle {
     margin: 0.5rem;
+    z-index: calc(var(--overlay-z-index) + 3);
+    position: relative;
   }
 
   label {
@@ -100,7 +75,9 @@ import MobileContent from "./mobile-content.astro"
     width: 1.5rem;
     height: 0.1rem;
     background-color: var(--gray-color);
-    transition: all 0.3s;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
     position: absolute;
   }
 
@@ -109,7 +86,9 @@ import MobileContent from "./mobile-content.astro"
   }
 
   label div:nth-child(2) {
-    transition: all 0.4s;
+    transition:
+      transform 0.4s,
+      opacity 0.4s;
   }
 
   label div:last-child {
@@ -117,7 +96,7 @@ import MobileContent from "./mobile-content.astro"
   }
 
   #drawer-content {
-    background-color: rgba(31, 31, 31, 0.5);
+    background-color: var(--mobile-content-bg);
     position: fixed;
     left: 0;
     top: 0;
