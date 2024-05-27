@@ -1,3 +1,9 @@
+import type { ImageMetadata } from "astro"
+import nzFlight from "../../assets/timeline/auckland/auckland_flight.webp"
+import cebuVisit from "../../assets/timeline/cebu/cebu_visit.webp"
+import microsoft_visit from "../../assets/timeline/microsoft/microsoft_visit.webp"
+import injury from "../../assets/timeline/auckland/injury.webp"
+
 export const timelineJSON: timelineJSONProps = [
   {
     timestamp: "2005, Dec",
@@ -31,6 +37,7 @@ export const timelineJSON: timelineJSONProps = [
       ja: "ニュージーランド、オークランドへ留学。現地の中学校へ行く。",
       en: "I went to New Zealand and went to local juniour high school in Auckland.",
     },
+    image: nzFlight,
   },
   {
     timestamp: "2018, April",
@@ -40,6 +47,7 @@ export const timelineJSON: timelineJSONProps = [
       ja: "フィリピンにあるセブ島へ留学。現地の語学学校へ3ヶ月間、中学校へ1年間行く。",
       en: "I went to The Phillippines and went to English School for 3 months, then went to local juniour high school for a year in Cebu.",
     },
+    image: cebuVisit,
   },
   {
     timestamp: "2019, July",
@@ -58,6 +66,7 @@ export const timelineJSON: timelineJSONProps = [
       ja: "膝前十字靭帯損傷（ACL）という怪我をする。\nPhysioへ通い始める。",
       en: "Anterior cruciate ligament tear (ACL)\nStarted going to Physio.",
     },
+    image: injury,
   },
   {
     timestamp: "2020, June",
@@ -88,6 +97,7 @@ export const timelineJSON: timelineJSONProps = [
       ja: "5年ぶりに日本へ帰国し、4つの企業を訪問しました。\n- マイクロソフト\n- HENNGE\n- サイボウズ\n- Soulware",
       en: "I went back to Japan for the first time in 5 years! I have visited 4 companies:\n- Microsoft\n- HENNGE\n- Cybozu\n- Soulware",
     },
+    image: microsoft_visit,
   },
   {
     timestamp: "2024, January",
@@ -111,4 +121,5 @@ export type timelineJSONProps = {
     ja: string
     en: string
   }
+  image?: ImageMetadata
 }[]

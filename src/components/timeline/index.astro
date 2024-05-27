@@ -2,6 +2,7 @@
 import { marked } from "marked"
 import Container from "./container.astro"
 import { timelineJSON } from "./timeline"
+import { Image } from "astro:assets"
 
 const { lang } = Astro.props as { lang: "en" | "ja" }
 
@@ -19,7 +20,18 @@ timelineJSON.sort(
           <time datetime={item.timestamp}>{item.timestamp}</time>
         )}
         <h3>{item.title[lang]}</h3>
-        <p set:html={marked.parse(item.description[lang])} />
+        <p set:html={marked.parse(item.description[lang].trim())} />
+        {item.image && (
+          <Image
+            src={item.image}
+            alt={item.title[lang]}
+            loading="lazy"
+            widths={[284, 557, 784]}
+            width={item.image.width}
+            height={item.image.height}
+            sizes="(max-width: 600px) 284px, (max-width: 900px) 557px, 784px"
+          />
+        )}
       </Container>
     ))
   }
@@ -46,8 +58,13 @@ timelineJSON.sort(
     font-size: 1.5rem;
   }
 
-  .timeline ul {
-    padding-left: inherit;
+  .timeline img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    position: relative;
+    bottom: -0.5rem;
   }
 
   .timeline time {
@@ -143,6 +160,17 @@ timelineJSON.sort(
     background-color: var(--darker-bg);
     position: relative;
     border-radius: 6px;
+  }
+
+  .content:has(img) {
+    padding-bottom: 0px;
+    padding-inline: 0;
+  }
+
+  .content:has(img) > p,
+  .content:has(img) > h3 {
+    padding-bottom: 0px;
+    padding-inline: 20px;
   }
 
   @container (max-width: 600px) {
