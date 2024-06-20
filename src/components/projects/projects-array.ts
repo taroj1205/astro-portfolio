@@ -2,7 +2,7 @@ import appPyImage from "../../assets/projects/app_py.webp"
 import chatImage from "../../assets/projects/chat.webp"
 import connect4Image from "../../assets/projects/connect-4.webp"
 import hideTwitterBotsImage from "../../assets/projects/hide-twitter-bots.webp"
-import portfolioImage from "../../assets/projects/portfolio.webp"
+// import portfolioImage from "../../assets/projects/portfolio.webp"
 import reversiImage from "../../assets/projects/reversi.webp"
 import saveTwitterLinksImage from "../../assets/projects/save-twitter-links.webp"
 import typingGameImage from "../../assets/projects/typing-game.webp"
@@ -13,15 +13,15 @@ import { getTranslations } from "../../i18n/utils"
 export const projectsArray = (lang: keyof typeof ui) => {
   const { projects } = getTranslations(lang)
   return [
-    {
-      title: projects.portfolio.title,
-      description: projects.portfolio.description,
-      thumbnail: portfolioImage,
-      lang: ["JavaScript", "TypeScript"],
-      framework: ["Next.js"],
-      link: "https://taroj.vercel.app",
-      githubLink: "https://github.com/taroj1205/portfolio",
-    },
+    // {
+    //   title: projects.portfolio.title,
+    //   description: projects.portfolio.description,
+    //   thumbnail: portfolioImage,
+    //   lang: ["JavaScript", "TypeScript"],
+    //   framework: ["Next.js"],
+    //   link: "https://taroj.vercel.app",
+    //   githubLink: "https://github.com/taroj1205/portfolio",
+    // },
     {
       title: projects.saveTwitterLinks.title,
       description: projects.saveTwitterLinks.description,
