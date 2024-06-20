@@ -66,7 +66,8 @@ const { lang } = Astro.props
     place-items: center;
   }
 
-  .dropdown-label:hover {
+  .dropdown-label:hover,
+  .dropdown-label:focus-within {
     background-color: var(--button-hover-background);
   }
 
@@ -84,7 +85,8 @@ const { lang } = Astro.props
     display: none;
   }
 
-  .dropdown-label:hover .content {
+  .dropdown-label:hover .content,
+  .dropdown-label:focus-within .content {
     visibility: visible;
     display: flex;
     opacity: 1;
@@ -132,11 +134,13 @@ const { lang } = Astro.props
     transform: translateY(3px) rotate(-45deg);
   }
 
-  .dropdown-label:hover .indicator div::before {
+  .dropdown-label:hover .indicator div::before,
+  .dropdown-label:focus-within .indicator div::before {
     transform: translateY(-3px) rotate(-45deg);
   }
 
-  .dropdown-label:hover .indicator div::after {
+  .dropdown-label:hover .indicator div::after,
+  .dropdown-label:focus-within .indicator div::after {
     transform: translateY(3px) rotate(45deg);
   }
 </style>
