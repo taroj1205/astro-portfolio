@@ -67,7 +67,7 @@ const { lang } = Astro.props
   }
 
   .dropdown-label:hover,
-  .dropdown-label:focus-within {
+  .dropdown-label:active {
     background-color: var(--button-hover-background);
   }
 
@@ -86,7 +86,7 @@ const { lang } = Astro.props
   }
 
   .dropdown-label:hover .content,
-  .dropdown-label:focus-within .content {
+  .dropdown-label:active .content {
     visibility: visible;
     display: flex;
     opacity: 1;
@@ -135,12 +135,12 @@ const { lang } = Astro.props
   }
 
   .dropdown-label:hover .indicator div::before,
-  .dropdown-label:focus-within .indicator div::before {
+  .dropdown-label:active .indicator div::before {
     transform: translateY(-3px) rotate(-45deg);
   }
 
   .dropdown-label:hover .indicator div::after,
-  .dropdown-label:focus-within .indicator div::after {
+  .dropdown-label:active .indicator div::after {
     transform: translateY(3px) rotate(45deg);
   }
 </style>
