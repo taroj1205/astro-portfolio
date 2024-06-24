@@ -96,7 +96,9 @@ import MobileContent from "./mobile-content.astro"
   }
 
   #drawer-content {
-    background-color: var(--mobile-content-bg);
+    background-color: hsla(0, 0%, 0%, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     position: fixed;
     left: 0;
     top: 0;
@@ -107,6 +109,7 @@ import MobileContent from "./mobile-content.astro"
     opacity: 0;
     z-index: var(--overlay-z-index);
     visibility: hidden;
+    width: 100%;
   }
   #drawer-content label {
     margin-top: 0.5rem;
