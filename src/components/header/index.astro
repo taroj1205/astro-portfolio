@@ -99,10 +99,9 @@ const { header } = getTranslations(lang)
     align-self: stretch;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 600px), (hover: none), (pointer: coarse) {
     #header-wrapper {
       padding: 0;
-      margin: 0;
       height: 4rem;
     }
     #mobile-menu {
